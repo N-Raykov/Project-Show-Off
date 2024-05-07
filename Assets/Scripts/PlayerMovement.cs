@@ -50,13 +50,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnMovementPerformed(InputAction.CallbackContext pValue)
     {
         moveVector = pValue.ReadValue<Vector2>();
-        //Debug.Log("START MOVEMENT: " + moveVector.ToString());
+        Debug.Log("START MOVEMENT: " + moveVector.ToString());
     }
 
     private void OnMovementCancelled(InputAction.CallbackContext pValue)
     {
         moveVector = Vector2.zero;
-        //Debug.Log("STOP MOVEMENT");
+        Debug.Log("STOP MOVEMENT");
     }
 
     private void OnJumpPerformed(InputAction.CallbackContext pValue)
