@@ -6,15 +6,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed;
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float gravity = -9.81f;
-    [SerializeField] private float gravityModifier = 1f;
+    [SerializeField] private float movementSpeed = 100f;
+    [SerializeField] private float jumpForceInitial = 10f;
+    [SerializeField] private float jumpForceContinous = 1f;
+    [SerializeField] private float maxJumpTime = 0.3f;
+    [SerializeField] private float gravity = 40f;
+    [SerializeField] private float gravityFallModifier = 4f;
+    [SerializeField] private float groundDrag = 0.03f;
+    [SerializeField] private float airDrag = 0.03f;
+
 
     private CustomPlayerInput input;
     private Rigidbody rb;
     private Vector2 moveVector;
     private float distToGround;
+    private bool isGrounded;
+    private float jumpTime;
+    private bool isJumping;
 
     private void Awake()
     {
@@ -34,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Move.performed += OnMovementPerformed;
         input.Player.Move.canceled += OnMovementCancelled;
         input.Player.Jump.performed += OnJumpPerformed;
+        input.Player.Jump.canceled += OnJumpCancelled;
     }
 
     private void OnDisable()
@@ -42,17 +51,64 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Move.performed -= OnMovementPerformed;
         input.Player.Move.canceled -= OnMovementCancelled;
         input.Player.Jump.performed -= OnJumpPerformed;
+        input.Player.Jump.canceled -= OnJumpCancelled;
     }
 
     private void FixedUpdate()
     {
+        isGrounded = IsGrounded();
+
         HandleMovement();
+        HandleJumping();
+        HandleGravity();
+        HandleDrag();
     }
 
     private void HandleMovement()
     {
-        Vector3 movement = moveVector * movementSpeed * Time.fixedDeltaTime;
-        rb.velocity = new Vector3(movement.x, rb.velocity.y + gravity * gravityModifier * Time.deltaTime, movement.y);
+        Vector3 currentMovement = moveVector * movementSpeed * Time.fixedDeltaTime;
+
+        rb.velocity = new Vector3(
+            rb.velocity.x + currentMovement.x,
+            rb.velocity.y,
+            rb.velocity.z + currentMovement.y);
+    }
+
+    private void HandleJumping()
+    {
+        if (!isJumping || jumpTime >= maxJumpTime)
+        {
+            isJumping = false;
+            jumpTime = 0;
+            return;
+        }
+
+        jumpTime += Time.fixedDeltaTime;
+
+        rb.velocity = new Vector3(
+            rb.velocity.x,
+            rb.velocity.y + jumpForceContinous,
+            rb.velocity.z);
+    }
+
+    private void HandleGravity()
+    {
+        float currentGravity = gravity * Time.fixedDeltaTime * (rb.velocity.y <= 0 ? gravityFallModifier : 1);
+
+        rb.velocity = new Vector3(
+            rb.velocity.x,
+            rb.velocity.y - currentGravity,
+            rb.velocity.z);
+    }
+
+    private void HandleDrag()
+    {
+        float currentDrag = isGrounded ? groundDrag : airDrag;
+
+        rb.velocity = new Vector3(
+            rb.velocity.x * (1 - currentDrag),
+            rb.velocity.y,
+            rb.velocity.z * (1 - currentDrag));
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext pValue)
@@ -69,11 +125,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJumpPerformed(InputAction.CallbackContext pValue)
     {
-        if (!IsGrounded())
+        if (!isGrounded)
             return;
 
-        rb.AddForce(new Vector3(0, jumpForce, 0));
-        //Debug.Log("JUMP: " + jumpForce);
+        isJumping = true;
+
+        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y + jumpForceInitial, rb.velocity.z);
+        //Debug.Log("START JUMP: " + jumpForce);
+    }
+
+    private void OnJumpCancelled(InputAction.CallbackContext pValue)
+    {
+        isJumping = false;
+        //Debug.Log("STOP JUMP: " + jumpForce);
     }
 
     private bool IsGrounded()
