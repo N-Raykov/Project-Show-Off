@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EventBus : MonoBehaviour
+public class EventBusEnum
 {
-    Hashtable eventHash = new Hashtable();
-
-    private static EventBus eventBus;
+    public enum EventName
+    {
+        POG
+    }
+}
 
     //Trigger 
     //EventBus.TriggerEvent<type example: int/string/custom type>(EventBusEnum.EventName.enum from EventBusEnums class, value);
@@ -17,6 +19,12 @@ public class EventBus : MonoBehaviour
     //Stop Listening 
     //EventBus.StopListening<type example: int/string/custom type>(EventBusEnum.EventName.enum from EventBusEnums class, method that's listening);
 
+
+public class EventBus : MonoBehaviour
+{
+    Hashtable eventHash = new Hashtable();
+
+    private static EventBus eventBus;
     public static EventBus instance
     {
         get
@@ -47,14 +55,14 @@ public class EventBus : MonoBehaviour
         }
     }
 
-    private static string GetKey<T>(EventBusEnums.EventName eventName)
+    private static string GetKey<T>(EventBusEnum.EventName eventName)
     {
         Type type = typeof(T);
         string key = type.ToString() + eventName.ToString();
         return key;
     }
 
-    public static void StartListening<T>(EventBusEnums.EventName eventName, UnityAction<T> listener)
+    public static void StartListening<T>(EventBusEnum.EventName eventName, UnityAction<T> listener)
     {
         UnityEvent<T> thisEvent = null;
 
@@ -75,7 +83,7 @@ public class EventBus : MonoBehaviour
         }
     }
 
-    public static void StopListening<T>(EventBusEnums.EventName eventName, UnityAction<T> listener)
+    public static void StopListening<T>(EventBusEnum.EventName eventName, UnityAction<T> listener)
     {
         if (eventBus == null) return;
         UnityEvent<T> thisEvent = null;
@@ -88,7 +96,7 @@ public class EventBus : MonoBehaviour
         }
     }
 
-    public static void TriggerEvent<T>(EventBusEnums.EventName eventName, T val)
+    public static void TriggerEvent<T>(EventBusEnum.EventName eventName, T val)
     {
         UnityEvent<T> thisEvent = null;
         string key = GetKey<T>(eventName);
