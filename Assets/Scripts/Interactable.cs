@@ -29,6 +29,8 @@ public class Interactable : MonoBehaviour
         {
             interactionPrompt.transform.position = transform.position + Vector3.up * 2f;
 
+            interactionPrompt.transform.rotation = Camera.main.transform.rotation;
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 PerformInteraction();

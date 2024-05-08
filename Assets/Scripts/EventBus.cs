@@ -4,14 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EventBusEnum
-{
-    public enum EventName
-    {
-        POG
-    }
-}
-
     //Trigger 
     //EventBus.TriggerEvent<type example: int/string/custom type>(EventBusEnum.EventName.enum from EventBusEnums class, value);
     //Start Listening 
