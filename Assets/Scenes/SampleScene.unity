@@ -337,8 +337,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets:
   - {fileID: 125710851}
-  - {fileID: 1610006784}
-  - {fileID: 1967324950}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,6 +1088,8 @@ MonoBehaviour:
   interactionPromptPrefab: {fileID: 2269452110677270372, guid: fc2989c93eedb0543a14dbb3073cc934, type: 3}
   vCam: {fileID: 108353811}
   priority: 1000
+  animator: {fileID: 125710856}
+  triggerName: ActivateAnimation
 --- !u!1 &1967324950
 GameObject:
   m_ObjectHideFlags: 0
