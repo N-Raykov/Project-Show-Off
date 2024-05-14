@@ -5,24 +5,24 @@ using UnityEngine;
 public class FanHover : MonoBehaviour
 {
 
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
     [SerializeField] float power = 10;
 
    void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            rigidbody = other.GetComponent<Rigidbody>();
+            rb = other.GetComponent<Rigidbody>();
         }
     }
 
     void OnTriggerExit(Collider other) {
         if (other.gameObject.tag == "Player") {
-            rigidbody = null;
+            rb = null;
         }
     }
 
     void FixedUpdate() {
-        if (rigidbody != null) {
-            rigidbody.velocity += gameObject.transform.up * power;
+        if (rb != null) {
+            rb.velocity += gameObject.transform.up * power;
         }
     }
 }

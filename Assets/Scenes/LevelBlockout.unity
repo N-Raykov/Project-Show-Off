@@ -2322,6 +2322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1418411129}
+  priority: 12
   targetState: 1
 --- !u!65 &835281064
 BoxCollider:
@@ -3468,6 +3469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1043550728}
+  priority: 15
   targetState: 1
 --- !u!65 &1075032816
 BoxCollider:
@@ -3693,6 +3695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1958834776}
+  priority: 14
   targetState: 1
 --- !u!65 &1133104099
 BoxCollider:
@@ -6464,6 +6467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1011915066}
+  priority: 13
   targetState: 1
 --- !u!65 &1725920772
 BoxCollider:
@@ -7950,6 +7954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 322341165}
+  priority: 11
   targetState: 1
 --- !u!65 &2021230491
 BoxCollider:
