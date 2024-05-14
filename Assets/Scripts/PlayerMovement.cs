@@ -15,11 +15,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundDrag = 0.03f;
     [SerializeField] private float airDrag = 0.03f;
 
-
     private CustomPlayerInput input;
     private Rigidbody rb;
+    private Camera mainCamera;
     private Vector2 moveVector;
-    private float distToGround;
+    private float distToBottomOfSprite;
     private bool isGrounded;
     private float jumpTime;
     private bool isJumping;
@@ -29,11 +29,12 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (rb == null)
         {
-            throw new System.Exception("There is no Rigidbody2D component.");
+            throw new System.Exception("There is no Rigidbody component.");
         }
 
         input = new CustomPlayerInput();
-        distToGround = GetComponent<Collider>().bounds.extents.y;
+        distToBottomOfSprite = GetComponent<Collider>().bounds.extents.y;
+        mainCamera = Camera.main;
     }
 
     private void OnEnable()
@@ -107,13 +108,25 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector3(
             rb.velocity.x * (1 - currentDrag),
-            rb.velocity.y,
+            rb.velocity.y * (1 - currentDrag),
             rb.velocity.z * (1 - currentDrag));
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext pValue)
     {
         moveVector = pValue.ReadValue<Vector2>();
+
+        //project forward and right camera vectors on the horizontal plane (y = 0)
+        Vector3 right = mainCamera.transform.right;
+        Vector3 forward = mainCamera.transform.forward;
+        right.y = 0f;
+        forward.y = 0f;
+        right.Normalize();
+        forward.Normalize();
+
+        Vector3 desiredMoveDirection = right * moveVector.x + forward * moveVector.y;
+        moveVector = new Vector2(desiredMoveDirection.x, desiredMoveDirection.z);
+
         //Debug.Log("START MOVEMENT: " + moveVector.ToString());
     }
 
@@ -142,6 +155,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-      return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+      return Physics.Raycast(transform.position, -Vector3.up, distToBottomOfSprite + 0.1f);
     }
 }
