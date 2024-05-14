@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnMovementPerformed(InputAction.CallbackContext pValue)
     {
         moveVector = pValue.ReadValue<Vector2>();
-        //Debug.Log("START MOVEMENT: " + moveVector.ToString());
+        Debug.Log("START MOVEMENT: " + moveVector.ToString());
     }
 
     private void OnMovementCancelled(InputAction.CallbackContext pValue)

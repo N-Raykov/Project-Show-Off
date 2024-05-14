@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public GameObject interactionPromptPrefab;
+    [SerializeField] GameObject interactionPromptPrefab;
     private GameObject interactionPrompt;
 
     private void OnTriggerEnter(Collider other)
@@ -38,7 +38,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void PerformInteraction()
+    protected virtual void PerformInteraction()
     {
         Debug.Log("Interaction performed!");
     }
