@@ -17,8 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     private CustomPlayerInput input;
     private Rigidbody rb;
+    private Camera mainCamera;
     private Vector2 moveVector;
-    private float distToGround;
+    private float distToBottomOfSprite;
     private bool isGrounded;
     private float jumpTime;
     private bool isJumping;
@@ -32,7 +33,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         input = new CustomPlayerInput();
-        distToGround = GetComponent<Collider>().bounds.extents.y;
+        distToBottomOfSprite = GetComponent<Collider>().bounds.extents.y;
+        mainCamera = Camera.main;
     }
 
     private void OnEnable()
@@ -65,8 +67,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-        transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.forward);
-
         Vector3 currentMovement = moveVector * movementSpeed * Time.fixedDeltaTime;
 
         rb.velocity = new Vector3(
@@ -116,28 +116,17 @@ public class PlayerMovement : MonoBehaviour
     {
         moveVector = pValue.ReadValue<Vector2>();
 
-        //camera forward and right vectors:
-        Vector3 right = Camera.main.transform.right;
-        Vector3 forward = Camera.main.transform.forward;
-
-        //project forward and right vectors on the horizontal plane (y = 0)
+        //project forward and right camera vectors on the horizontal plane (y = 0)
+        Vector3 right = mainCamera.transform.right;
+        Vector3 forward = mainCamera.transform.forward;
         right.y = 0f;
         forward.y = 0f;
         right.Normalize();
         forward.Normalize();
 
         Vector3 desiredMoveDirection = right * moveVector.x + forward * moveVector.y;
-
         moveVector = new Vector2(desiredMoveDirection.x, desiredMoveDirection.z);
 
-        //float delta = Camera.main.transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
-        //moveVector = new Vector2(
-        //  moveVector.x * Mathf.Cos(delta) - moveVector.y * Mathf.Sin(delta),
-        //moveVector.x * Mathf.Sin(delta) + moveVector.y * Mathf.Cos(delta));
-
-        //Vector2 forwardRelative = moveVector.x * Camera.main.transform.right;
-        //Vector2 rightRelative = moveVector.y * Camera.main.transform.up;
-        //moveVector = forwardRelative + rightRelative;
         //Debug.Log("START MOVEMENT: " + moveVector.ToString());
     }
 
@@ -166,6 +155,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-      return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+      return Physics.Raycast(transform.position, -Vector3.up, distToBottomOfSprite + 0.1f);
     }
 }

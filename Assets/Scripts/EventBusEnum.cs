@@ -6,7 +6,8 @@ public class EventBusEnum
 {
     public enum EventName
     {
-        POG
+        POG,
+        CollectibleGathered
     }
 }
 

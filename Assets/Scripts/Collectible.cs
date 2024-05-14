@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectibleGathering : MonoBehaviour
+public class Collectible : MonoBehaviour
 {
     [SerializeField] private RectTransform candyCollectionPoint;
-    [SerializeField] private string playerTag = "Player";
+    [SerializeField] private int value = 1;
     [SerializeField] private float collectionFlySpeed = 10;
-    [SerializeField] private float minimalDistance = 20;
+    [SerializeField] private float minimalDistanceToDestination = 20;
 
     private Camera mainCamera;
     private Rigidbody rb;
-    private Collider collider;
-    private bool collectionInProgress;
+    private SpriteRenderer sr;
+    private new Collider collider;
     private Vector3 candyCollectionCenter;
+    private string playerTag = "Player";
+    private bool collectionInProgress;
 
     private void Start()
     {
@@ -29,6 +29,12 @@ public class CollectibleGathering : MonoBehaviour
             throw new System.Exception("There is no Collider component.");
         }
 
+        sr = GetComponent<SpriteRenderer>();
+        if (sr == null)
+        {
+            throw new System.Exception("There is no SpriteRenderer component.");
+        }
+
         mainCamera = Camera.main;
         candyCollectionCenter = candyCollectionPoint.transform.TransformPoint(candyCollectionPoint.rect.center);
     }
@@ -37,8 +43,6 @@ public class CollectibleGathering : MonoBehaviour
     {
         if (collectionInProgress)
         {
-            //TODO Lerp scale
-
             Vector3 screenSpacePos = mainCamera.WorldToScreenPoint(transform.position);
             float distance = (screenSpacePos - candyCollectionCenter).magnitude;
 
@@ -47,11 +51,11 @@ public class CollectibleGathering : MonoBehaviour
                 CollectionFinished();
             }
         }
-
     }
 
     private void CollectionStarted()
     {
+        sr.sortingOrder = 1;
         collider.enabled = false;
         collectionInProgress = true;
         rb.useGravity = false;
@@ -61,13 +65,13 @@ public class CollectibleGathering : MonoBehaviour
 
     private void CollectionFinished()
     {
-        //Publish collectible gathered -> candyCount++ && pop bigger effect
+        EventBus.TriggerEvent<int>(EventBusEnum.EventName.CollectibleGathered, value);
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.collider.tag == playerTag)
+        if (collider.tag == playerTag)
         {
             CollectionStarted();
         }
