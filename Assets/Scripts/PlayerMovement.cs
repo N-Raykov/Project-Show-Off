@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundDrag = 0.03f;
     [SerializeField] private float airDrag = 0.03f;
 
-
     private CustomPlayerInput input;
     private Rigidbody rb;
     private Vector2 moveVector;
@@ -29,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (rb == null)
         {
-            throw new System.Exception("There is no Rigidbody2D component.");
+            throw new System.Exception("There is no Rigidbody component.");
         }
 
         input = new CustomPlayerInput();
@@ -66,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.forward);
+
         Vector3 currentMovement = moveVector * movementSpeed * Time.fixedDeltaTime;
 
         rb.velocity = new Vector3(
@@ -107,13 +108,36 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector3(
             rb.velocity.x * (1 - currentDrag),
-            rb.velocity.y,
+            rb.velocity.y * (1 - currentDrag),
             rb.velocity.z * (1 - currentDrag));
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext pValue)
     {
         moveVector = pValue.ReadValue<Vector2>();
+
+        //camera forward and right vectors:
+        Vector3 right = Camera.main.transform.right;
+        Vector3 forward = Camera.main.transform.forward;
+
+        //project forward and right vectors on the horizontal plane (y = 0)
+        right.y = 0f;
+        forward.y = 0f;
+        right.Normalize();
+        forward.Normalize();
+
+        Vector3 desiredMoveDirection = right * moveVector.x + forward * moveVector.y;
+
+        moveVector = new Vector2(desiredMoveDirection.x, desiredMoveDirection.z);
+
+        //float delta = Camera.main.transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
+        //moveVector = new Vector2(
+        //  moveVector.x * Mathf.Cos(delta) - moveVector.y * Mathf.Sin(delta),
+        //moveVector.x * Mathf.Sin(delta) + moveVector.y * Mathf.Cos(delta));
+
+        //Vector2 forwardRelative = moveVector.x * Camera.main.transform.right;
+        //Vector2 rightRelative = moveVector.y * Camera.main.transform.up;
+        //moveVector = forwardRelative + rightRelative;
         //Debug.Log("START MOVEMENT: " + moveVector.ToString());
     }
 
