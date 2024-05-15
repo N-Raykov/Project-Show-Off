@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Move.canceled += OnMovementCancelled;
         input.Player.Jump.performed += OnJumpPerformed;
         input.Player.Jump.canceled += OnJumpCancelled;
+        input.Player.Ability.performed += OnAbilityPerformed;
+        input.Player.Ability.canceled += OnAbilityCancelled;
     }
 
     private void OnDisable()
@@ -56,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Move.canceled -= OnMovementCancelled;
         input.Player.Jump.performed -= OnJumpPerformed;
         input.Player.Jump.canceled -= OnJumpCancelled;
+        input.Player.Ability.performed -= OnAbilityPerformed;
+        input.Player.Ability.canceled -= OnAbilityCancelled;
     }
 
     private void FixedUpdate()
@@ -164,6 +168,17 @@ public class PlayerMovement : MonoBehaviour
         isJumping = false;
 
         //Debug.Log("STOP JUMP: " + jumpForce);
+    }
+
+    private void OnAbilityPerformed(InputAction.CallbackContext pValue)
+    {
+        anim.SetTrigger("UseAbility");
+        //Debug.Log("pog"); 
+    }
+
+    private void OnAbilityCancelled(InputAction.CallbackContext pValue)
+    {
+        //Debug.Log("no more pog");
     }
 
     private bool IsGrounded()
