@@ -2,19 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAbility : MonoBehaviour
+public class PlayerAbility : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
 
-    private Animator anim;
-
-    private void Start()
+    new private void Awake ()
     {
-        anim = GetComponentInChildren<Animator>();
-        if (anim == null)
-        {
-            throw new System.Exception("There is no Animator component.");
-        }
+        base.Awake();
     }
 
     private void OnEnable()

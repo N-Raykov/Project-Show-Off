@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInteract : MonoBehaviour
+public class PlayerInteract : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
 

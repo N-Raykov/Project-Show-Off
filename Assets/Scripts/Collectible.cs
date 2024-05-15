@@ -36,11 +36,14 @@ public class Collectible : MonoBehaviour
         }
 
         mainCamera = Camera.main;
-        candyCollectionCenter = candyCollectionPoint.transform.TransformPoint(candyCollectionPoint.rect.center);
+        candyCollectionCenter = candyCollectionPoint.TransformPoint(candyCollectionPoint.rect.center);
     }
 
     private void FixedUpdate()
     {
+        if(name == "CandyPrefabWhite (7)")
+            Debug.Log(rb.velocity);
+
         if (collectionInProgress)
         {
             Vector3 screenSpacePos = mainCamera.WorldToScreenPoint(transform.position);
@@ -60,7 +63,19 @@ public class Collectible : MonoBehaviour
         collectionInProgress = true;
         rb.useGravity = false;
         rb.velocity = (candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position)).normalized * collectionFlySpeed;
+
+        Debug.Log(name);
+        Debug.Log("candyCollectionCenter: "+candyCollectionCenter);
+        Debug.Log("candy: "+ mainCamera.WorldToScreenPoint(transform.position));
+        Debug.Log(candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position));
+        Debug.Log((candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position)).normalized);
+        Debug.Log((candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position)).normalized * collectionFlySpeed);
+        Debug.Log("velocity: "+rb.velocity);
+
         transform.parent = mainCamera.transform;
+
+        Debug.Log("velocity: " + rb.velocity);
+
     }
 
     private void CollectionFinished()

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerJump : MonoBehaviour
+public class PlayerJump : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
     [SerializeField] private float jumpForceInitial = 10f;
@@ -10,15 +10,10 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float maxJumpTime = 0.3f;
     [SerializeField] private float gravity = 40f;
     [SerializeField] private float gravityFallModifier = 4f;
-    [SerializeField] private float airDrag = 0.03f;
+    [SerializeField] private float airDrag = 0.1f;
 
     private bool isJumping;
     private float jumpTime;
-
-    private Animator anim;
-    private Rigidbody rb;
-    private bool isGrounded;
-    private float distToBottomOfSprite;
 
     private void OnEnable()
     {
@@ -33,21 +28,9 @@ public class PlayerJump : MonoBehaviour
         reader.jumpEventCancelled -= OnJumpCancelled;
     }
 
-    private void Start()
+    new private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        if (rb == null)
-        {
-            throw new System.Exception("There is no Rigidbody component.");
-        }
-
-        anim = GetComponentInChildren<Animator>();
-        if (anim == null)
-        {
-            throw new System.Exception("There is no Animator component.");
-        }
-
-        distToBottomOfSprite = GetComponent<Collider>().bounds.extents.y;
+        base.Awake();
     }
 
     private void FixedUpdate()
@@ -114,10 +97,5 @@ public class PlayerJump : MonoBehaviour
             rb.velocity.x * (1 - airDrag),
             rb.velocity.y,
             rb.velocity.z * (1 - airDrag));
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics.Raycast(transform.position, -Vector3.up, distToBottomOfSprite + 0.1f, ~0, QueryTriggerInteraction.Ignore);
     }
 }
