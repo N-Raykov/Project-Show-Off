@@ -36,7 +36,7 @@ public class Collectible : MonoBehaviour
         }
 
         mainCamera = Camera.main;
-        candyCollectionCenter = candyCollectionPoint.TransformPoint(candyCollectionPoint.rect.center);
+        candyCollectionCenter = candyCollectionPoint.transform.TransformPoint(candyCollectionPoint.rect.center);
     }
 
     private void FixedUpdate()

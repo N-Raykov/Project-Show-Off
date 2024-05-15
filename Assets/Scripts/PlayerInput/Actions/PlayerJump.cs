@@ -10,7 +10,7 @@ public class PlayerJump : AbstractPlayerAction
     [SerializeField] private float maxJumpTime = 0.3f;
     [SerializeField] private float gravity = 40f;
     [SerializeField] private float gravityFallModifier = 4f;
-    [SerializeField] private float airDrag = 0.1f;
+    [SerializeField] private float airDrag = 0.075f;
 
     private bool isJumping;
     private float jumpTime;
