@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundDrag = 0.03f;
     [SerializeField] private float airDrag = 0.03f;
 
+    [SerializeField] private Animator anim;
+
+
     private CustomPlayerInput input;
     private Rigidbody rb;
     private Camera mainCamera;
@@ -24,12 +27,10 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTime;
     private bool isJumping;
 
-    private Animator anim;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        anim = GetComponentInChildren<Animator>();
+        // anim = GetComponentInChildren<Animator>();
         if (rb == null)
         {
             throw new System.Exception("There is no Rigidbody component.");
