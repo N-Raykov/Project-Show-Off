@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] Shockwave shockwave;
+
     [SerializeField] private float movementSpeed = 100f;
     [SerializeField] private float jumpForceInitial = 10f;
     [SerializeField] private float jumpForceContinous = 1f;
@@ -173,6 +175,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnAbilityPerformed(InputAction.CallbackContext pValue)
     {
         anim.SetTrigger("UseAbility");
+        Instantiate(shockwave);
         //Debug.Log("pog"); 
     }
 
