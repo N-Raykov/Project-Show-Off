@@ -5129,7 +5129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &676199452
 Transform:
   m_ObjectHideFlags: 0
@@ -13414,6 +13414,7 @@ GameObject:
   - component: {fileID: 1387830758}
   - component: {fileID: 1387830757}
   - component: {fileID: 1387830760}
+  - component: {fileID: 1387830761}
   m_Layer: 0
   m_Name: Cube (89)
   m_TagString: Untagged
@@ -13528,6 +13529,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1387830761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387830755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de00671e1f31cb64485a3048765e0002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 676199451}
 --- !u!1 &1418411127
 GameObject:
   m_ObjectHideFlags: 0
@@ -13554,7 +13569,7 @@ Transform:
   m_GameObject: {fileID: 1418411127}
   serializedVersion: 2
   m_LocalRotation: {x: 0.22986737, y: -0, z: -0, w: 0.973222}
-  m_LocalPosition: {x: -60.123558, y: -9.73904, z: -175.99323}
+  m_LocalPosition: {x: -456.7537, y: -6.9490395, z: 330.3168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
