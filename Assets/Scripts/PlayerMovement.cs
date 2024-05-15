@@ -24,9 +24,12 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTime;
     private bool isJumping;
 
+    private Animator anim;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
         if (rb == null)
         {
             throw new System.Exception("There is no Rigidbody component.");
@@ -44,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Move.canceled += OnMovementCancelled;
         input.Player.Jump.performed += OnJumpPerformed;
         input.Player.Jump.canceled += OnJumpCancelled;
+        input.Player.Ability.performed += OnAbilityPerformed;
+        input.Player.Ability.canceled += OnAbilityCancelled;
     }
 
     private void OnDisable()
@@ -53,11 +58,14 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Move.canceled -= OnMovementCancelled;
         input.Player.Jump.performed -= OnJumpPerformed;
         input.Player.Jump.canceled -= OnJumpCancelled;
+        input.Player.Ability.performed -= OnAbilityPerformed;
+        input.Player.Ability.canceled -= OnAbilityCancelled;
     }
 
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
+        anim.SetBool("isGrounded", IsGrounded());
 
         HandleMovement();
         HandleJumping();
@@ -96,6 +104,8 @@ public class PlayerMovement : MonoBehaviour
     {
         float currentGravity = gravity * Time.fixedDeltaTime * (rb.velocity.y <= 0 ? gravityFallModifier : 1);
 
+        anim.SetFloat("JumpingBlend", (rb.velocity.y <= 0 ? 1 : 0));
+
         rb.velocity = new Vector3(
             rb.velocity.x,
             rb.velocity.y - currentGravity,
@@ -127,12 +137,17 @@ public class PlayerMovement : MonoBehaviour
         Vector3 desiredMoveDirection = right * moveVector.x + forward * moveVector.y;
         moveVector = new Vector2(desiredMoveDirection.x, desiredMoveDirection.z);
 
+
+        anim.SetFloat("MovementBlend", 1f);
+
         //Debug.Log("START MOVEMENT: " + moveVector.ToString());
     }
 
     private void OnMovementCancelled(InputAction.CallbackContext pValue)
     {
         moveVector = Vector2.zero;
+
+        anim.SetFloat("MovementBlend", 0f);
         //Debug.Log("STOP MOVEMENT");
     }
 
@@ -144,17 +159,30 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
 
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y + jumpForceInitial, rb.velocity.z);
+
         //Debug.Log("START JUMP: " + jumpForce);
     }
 
     private void OnJumpCancelled(InputAction.CallbackContext pValue)
     {
         isJumping = false;
+
         //Debug.Log("STOP JUMP: " + jumpForce);
+    }
+
+    private void OnAbilityPerformed(InputAction.CallbackContext pValue)
+    {
+        anim.SetTrigger("UseAbility");
+        //Debug.Log("pog"); 
+    }
+
+    private void OnAbilityCancelled(InputAction.CallbackContext pValue)
+    {
+        //Debug.Log("no more pog");
     }
 
     private bool IsGrounded()
     {
-      return Physics.Raycast(transform.position, -Vector3.up, distToBottomOfSprite + 0.1f);
+        return Physics.Raycast(transform.position, -Vector3.up, distToBottomOfSprite + 0.1f, ~0, QueryTriggerInteraction.Ignore);
     }
 }
