@@ -22,9 +22,38 @@
                     "processors": "",
                     "interactions": "Hold(duration=1.401298E-45)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "db16b692-31fe-4660-a0e6-d9998fd795ac",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability",
+                    "type": "Button",
+                    "id": "0529ffa2-30fb-4f05-a82b-beecf42fcf75",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
+                {
+                    "name": "",
+                    "id": "46c9b994-5e08-4a42-a3b8-ac452e6ef434",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                 {
                     "name": "",
                     "id": "9534897f-5d3c-4d2c-825f-c92f1df4cc68",
@@ -38,9 +67,9 @@
                 },
                 {
                     "name": "",
-                    "id": "46c9b994-5e08-4a42-a3b8-ac452e6ef434",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "id": "12ab3efb-051a-49a6-917b-849c19881cba",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "Hold(duration=1.401298E-45)",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
@@ -110,6 +139,105 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01e7f6f1-df56-4e6b-beab-ce47038fb46b",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2d31ed9-cdde-45a9-ae2e-7e1d6ead05aa",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f6c105cd-c04a-48a9-a363-51e8d6fce867",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da433f43-9c4f-4f0c-ae77-6e01c36e527b",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "963d92bd-3062-45f1-b8e5-530e4ff79bc1",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c0c9efb-def5-47ec-8905-717d794d178e",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9565c60-a0f6-48f0-9124-e0f665cd5241",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "133cde72-33af-49c9-9e36-330797fe4615",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f333b773-18a6-45ad-962b-5ea9a9e803c1",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
