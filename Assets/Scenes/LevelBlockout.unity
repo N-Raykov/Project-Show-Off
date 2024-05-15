@@ -8550,8 +8550,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.035333984, y: 0.91883016, z: -0.08457727, w: 0.38386115}
-  m_LocalPosition: {x: -393.78766, y: 42.076168, z: 299.98294}
+  m_LocalRotation: {x: 0, y: 0.9914449, z: -0.13052616, w: 0}
+  m_LocalPosition: {x: -408.40005, y: 42.218197, z: 306.6593}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11927,7 +11927,7 @@ Transform:
   m_GameObject: {fileID: 1257282452}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.9914449, z: -0.13052616, w: 0}
-  m_LocalPosition: {x: -408.20007, y: 42.218197, z: 306.6593}
+  m_LocalPosition: {x: -408.40005, y: 42.218197, z: 306.6593}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13405,6 +13405,7 @@ GameObject:
   - component: {fileID: 1387830758}
   - component: {fileID: 1387830757}
   - component: {fileID: 1387830760}
+  - component: {fileID: 1387830761}
   m_Layer: 0
   m_Name: Cube (89)
   m_TagString: Untagged
@@ -13519,6 +13520,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1387830761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387830755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1985dba70d885284082441db48839122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 0}
+  priority: 0
+  targetState: 0
 --- !u!1 &1418411127
 GameObject:
   m_ObjectHideFlags: 0
@@ -14402,7 +14418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -408.2, y: 39.63}
+  m_AnchoredPosition: {x: -408.4, y: 39.63}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1502325691
@@ -14418,10 +14434,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 100
-  jumpForceInitial: 25
+  jumpForceInitial: 30
   jumpForceContinous: 1
   maxJumpTime: 0.2
-  gravity: 50
+  gravity: 70
   gravityFallModifier: 2
   groundDrag: 0.1
   airDrag: 0.1
@@ -19205,7 +19221,7 @@ GameObject:
   - component: {fileID: 2041145339}
   - component: {fileID: 2041145341}
   m_Layer: 3
-  m_Name: GameObject
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
