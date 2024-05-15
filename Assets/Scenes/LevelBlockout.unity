@@ -14436,6 +14436,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1502325687}
   - component: {fileID: 1502325691}
+  - component: {fileID: 1502325696}
+  - component: {fileID: 1502325695}
+  - component: {fileID: 1502325694}
   - component: {fileID: 1502325693}
   - component: {fileID: 1502325692}
   m_Layer: 3
@@ -14477,14 +14480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fcf55a03e88a145bd318c5ee774583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
   movementSpeed: 100
-  jumpForceInitial: 20
-  jumpForceContinous: 1
-  maxJumpTime: 0.2
-  gravity: 50
-  gravityFallModifier: 2
   groundDrag: 0.1
-  airDrag: 0.1
 --- !u!136 &1502325692
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14535,6 +14533,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1502325694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502325684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675e98214a5e6e84ca79e51b173d8a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
+--- !u!114 &1502325695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502325684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c9c267a6024e14093ecb849985fd2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
+--- !u!114 &1502325696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502325684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35c1be6c73d596428bd54145774f782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
+  jumpForceInitial: 10
+  jumpForceContinous: 1
+  maxJumpTime: 0.3
+  gravity: 40
+  gravityFallModifier: 4
+  airDrag: 0.03
 --- !u!1 &1505135006
 GameObject:
   m_ObjectHideFlags: 0
