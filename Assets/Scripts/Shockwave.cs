@@ -53,12 +53,14 @@ public class Shockwave : MonoBehaviour
 
         for (int i = 0; i < hittingObjects.Length; i++)
         {
-            Rigidbody rb = hittingObjects[i].GetComponent<Rigidbody>();
+            Activateable activateableObject = hittingObjects[i].GetComponent<Activateable>();
 
-            if (!rb)
+            if (!activateableObject)
             {
                 continue;
             }
+
+            activateableObject.Activate();
         }
     }
 }

@@ -175,7 +175,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnAbilityPerformed(InputAction.CallbackContext pValue)
     {
         anim.SetTrigger("UseAbility");
-        Instantiate(shockwave);
+        Instantiate(shockwave, transform.position, transform.rotation, transform.parent);
         //Debug.Log("pog"); 
     }
 
