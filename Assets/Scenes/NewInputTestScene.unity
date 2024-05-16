@@ -9334,7 +9334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962014603}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0055795065, y: 0.9778475, z: -0.02628249, w: 0.20758717}
+  m_LocalRotation: {x: 0.005579507, y: 0.9778475, z: -0.026282487, w: 0.20758717}
   m_LocalPosition: {x: -399.6963, y: -7.4162407, z: 295.52774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14794,7 +14794,6 @@ GameObject:
   - component: {fileID: 1502325697}
   - component: {fileID: 1502325696}
   - component: {fileID: 1502325695}
-  - component: {fileID: 1502325694}
   - component: {fileID: 1502325693}
   - component: {fileID: 1502325692}
   m_Layer: 3
@@ -14844,10 +14843,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.096
+  m_Radius: 4.039486
   m_Height: 10.84
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.05651474}
 --- !u!54 &1502325693
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14875,19 +14874,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1502325694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502325684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 675e98214a5e6e84ca79e51b173d8a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
 --- !u!114 &1502325695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14902,6 +14888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
   shockwave: {fileID: 2901955225683187397, guid: 8d0f38f9053453948b2f329d5168259a, type: 3}
+  abilityCD: 4
 --- !u!114 &1502325696
 MonoBehaviour:
   m_ObjectHideFlags: 0
