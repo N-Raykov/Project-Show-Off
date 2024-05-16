@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementOld : MonoBehaviour
 {
     [SerializeField] Shockwave shockwave;
 
