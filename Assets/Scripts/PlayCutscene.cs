@@ -11,6 +11,11 @@ public class PlayCutScene : Interactable
     [SerializeField] string triggerName;
     protected override void PerformInteraction()
     {
+        if (interactionPrompt == null)
+        {
+            return;
+        }
+        Debug.Log("what");
         if (vCam.gameObject.activeInHierarchy == false)
         {
             vCam.gameObject.SetActive(true);

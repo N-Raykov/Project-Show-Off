@@ -5,7 +5,18 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     [SerializeField] GameObject interactionPromptPrefab;
-    private GameObject interactionPrompt;
+    [SerializeField] PlayerInputReader reader;
+    protected GameObject interactionPrompt;
+
+    private void OnEnable()
+    {
+        reader.interactEventPerformed += PerformInteraction;
+    }
+
+    private void OnDisable()
+    {
+        reader.interactEventPerformed -= PerformInteraction;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,11 +41,6 @@ public class Interactable : MonoBehaviour
             interactionPrompt.transform.position = transform.position + Vector3.up * 2f;
 
             interactionPrompt.transform.rotation = Camera.main.transform.rotation;
-            
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                PerformInteraction();
-            }
         }
     }
 

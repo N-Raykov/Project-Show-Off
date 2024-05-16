@@ -8,12 +8,12 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnEnable()
     {
-        reader.jumpEventPerformed += OnInteractPerformed;
+        reader.interactEventPerformed += OnInteractPerformed;
     }
 
     private void OnDisable()
     {
-        reader.jumpEventPerformed -= OnInteractPerformed;
+        reader.interactEventPerformed -= OnInteractPerformed;
     }
 
     private void OnInteractPerformed()

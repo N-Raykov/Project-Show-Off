@@ -3,7 +3,9 @@ guid: fd8497cb4a9758b4d8a188eefbddf6da
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - interactionPromptPrefab: {fileID: 2269452110677270372, guid: fc2989c93eedb0543a14dbb3073cc934, type: 3}
+  - reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

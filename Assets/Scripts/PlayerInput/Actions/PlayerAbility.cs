@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerAbility : MonoBehaviour
 {
     [SerializeField] private PlayerInputReader reader;
-
+    [SerializeField] private Shockwave shockwave;
     private Animator anim;
 
     private void Start()
@@ -19,17 +19,18 @@ public class PlayerAbility : MonoBehaviour
 
     private void OnEnable()
     {
-        reader.jumpEventPerformed += OnAbilityPerformed;
+        reader.abilityEventPerformed += OnAbilityPerformed;
     }
 
     private void OnDisable()
     {
-        reader.jumpEventPerformed -= OnAbilityPerformed;
+        reader.abilityEventPerformed -= OnAbilityPerformed;
     }
 
     private void OnAbilityPerformed()
     {
         anim.SetTrigger("UseAbility");
+        Instantiate(shockwave, transform.position, transform.rotation, transform.parent);
         //Debug.Log("pog"); 
     }
 }

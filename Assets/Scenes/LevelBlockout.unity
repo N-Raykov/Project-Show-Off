@@ -1418,6 +1418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionPromptPrefab: {fileID: 2269452110677270372, guid: fc2989c93eedb0543a14dbb3073cc934, type: 3}
+  reader: {fileID: 0}
   vCam: {fileID: 676199453}
   priority: 100
   animator: {fileID: 1387830760}
@@ -7480,6 +7481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionPromptPrefab: {fileID: 2269452110677270372, guid: fc2989c93eedb0543a14dbb3073cc934, type: 3}
+  reader: {fileID: 0}
   vCam: {fileID: 153734483}
   priority: 100
   animator: {fileID: 205689169}
@@ -9332,7 +9334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962014603}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0055795065, y: 0.9778475, z: -0.02628249, w: 0.20758717}
+  m_LocalRotation: {x: 0.005579507, y: 0.9778475, z: -0.026282487, w: 0.20758717}
   m_LocalPosition: {x: -399.6963, y: -7.4162407, z: 295.52774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9487,8 +9489,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0055795065, y: 0.9778475, z: -0.02628249, w: 0.20758717}
-  m_LocalPosition: {x: -296.47644, y: 78.88328, z: 610.15}
+  m_LocalRotation: {x: 0, y: 0.9914449, z: -0.13052616, w: 0}
+  m_LocalPosition: {x: -408.99005, y: 42.1182, z: 305.2793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14930,16 +14932,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fcf55a03e88a145bd318c5ee774583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shockwave: {fileID: 0}
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
   movementSpeed: 100
-  jumpForceInitial: 10
-  jumpForceContinous: 1
-  maxJumpTime: 0.3
-  gravity: 40
-  gravityFallModifier: 4
   groundDrag: 0.03
-  airDrag: 0.03
-  anim: {fileID: 0}
 --- !u!1 &1505135006
 GameObject:
   m_ObjectHideFlags: 0

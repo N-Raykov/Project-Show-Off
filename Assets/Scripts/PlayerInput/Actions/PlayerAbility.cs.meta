@@ -3,7 +3,9 @@ guid: 87c9c267a6024e14093ecb849985fd2c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
+  - shockwave: {fileID: 2901955225683187397, guid: 8d0f38f9053453948b2f329d5168259a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
