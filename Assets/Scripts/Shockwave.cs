@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Shockwave : MonoBehaviour
 {
-    public int points;
-    public float maxRadius;
-    public float speed;
-    public float startWidth;
+    [SerializeField] int points;
+    [SerializeField] float maxRadius;
+    [SerializeField] float speed;
+    [SerializeField] float startWidth;
     
     private LineRenderer linerender;
 

@@ -19,6 +19,9 @@ public class PlayerJump : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
     private float distToBottomOfSprite;
+    private float spriteRadius;
+
+    private int points = 10;
 
     private void OnEnable()
     {
@@ -48,6 +51,7 @@ public class PlayerJump : MonoBehaviour
         }
 
         distToBottomOfSprite = GetComponent<Collider>().bounds.extents.y;
+        spriteRadius = GetComponent<Collider>().bounds.extents.x;
     }
 
     private void FixedUpdate()
@@ -118,6 +122,24 @@ public class PlayerJump : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToBottomOfSprite + 0.1f, ~0, QueryTriggerInteraction.Ignore);
+        float anglebetween = 360f / points;
+
+        for (int i = 0; i <= points; i++)
+        {
+            float angle = i * anglebetween * Mathf.Deg2Rad;
+            Vector3 direction = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle));
+            for (float y = 0; y <= spriteRadius; y++)
+            {
+                Vector3 position = direction * y;
+                Debug.DrawRay(transform.position, direction * y, Color.red);
+                Debug.DrawRay(position + transform.position, -Vector3.up * (distToBottomOfSprite + 0.1f), Color.red);
+                if (Physics.Raycast(position + transform.position, -Vector3.up, distToBottomOfSprite + 1f, ~0, QueryTriggerInteraction.Ignore))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }
