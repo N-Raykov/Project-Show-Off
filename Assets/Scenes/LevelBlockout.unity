@@ -14771,6 +14771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fcf55a03e88a145bd318c5ee774583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shockwave: {fileID: 2901955225683187397, guid: 8d0f38f9053453948b2f329d5168259a, type: 3}
   movementSpeed: 100
   jumpForceInitial: 30
   jumpForceContinous: 1
