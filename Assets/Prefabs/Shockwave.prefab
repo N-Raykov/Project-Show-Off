@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 50
-  maxRadius: 150
-  speed: 50
+  maxRadius: 20
+  speed: 40
   startWidth: 15
 --- !u!120 &834164752669290762
 LineRenderer:
