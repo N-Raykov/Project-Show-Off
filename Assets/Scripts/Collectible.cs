@@ -1,19 +1,21 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Collectible : MonoBehaviour
 {
-    [SerializeField] private RectTransform candyCollectionPoint;
+    [SerializeField] private RectTransform candyCollectionRectTransform;
     [SerializeField] private int value = 1;
-    [SerializeField] private float collectionFlySpeed = 10;
-    [SerializeField] private float minimalDistanceToDestination = 20;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float minimalTargetDist = 0.1f;
 
     private Camera mainCamera;
     private Rigidbody rb;
     private SpriteRenderer sr;
     private Collider col;
-    private Vector3 candyCollectionCenter;
+    private Vector3 targetPosition;
     private string playerTag = "Player";
     private bool collectionInProgress;
+    private float standardCameraDistance = 10f; //Standard distance between player and camera
 
     private void Start()
     {
@@ -36,20 +38,25 @@ public class Collectible : MonoBehaviour
         }
 
         mainCamera = Camera.main;
-        candyCollectionCenter = candyCollectionPoint.transform.TransformPoint(candyCollectionPoint.rect.center);
     }
 
     private void FixedUpdate()
     {
-        if(name == "CandyPrefabWhite")
-            Debug.Log(rb.velocity);
-
         if (collectionInProgress)
         {
-            Vector3 screenSpacePos = mainCamera.WorldToScreenPoint(transform.position);
-            float distance = (screenSpacePos - candyCollectionCenter).magnitude;
+            float currentCameraZDist = mainCamera.transform.position.z - transform.position.z;
 
-            if (distance <= minimalDistanceToDestination)
+            targetPosition = mainCamera.ScreenToWorldPoint(candyCollectionRectTransform.transform.position
+                + new Vector3(0, 0, currentCameraZDist));
+
+            transform.position = Vector3.MoveTowards(transform.position,
+                new Vector3(targetPosition.x, targetPosition.y, mainCamera.transform.position.z - standardCameraDistance),
+                speed * Time.fixedDeltaTime);
+
+            float targetDist = (new Vector2(transform.position.x, transform.position.y)
+                            - new Vector2(targetPosition.x, targetPosition.y)).magnitude;
+
+            if (targetDist <= minimalTargetDist)
             {
                 CollectionFinished();
             }
@@ -61,21 +68,7 @@ public class Collectible : MonoBehaviour
         sr.sortingOrder = 1;
         col.enabled = false;
         collectionInProgress = true;
-        rb.useGravity = false;
-        rb.velocity = (candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position)).normalized * collectionFlySpeed;
-
-        Debug.Log(name);
-        Debug.Log("candyCollectionCenter: "+candyCollectionCenter);
-        Debug.Log("candy: "+ mainCamera.WorldToScreenPoint(transform.position));
-        Debug.Log(candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position));
-        Debug.Log((candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position)).normalized);
-        Debug.Log((candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position)).normalized * collectionFlySpeed);
-        Debug.Log("velocity: "+rb.velocity);
-
         transform.parent = mainCamera.transform;
-
-        Debug.Log("velocity: " + rb.velocity);
-
     }
 
     private void CollectionFinished()

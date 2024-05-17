@@ -29,9 +29,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7119244234999000943}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -134,7 +134,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -150,10 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4c432727977e74ab3626502dd3416c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  candyCollectionPoint: {fileID: 0}
+  candyCollectionRectTransform: {fileID: 0}
   value: 1
-  collectionFlySpeed: 10
-  minimalDistanceToDestination: 20
+  speed: 10
+  minimalTargetDist: 0.1
 --- !u!114 &4200049627799216929
 MonoBehaviour:
   m_ObjectHideFlags: 0

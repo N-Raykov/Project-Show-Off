@@ -7,7 +7,7 @@ using TMPro;
 public class CollectibleGui : MonoBehaviour
 {
     [SerializeField] private float scaleIncrease = 1.5f;
-    [SerializeField] private float speed = 75f;
+    [SerializeField] private float speed = 5f;
     [SerializeField] private string text = "Candy: ";
 
     TextMeshProUGUI collectibleTMPro;
@@ -15,6 +15,8 @@ public class CollectibleGui : MonoBehaviour
     private Vector3 targetScale;
     private int collectibleCount = 0;
     private bool isLerping = false;
+    private float lerpStartTime;
+    private float lerpDifference;
 
     private void OnEnable()
     {
@@ -37,6 +39,8 @@ public class CollectibleGui : MonoBehaviour
         originalScale = transform.localScale;
         targetScale = originalScale * scaleIncrease;
         collectibleTMPro.SetText(text + collectibleCount);
+
+        lerpDifference = targetScale.magnitude - originalScale.magnitude;
     }
 
     void Update()
@@ -54,9 +58,12 @@ public class CollectibleGui : MonoBehaviour
 
     private void LerpScale()
     {
-        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * speed);
+        float lerpCovered = (Time.time - lerpStartTime) * speed;
+        float fractionOfJourney = lerpCovered / lerpDifference;
 
-        if(transform.localScale == targetScale)
+        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, fractionOfJourney);
+
+        if (fractionOfJourney >= 1)
         {
             transform.localScale = originalScale;
             isLerping = false;
@@ -68,6 +75,6 @@ public class CollectibleGui : MonoBehaviour
     {
         transform.localScale = originalScale;
         isLerping = true;
-        //Debug.Log("START LERP");
+        lerpStartTime = Time.time;
     }
 }
