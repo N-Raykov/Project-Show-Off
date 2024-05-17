@@ -4,30 +4,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
     [SerializeField] private float movementSpeed = 100f;
-    [SerializeField] private float groundDrag = 0.03f;
+    [SerializeField] private float groundDrag = 0.1f;
 
     private Camera mainCamera;
     private Vector2 moveVector;
 
-    private Rigidbody rb;
-    private Animator anim;
-    private bool isGrounded;
-    private float distToBottomOfSprite;
-
-    private void Awake()
+    new private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        anim = GetComponentInChildren<Animator>();
-        if (rb == null)
-        {
-            throw new System.Exception("There is no Rigidbody component.");
-        }
-
-        distToBottomOfSprite = GetComponent<Collider>().bounds.extents.y;
+        base.Awake();
         mainCamera = Camera.main;
     }
 
@@ -49,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("isGrounded", IsGrounded());
 
         HandleMovement();
-
+         
         if(isGrounded)
             HandleGroundDrag();
     }
@@ -97,10 +85,5 @@ public class PlayerMovement : MonoBehaviour
         moveVector = Vector2.zero;
 
         //Debug.Log("STOP MOVEMENT");
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics.Raycast(transform.position, -Vector3.up, distToBottomOfSprite + 0.1f, ~0, QueryTriggerInteraction.Ignore);
     }
 }

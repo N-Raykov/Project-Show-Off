@@ -10,7 +10,7 @@ public class Collectible : MonoBehaviour
     private Camera mainCamera;
     private Rigidbody rb;
     private SpriteRenderer sr;
-    private new Collider collider;
+    private Collider collider;
     private Vector3 candyCollectionCenter;
     private string playerTag = "Player";
     private bool collectionInProgress;
@@ -41,6 +41,9 @@ public class Collectible : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(name == "CandyPrefabWhite")
+            Debug.Log(rb.velocity);
+
         if (collectionInProgress)
         {
             Vector3 screenSpacePos = mainCamera.WorldToScreenPoint(transform.position);
@@ -60,7 +63,19 @@ public class Collectible : MonoBehaviour
         collectionInProgress = true;
         rb.useGravity = false;
         rb.velocity = (candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position)).normalized * collectionFlySpeed;
+
+        Debug.Log(name);
+        Debug.Log("candyCollectionCenter: "+candyCollectionCenter);
+        Debug.Log("candy: "+ mainCamera.WorldToScreenPoint(transform.position));
+        Debug.Log(candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position));
+        Debug.Log((candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position)).normalized);
+        Debug.Log((candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position)).normalized * collectionFlySpeed);
+        Debug.Log("velocity: "+rb.velocity);
+
         transform.parent = mainCamera.transform;
+
+        Debug.Log("velocity: " + rb.velocity);
+
     }
 
     private void CollectionFinished()

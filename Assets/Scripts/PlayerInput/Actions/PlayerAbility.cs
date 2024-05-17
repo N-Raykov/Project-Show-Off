@@ -10,15 +10,6 @@ public class PlayerAbility : MonoBehaviour
     private float timeSinceLastAbility = 0;
     private Animator anim;
 
-    private void Start()
-    {
-        anim = GetComponentInChildren<Animator>();
-        if (anim == null)
-        {
-            throw new System.Exception("There is no Animator component.");
-        }
-    }
-
     private void Update()
     {
         timeSinceLastAbility += Time.deltaTime;
