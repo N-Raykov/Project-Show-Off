@@ -10,7 +10,7 @@ public class Collectible : MonoBehaviour
     private Camera mainCamera;
     private Rigidbody rb;
     private SpriteRenderer sr;
-    private Collider collider;
+    private Collider col;
     private Vector3 candyCollectionCenter;
     private string playerTag = "Player";
     private bool collectionInProgress;
@@ -23,8 +23,8 @@ public class Collectible : MonoBehaviour
             throw new System.Exception("There is no Rigidbody component.");
         }
 
-        collider = GetComponent<Collider>();
-        if (collider == null)
+        col = GetComponent<Collider>();
+        if (col == null)
         {
             throw new System.Exception("There is no Collider component.");
         }
@@ -49,7 +49,7 @@ public class Collectible : MonoBehaviour
             Vector3 screenSpacePos = mainCamera.WorldToScreenPoint(transform.position);
             float distance = (screenSpacePos - candyCollectionCenter).magnitude;
 
-            if (distance <= 20)
+            if (distance <= minimalDistanceToDestination)
             {
                 CollectionFinished();
             }
@@ -59,7 +59,7 @@ public class Collectible : MonoBehaviour
     private void CollectionStarted()
     {
         sr.sortingOrder = 1;
-        collider.enabled = false;
+        col.enabled = false;
         collectionInProgress = true;
         rb.useGravity = false;
         rb.velocity = (candyCollectionCenter - mainCamera.WorldToScreenPoint(transform.position)).normalized * collectionFlySpeed;
