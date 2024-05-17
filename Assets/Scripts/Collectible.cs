@@ -10,7 +10,7 @@ public class Collectible : MonoBehaviour
     private Camera mainCamera;
     private Rigidbody rb;
     private SpriteRenderer sr;
-    private new Collider collider;
+    private Collider collider;
     private Vector3 candyCollectionCenter;
     private string playerTag = "Player";
     private bool collectionInProgress;
@@ -41,7 +41,7 @@ public class Collectible : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(name == "CandyPrefabWhite (7)")
+        if(name == "CandyPrefabWhite")
             Debug.Log(rb.velocity);
 
         if (collectionInProgress)

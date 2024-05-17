@@ -19,7 +19,6 @@ public class PlayerJump : AbstractPlayerAction
     {
         reader.jumpEventPerformed += OnJumpPerformed;
         reader.jumpEventCancelled += OnJumpCancelled;
-
     }
 
     private void OnDisable()
@@ -46,8 +45,8 @@ public class PlayerJump : AbstractPlayerAction
 
     private void OnJumpPerformed()
     {
-        if (!isGrounded)
-            return;
+        //if (!isGrounded)
+            //return;
 
         isJumping = true;
 
