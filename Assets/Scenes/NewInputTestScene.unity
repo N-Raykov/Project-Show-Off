@@ -763,11 +763,11 @@ Transform:
   m_GameObject: {fileID: 25974709}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2706093, y: 0.27058536, z: 0.6532767, w: 0.65328693}
-  m_LocalPosition: {x: -343.9, y: 43.6, z: 226.05}
-  m_LocalScale: {x: 31.785215, y: 34.727585, z: 1.4879}
+  m_LocalPosition: {x: -413.4, y: 24.899998, z: 226.95}
+  m_LocalScale: {x: 31.785215, y: 34.727585, z: 1.4879001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 0.002, y: 45, z: 90}
 --- !u!1 &35055991
 GameObject:
@@ -1538,11 +1538,11 @@ Transform:
   m_GameObject: {fileID: 93011642}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -175.4, y: 114.3, z: 432.6}
+  m_LocalPosition: {x: -244.9, y: 95.600006, z: 433.5}
   m_LocalScale: {x: 36.43635, y: 29.485416, z: 1.4879}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1 &114342690
 GameObject:
@@ -1659,11 +1659,11 @@ Transform:
   m_GameObject: {fileID: 114342690}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -188.6, y: 46.679996, z: 223}
+  m_LocalPosition: {x: -258.1, y: 27.979996, z: 223.9}
   m_LocalScale: {x: 36.43635, y: 29.485416, z: 1.4879}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &153734481
 GameObject:
@@ -1955,6 +1955,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -2010,10 +2018,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (8)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -2623,6 +2627,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (18)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -2678,10 +2690,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (18)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -3756,6 +3764,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (15)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -3811,10 +3827,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (15)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -4463,11 +4475,11 @@ Transform:
   m_GameObject: {fileID: 562226381}
   serializedVersion: 2
   m_LocalRotation: {x: -0.011419543, y: -0.7043205, z: -0.011056165, w: 0.7097042}
-  m_LocalPosition: {x: -208.5, y: 47.09, z: 221.5672}
-  m_LocalScale: {x: 18.694937, y: 11.17974, z: 18.694937}
+  m_LocalPosition: {x: -278, y: 28.39, z: 222.4672}
+  m_LocalScale: {x: 18.694937, y: 11.179741, z: 18.694935}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: -1.821, y: -89.564, z: 0.023}
 --- !u!114 &562226387
 MonoBehaviour:
@@ -4763,12 +4775,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599830672}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.34, y: 41.94, z: 16.3}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.839996, y: 23.239998, z: 17.199999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &626587434
 GameObject:
@@ -4883,6 +4895,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -4938,10 +4958,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (9)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -5150,6 +5166,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -5206,10 +5230,6 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
       value: 25
@@ -5240,6 +5260,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -5295,10 +5323,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (4)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -5507,6 +5531,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (10)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -5562,10 +5594,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (10)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -6345,6 +6373,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (13)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -6400,10 +6436,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (13)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -6540,6 +6572,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -6595,10 +6635,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -6840,6 +6876,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -6895,10 +6939,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (3)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -7292,12 +7332,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791922595}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -187.39136, y: 64.739456, z: 351.14}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -256.89136, y: 46.039455, z: 352.04}
   m_LocalScale: {x: 18.694937, y: 14.491179, z: 18.694937}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &791922601
 MonoBehaviour:
@@ -8911,6 +8951,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -8966,10 +9014,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (6)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -9780,11 +9824,11 @@ Transform:
   m_GameObject: {fileID: 992018635}
   serializedVersion: 2
   m_LocalRotation: {x: -0.015284667, y: 0.26245975, z: 0.0043614963, w: 0.96481204}
-  m_LocalPosition: {x: -184.84865, y: 19.68, z: 261.48932}
-  m_LocalScale: {x: 18.694937, y: 1.8767087, z: 18.694937}
+  m_LocalPosition: {x: -254.34865, y: 0.97999954, z: 262.3893}
+  m_LocalScale: {x: 18.694935, y: 1.876709, z: 18.694937}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: -1.821, y: 30.436, z: 0.023}
 --- !u!1 &997321842
 GameObject:
@@ -10130,11 +10174,11 @@ Transform:
   m_GameObject: {fileID: 1027167996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -175.78, y: 90.04, z: 613.5}
+  m_LocalPosition: {x: -245.28, y: 71.34, z: 614.4}
   m_LocalScale: {x: 21.286844, y: 29.485416, z: 1.4879}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1 &1040619569
 GameObject:
@@ -10669,6 +10713,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (16)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -10724,10 +10776,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (16)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -11284,6 +11332,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -11339,10 +11395,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (7)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -11479,6 +11531,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -11534,10 +11594,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -11661,12 +11717,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194328474}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -180.06, y: 56.01, z: 420.19}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -249.56, y: 37.309998, z: 421.09}
   m_LocalScale: {x: 18.694937, y: 1.8767087, z: 18.694937}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1201098821
 GameObject:
@@ -12304,6 +12360,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (11)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -12359,10 +12423,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (11)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -12590,11 +12650,11 @@ Transform:
   m_GameObject: {fileID: 1250095042}
   serializedVersion: 2
   m_LocalRotation: {x: -0.015284667, y: 0.26245975, z: 0.0043614963, w: 0.96481204}
-  m_LocalPosition: {x: -185.3, y: 45.7, z: 260.8}
-  m_LocalScale: {x: 18.694937, y: 24.833534, z: 18.694937}
+  m_LocalPosition: {x: -254.8, y: 27, z: 261.69998}
+  m_LocalScale: {x: 18.694935, y: 24.833536, z: 18.694937}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: -1.821, y: 30.436, z: 0.023}
 --- !u!1 &1256196362
 GameObject:
@@ -12886,6 +12946,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (12)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -12941,10 +13009,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (12)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -13848,12 +13912,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356663332}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -406.76, y: 46.679996, z: 216.66}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -476.26, y: 27.979996, z: 217.56}
   m_LocalScale: {x: 13.3911, y: 11.9032, z: 1.4879}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1360245375
 GameObject:
@@ -14073,12 +14137,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361190104}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -187.3914, y: 50.31565, z: 351.13998}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -256.89142, y: 31.61565, z: 352.03998}
   m_LocalScale: {x: 18.694937, y: 1.8767087, z: 18.694937}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1363541818
 GameObject:
@@ -15274,8 +15338,165 @@ Transform:
   - {fileID: 1363541819}
   - {fileID: 1488727510}
   - {fileID: 1505135007}
+  - {fileID: 1356663337}
+  - {fileID: 114342695}
+  - {fileID: 93011647}
+  - {fileID: 1027168001}
+  - {fileID: 2121911434}
+  - {fileID: 25974714}
+  - {fileID: 599830673}
+  - {fileID: 1802096615}
+  - {fileID: 992018639}
+  - {fileID: 1361190108}
+  - {fileID: 1194328478}
+  - {fileID: 562226386}
+  - {fileID: 1250095047}
+  - {fileID: 791922600}
+  - {fileID: 1632837924}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1541383119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1541383124}
+  - component: {fileID: 1541383123}
+  - component: {fileID: 1541383122}
+  - component: {fileID: 1541383121}
+  - component: {fileID: 1541383120}
+  - component: {fileID: 1541383125}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1541383120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541383119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8497cb4a9758b4d8a188eefbddf6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionPromptPrefab: {fileID: 8769525456874203579, guid: 2f07c8f5b7c71f64d9da2665034f313a, type: 3}
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
+--- !u!65 &1541383121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541383119}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1541383122
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541383119}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ea1386d1b1d652b4982f4f8b897e3a3a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1541383123
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541383119}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1541383124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541383119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -414.77, y: 39.53, z: 295.83}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1541383125
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541383119}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1547004734
 GameObject:
   m_ObjectHideFlags: 0
@@ -15494,6 +15715,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (21)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -15549,10 +15778,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (21)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -15796,12 +16021,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632837919}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -180.05995, y: 81.4, z: 420.19003}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -249.55995, y: 62.7, z: 421.09003}
   m_LocalScale: {x: 18.694937, y: 25.856611, z: 18.694937}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669997424
 GameObject:
@@ -16719,6 +16944,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -16774,10 +17007,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (5)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -16902,11 +17131,11 @@ Transform:
   m_GameObject: {fileID: 1802096611}
   serializedVersion: 2
   m_LocalRotation: {x: -0.011419543, y: -0.7043205, z: -0.011056165, w: 0.7097042}
-  m_LocalPosition: {x: -208.90923, y: 35.160526, z: 221.57498}
-  m_LocalScale: {x: 18.694937, y: 1.8767087, z: 18.694937}
+  m_LocalPosition: {x: -278.40924, y: 16.460526, z: 222.47498}
+  m_LocalScale: {x: 18.694937, y: 1.8767089, z: 18.694935}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: -1.821, y: -89.564, z: 0.023}
 --- !u!1001 &1807153531
 PrefabInstance:
@@ -16916,6 +17145,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (20)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -16971,10 +17208,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (20)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -17044,6 +17277,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (14)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -17099,10 +17340,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (14)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -17239,6 +17476,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (19)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -17294,10 +17539,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (19)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -17923,6 +18164,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899017585}
     m_Modifications:
+    - target: {fileID: 5095633773741113711, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: candyCollectionPoint
+      value: 
+      objectReference: {fileID: 865640930}
+    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
+      propertyPath: m_Name
+      value: CandyPrefabBlue (17)
+      objectReference: {fileID: 0}
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -17978,10 +18227,6 @@ PrefabInstance:
     - target: {fileID: 8447444256708389167, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408285327962318828, guid: 0025170d65b98c4449e094f0c434384b, type: 3}
-      propertyPath: m_Name
-      value: CandyPrefabBlue (17)
       objectReference: {fileID: 0}
     - target: {fileID: 7227867107973948830, guid: 6da8c2a7d3f98b2428214526abb7822b, type: 3}
       propertyPath: collectionFlySpeed
@@ -19795,11 +20040,11 @@ Transform:
   m_GameObject: {fileID: 2121911429}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -329.33, y: 36.67, z: 223.68}
+  m_LocalPosition: {x: -398.83, y: 17.969997, z: 224.57999}
   m_LocalScale: {x: 30.068842, y: 34.727585, z: 1.4879}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1537327911}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &2122175429
 GameObject:
@@ -20056,21 +20301,6 @@ SceneRoots:
   - {fileID: 691678367}
   - {fileID: 787062372}
   - {fileID: 1537327911}
-  - {fileID: 1356663337}
-  - {fileID: 114342695}
-  - {fileID: 93011647}
-  - {fileID: 1027168001}
-  - {fileID: 2121911434}
-  - {fileID: 25974714}
-  - {fileID: 599830673}
-  - {fileID: 1802096615}
-  - {fileID: 992018639}
-  - {fileID: 1361190108}
-  - {fileID: 1194328478}
-  - {fileID: 562226386}
-  - {fileID: 1250095047}
-  - {fileID: 791922600}
-  - {fileID: 1632837924}
   - {fileID: 1899017585}
   - {fileID: 1220128446}
   - {fileID: 1895334687}
@@ -20078,3 +20308,4 @@ SceneRoots:
   - {fileID: 837412633}
   - {fileID: 1958286021}
   - {fileID: 1208850420}
+  - {fileID: 1541383124}

@@ -10,7 +10,7 @@ public abstract class AbstractPlayerAction : MonoBehaviour
     protected float distToBottomOfSprite;
     protected float spriteRadius;
 
-    private int points = 10;
+    private int _points = 10;
 
     protected void Awake()
     {
@@ -33,9 +33,9 @@ public abstract class AbstractPlayerAction : MonoBehaviour
 
     protected bool IsGrounded()
     {
-        float anglebetween = 360f / points;
+        float anglebetween = 360f / _points;
 
-        for (int i = 0; i <= points; i++)
+        for (int i = 0; i <= _points; i++)
         {
             float angle = i * anglebetween * Mathf.Deg2Rad;
             Vector3 direction = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle));
