@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using TMPro;
 
 public class CollectibleGui : MonoBehaviour
@@ -20,12 +17,12 @@ public class CollectibleGui : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus.StartListening<int>(EventBusEnum.EventName.CollectibleGathered, OnCollectibleGathered);
+        EventBus<CollectibleGathered>.OnEvent += OnCollectibleGathered;
     }
 
     private void OnDisable()
     {
-        EventBus.StopListening<int>(EventBusEnum.EventName.CollectibleGathered, OnCollectibleGathered);
+        EventBus<CollectibleGathered>.OnEvent -= OnCollectibleGathered;
     }
 
     private void Start()
@@ -49,9 +46,9 @@ public class CollectibleGui : MonoBehaviour
             LerpScale();
     }
 
-    private void OnCollectibleGathered(int pValue)
+    private void OnCollectibleGathered(CollectibleGathered pCollectibleGathered)
     {
-        collectibleCount++;
+        collectibleCount += pCollectibleGathered.value;
         collectibleTMPro.SetText(text + collectibleCount);
         StartLerp();
     }

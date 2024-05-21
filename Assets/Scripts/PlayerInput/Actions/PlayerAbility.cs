@@ -32,6 +32,7 @@ public class PlayerAbility : MonoBehaviour
             anim.SetTrigger("UseAbility");
             Instantiate(shockwave, transform.position, transform.rotation, transform.parent);
             timeSinceLastAbility = 0;
+            EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Ability));
             //Debug.Log("pog"); 
         }
     }
