@@ -35,6 +35,7 @@ public class PlayerAbility : MonoBehaviour
             }
             Instantiate(shockwave, transform.position, transform.rotation, transform.parent);
             timeSinceLastAbility = 0;
+            UIManager.instance.AbilityUsed(abilityCD);
             //Debug.Log("pog"); 
         }
     }

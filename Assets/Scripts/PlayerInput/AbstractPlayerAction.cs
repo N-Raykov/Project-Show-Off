@@ -42,9 +42,9 @@ public abstract class AbstractPlayerAction : MonoBehaviour
             for (float y = 0; y <= spriteRadius; y++)
             {
                 Vector3 position = direction * y;
-                Debug.DrawRay(transform.position, direction * y, Color.red);
-                Debug.DrawRay(position + transform.position, -Vector3.up * (distToBottomOfSprite + 0.1f), Color.red);
-                if (Physics.Raycast(position + transform.position, -Vector3.up, distToBottomOfSprite + 1f, ~0, QueryTriggerInteraction.Ignore))
+                //Debug.DrawRay(transform.position, direction * y, Color.red);
+                //Debug.DrawRay(position + transform.position, -Vector3.up * (distToBottomOfSprite + 0.1f), Color.red);
+                if (Physics.Raycast(position + transform.position, -Vector3.up, distToBottomOfSprite + 0.1f, ~0, QueryTriggerInteraction.Ignore))
                 {
                     return true;
                 }

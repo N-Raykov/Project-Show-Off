@@ -10,9 +10,9 @@ public class SetTextToTextBox : MonoBehaviour
     [SerializeField] private string message = "Press BUTTONPROMPT to interact.";
 
     [Header("Set Action")]
-    [SerializeField] private DeviceType deviceType;
     [SerializeField] private ActionType actionType;
 
+    private DeviceType deviceType;
     private CustomPlayerInput _playerInput;
     private TMP_Text _textBox;
 
