@@ -6,22 +6,36 @@ using UnityEngine.InputSystem;
 
 public static class CompleteTextWithButtonSprite
 {
-    public static string ReadAndReplaceBinding(string textToDsiplay, InputBinding actionNeeded, TMP_SpriteAsset spriteAsset)
+    public static string ReadAndReplaceBinding(string textToDsiplay, InputBinding actionNeeded, int deviceType)
     {
         string stringButtonName = actionNeeded.ToString();
-        stringButtonName = RenameInput(stringButtonName);
-
-        textToDsiplay = textToDsiplay.Replace("BUTTONPROMPT", $"<sprite=\"{spriteAsset.name}\" name=\"{stringButtonName}\">");
+        stringButtonName = RenameInput(stringButtonName, deviceType);
+        textToDsiplay = textToDsiplay.Replace("BUTTONPROMPT", $"<sprite name=\"{stringButtonName}\">");
 
         return textToDsiplay;
     }
 
-    private static string RenameInput(string stringButtonName)
+    private static string RenameInput(string stringButtonName, int deviceType)
     {
-        stringButtonName = stringButtonName.Replace("Interact:", string.Empty);
+        int index = stringButtonName.IndexOf(':');
 
-        stringButtonName = stringButtonName.Replace("<Keyboard>/", "Keyboard_");
-        stringButtonName = stringButtonName.Replace("<Gamepad>/", "Gamepad_");
+        if(index != -1)
+        {
+            stringButtonName = stringButtonName.Substring(index + 1);
+        }
+
+
+        switch (deviceType)
+        {
+            case 0: 
+                stringButtonName = stringButtonName.Replace("<Keyboard>/", "Keyboard_");
+                break;
+            case 1: 
+                stringButtonName = stringButtonName.Replace("<Gamepad>/", "Gamepad_");
+                break;
+            default:
+                break;
+        }
 
         return stringButtonName;
     }

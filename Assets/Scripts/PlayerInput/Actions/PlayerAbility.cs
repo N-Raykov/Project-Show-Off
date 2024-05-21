@@ -7,7 +7,7 @@ public class PlayerAbility : MonoBehaviour
     [SerializeField] private PlayerInputReader reader;
     [SerializeField] private Shockwave shockwave;
     [SerializeField] private float abilityCD = 5f;
-    private float timeSinceLastAbility = 0;
+    private float timeSinceLastAbility = 100;
     private Animator anim;
 
     private void Update()
@@ -29,7 +29,10 @@ public class PlayerAbility : MonoBehaviour
     {
         if (timeSinceLastAbility > abilityCD)
         {
-            anim.SetTrigger("UseAbility");
+            if (anim != null)
+            {
+                anim.SetTrigger("UseAbility");
+            }
             Instantiate(shockwave, transform.position, transform.rotation, transform.parent);
             timeSinceLastAbility = 0;
             //Debug.Log("pog"); 
