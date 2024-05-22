@@ -10,6 +10,7 @@ public class FanHover : MonoBehaviour
     [SerializeField] private float soundRange;
 
     private Rigidbody rb;
+    private string playerTag = "Player";
 
     public void SetState(bool state)
     {
@@ -35,13 +36,13 @@ public class FanHover : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Player") {
+        if (other.gameObject.tag == playerTag) {
             rb = other.GetComponent<Rigidbody>();
         }
     }
 
     private void OnTriggerExit(Collider other) {
-        if (other.gameObject.tag == "Player") {
+        if (other.gameObject.tag == playerTag) {
             rb = null;
         }
     }
@@ -57,8 +58,8 @@ public class FanHover : MonoBehaviour
         float reverseDist = MathF.Abs((pPositionBroadcasted.position - transform.position).magnitude - soundRange);
         float volume = map(reverseDist, 0, soundRange, 0, 1);
 
-        Debug.Log("reverseDist: " + reverseDist + " vol: "+ volume);
         EventBus<SoundEffectVolumeChanged>.Publish(new SoundEffectVolumeChanged(SoundEffectType.Wind, volume));
+        //Debug.Log("reverseDist: " + reverseDist + " vol: "+ volume);
     }
 
     // Maps a value from ome arbitrary range to another arbitrary range
