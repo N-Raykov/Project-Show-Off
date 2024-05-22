@@ -30,7 +30,10 @@ public class PlayerMovement : AbstractPlayerAction
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
-        anim.SetBool("isGrounded", IsGrounded());
+        if(anim != null)
+        {
+            anim.SetBool("isGrounded", IsGrounded());
+        }
 
         HandleMovement();
          
