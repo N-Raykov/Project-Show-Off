@@ -7,7 +7,7 @@ public class FanHover : MonoBehaviour
 {
     [SerializeField] private float power = 10;
     [SerializeField] private bool activated = true;
-    [SerializeField] private float soundRange;
+    [SerializeField] private float soundRange = 100;
 
     private Rigidbody rb;
     private string playerTag = "Player";
@@ -55,8 +55,9 @@ public class FanHover : MonoBehaviour
 
     private void OnPositionBroadcasted(PositionBroadcasted pPositionBroadcasted)
     {
-        float reverseDist = MathF.Abs((pPositionBroadcasted.position - transform.position).magnitude - soundRange);
-        float volume = map(reverseDist, 0, soundRange, 0, 1);
+        //float reverseDist = MathF.Abs((pPositionBroadcasted.position - transform.position).magnitude - soundRange);
+        float reverseDist =(pPositionBroadcasted.position - transform.position).magnitude;
+        float volume = map(reverseDist, 0, soundRange, 1, 0);
 
         EventBus<SoundEffectVolumeChanged>.Publish(new SoundEffectVolumeChanged(SoundEffectType.Wind, volume));
         //Debug.Log("reverseDist: " + reverseDist + " vol: "+ volume);
