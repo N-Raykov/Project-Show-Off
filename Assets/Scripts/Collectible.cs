@@ -69,11 +69,12 @@ public class Collectible : MonoBehaviour
         col.enabled = false;
         collectionInProgress = true;
         transform.parent = mainCamera.transform;
+        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Collectible));
     }
 
     private void CollectionFinished()
     {
-        EventBus.TriggerEvent<int>(EventBusEnum.EventName.CollectibleGathered, value);
+        EventBus<CollectibleGathered>.Publish(new CollectibleGathered(value));
         Destroy(gameObject);
     }
 

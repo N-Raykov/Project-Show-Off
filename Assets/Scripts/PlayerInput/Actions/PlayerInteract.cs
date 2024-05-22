@@ -18,5 +18,6 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnInteractPerformed()
     {
+        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Interact));
     }
 }

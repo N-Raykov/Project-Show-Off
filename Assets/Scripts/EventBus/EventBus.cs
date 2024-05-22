@@ -1,101 +1,18 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
 
-    //Trigger 
-    //EventBus.TriggerEvent<type example: int/string/custom type>(EventBusEnum.EventName.enum from EventBusEnums class, value);
-    //Start Listening 
-    //EventBus.StartListening<type example: int/string/custom type>(EventBusEnum.EventName.enum from EventBusEnums class, method that's listening);
-    //Stop Listening 
-    //EventBus.StopListening<type example: int/string/custom type>(EventBusEnum.EventName.enum from EventBusEnums class, method that's listening);
-
-
-public class EventBus : MonoBehaviour
+/// <summary>
+/// This class is used for receiving and sending events from other parts of the code base
+/// For publishing event: EventBus<CLASS>.Publish(new CLASS());
+/// For listening: EventBus<CLASS>.OnEvent += METHOD;
+/// Every event gets its own class which contains all variables that need to be passed
+/// </summary>
+/// <typeparam name="T">The event targeted either in subscribing or publishing</typeparam>
+public class EventBus<T> where T : Event
 {
-    Hashtable eventHash = new Hashtable();
+    public static event Action<T> OnEvent;
 
-    private static EventBus eventBus;
-    public static EventBus instance
+    public static void Publish(T pEvent)
     {
-        get
-        {
-            if (!eventBus)
-            {
-                eventBus = FindObjectOfType(typeof(EventBus)) as EventBus;
-
-                if (!eventBus)
-                {
-                    Debug.LogError("There needs to be one active EventBus script on a GameObject in your scene.");
-                }
-                else
-                {
-                    eventBus.Init();
-                }
-            }
-
-            return eventBus;
-        }
-    }
-
-    void Init()
-    {
-        if (eventBus.eventHash == null)
-        {
-            eventBus.eventHash = new Hashtable();
-        }
-    }
-
-    private static string GetKey<T>(EventBusEnum.EventName eventName)
-    {
-        Type type = typeof(T);
-        string key = type.ToString() + eventName.ToString();
-        return key;
-    }
-
-    public static void StartListening<T>(EventBusEnum.EventName eventName, UnityAction<T> listener)
-    {
-        UnityEvent<T> thisEvent = null;
-
-        string b = GetKey<T>(eventName);
-
-        if (instance.eventHash.ContainsKey(b))
-        {
-            thisEvent = (UnityEvent<T>)instance.eventHash[b];
-            thisEvent.AddListener(listener);
-            instance.eventHash[eventName] = thisEvent;
-        }
-        else
-        {
-            thisEvent = new UnityEvent<T>();
-            thisEvent.AddListener(listener);
-            instance.eventHash.Add(b, thisEvent);
-
-        }
-    }
-
-    public static void StopListening<T>(EventBusEnum.EventName eventName, UnityAction<T> listener)
-    {
-        if (eventBus == null) return;
-        UnityEvent<T> thisEvent = null;
-        string key = GetKey<T>(eventName);
-        if (instance.eventHash.ContainsKey(key))
-        {
-            thisEvent = (UnityEvent<T>)instance.eventHash[key];
-            thisEvent.RemoveListener(listener);
-            instance.eventHash[eventName] = thisEvent;
-        }
-    }
-
-    public static void TriggerEvent<T>(EventBusEnum.EventName eventName, T val)
-    {
-        UnityEvent<T> thisEvent = null;
-        string key = GetKey<T>(eventName);
-        if (instance.eventHash.ContainsKey(key))
-        {
-            thisEvent = (UnityEvent<T>)instance.eventHash[key];
-            thisEvent.Invoke(val);
-        }
+        OnEvent?.Invoke(pEvent);
     }
 }
