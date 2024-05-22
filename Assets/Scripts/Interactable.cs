@@ -46,6 +46,10 @@ public class Interactable : MonoBehaviour
 
     protected virtual void PerformInteraction()
     {
+        if (interactionPrompt == null)
+        {
+            return;
+        }
         Debug.Log("Interaction performed!");
     }
 }
