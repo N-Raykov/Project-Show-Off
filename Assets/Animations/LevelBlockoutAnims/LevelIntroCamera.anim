@@ -120,7 +120,7 @@ AnimationClip:
       value: {fileID: 0}
     - time: 10.05
       value: {fileID: 0}
-    - time: 14.133333
+    - time: 14.45
       value: {fileID: 0}
     attribute: m_LookAt
     path: 

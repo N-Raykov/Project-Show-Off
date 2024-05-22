@@ -22,7 +22,7 @@ public class Interactable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            interactionPrompt = Instantiate(interactionPromptPrefab, transform.position + Vector3.up * 2f, Quaternion.identity);
+            interactionPrompt = Instantiate(interactionPromptPrefab, transform.position + Vector3.up * 4f, Quaternion.identity);
         }
     }
 
