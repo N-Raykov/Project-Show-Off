@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: Press BUTTONPROMPT to interact.
-  actionType: 2
+  actionType: 0
 --- !u!114 &1717765739693298091
 MonoBehaviour:
   m_ObjectHideFlags: 0

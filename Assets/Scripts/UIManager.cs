@@ -43,4 +43,11 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(duration / 100);
         }
     }
+
+    public void ChangeTMProText(GameObject textObject, string message, ActionTypes.ActionType actionType)
+    {
+        SetTextToTextBox promptText = textObject.GetComponent<SetTextToTextBox>();
+        promptText.actionType = actionType;
+        promptText.message = message;
+    }
 }

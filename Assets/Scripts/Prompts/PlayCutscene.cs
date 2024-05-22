@@ -5,6 +5,8 @@ using Cinemachine;
 
 public class PlayCutScene : Interactable
 {
+    [Space(10)]
+
     [SerializeField] CinemachineVirtualCamera vCam;
     [SerializeField] int priority;
     [SerializeField] Animator animator;
@@ -15,7 +17,7 @@ public class PlayCutScene : Interactable
         {
             return;
         }
-        Debug.Log("what");
+
         if (vCam.gameObject.activeInHierarchy == false)
         {
             vCam.gameObject.SetActive(true);
