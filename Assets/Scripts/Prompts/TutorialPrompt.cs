@@ -62,7 +62,8 @@ public class TutorialPrompt : Prompt
     {
         if (prompt.activeSelf) {
             gameObject.SetActive(false);
-            Destroy(prompt);
+            // Destroy(prompt);
+            prompt.SetActive(false);
         }
     }
 }
