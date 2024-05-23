@@ -2,27 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : Prompt
 {
-    [SerializeField] GameObject interactionPromptPrefab;
-    [SerializeField] PlayerInputReader reader;
     protected GameObject interactionPrompt;
-
-    private void OnEnable()
-    {
-        reader.interactEventPerformed += PerformInteraction;
-    }
-
-    private void OnDisable()
-    {
-        reader.interactEventPerformed -= PerformInteraction;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            interactionPrompt = Instantiate(interactionPromptPrefab, transform.position + Vector3.up * 2f, Quaternion.identity);
+            interactionPrompt = Instantiate(prompt, transform.position + Vector3.up * 2f, Quaternion.identity);
+            UIManager.instance.ChangeTMProText(interactionPrompt, message, actionType);
         }
     }
 
@@ -44,12 +33,11 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    protected virtual void PerformInteraction()
+    protected override void PerformInteraction()
     {
         if (interactionPrompt == null)
         {
             return;
         }
-        Debug.Log("Interaction performed!");
     }
 }

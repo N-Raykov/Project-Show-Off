@@ -77,7 +77,10 @@ public class PlayerJump : AbstractPlayerAction
 
     private void HandleGravity()
     {
-        anim.SetFloat("JumpingBlend", (rb.velocity.y <= 0 ? 1 : 0));
+        if (anim != null)
+        {
+            anim.SetFloat("JumpingBlend", (rb.velocity.y <= 0 ? 1 : 0));
+        }
 
         float currentGravity = gravity * Time.fixedDeltaTime * (rb.velocity.y <= 0 ? gravityFallModifier : 1);
         rb.velocity = new Vector3(

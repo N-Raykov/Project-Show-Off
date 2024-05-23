@@ -7,10 +7,10 @@ using UnityEngine.InputSystem;
 public class SetTextToTextBox : MonoBehaviour
 {
     [TextArea(2, 3)]
-    [SerializeField] private string message = "Press BUTTONPROMPT to interact.";
+    public string message = "Press BUTTONPROMPT to interact.";
 
     [Header("Set Action")]
-    [SerializeField] private ActionType actionType;
+    public ActionTypes.ActionType actionType;
 
     private DeviceType deviceType;
     private CustomPlayerInput _playerInput;
@@ -45,7 +45,7 @@ public class SetTextToTextBox : MonoBehaviour
     private void SetText()
     {
         InputAction action = _playerInput.FindAction(actionType.ToString());
-
+        
         _textBox.text = CompleteTextWithButtonSprite.ReadAndReplaceBinding(message, action.bindings[(int)deviceType], (int)deviceType);
     }
 
@@ -56,12 +56,4 @@ public class SetTextToTextBox : MonoBehaviour
         Keyboard = 0,
         GamePad = 1
     }
-
-    private enum ActionType
-    { 
-        Interact,
-        Ability,
-        Jump
-    }
-    
 }
