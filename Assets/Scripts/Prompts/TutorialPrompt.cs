@@ -60,6 +60,9 @@ public class TutorialPrompt : Prompt
 
     protected override void PerformInteraction()
     {
-        Destroy(prompt);
+        if (prompt.activeSelf) {
+            gameObject.SetActive(false);
+            Destroy(prompt);
+        }
     }
 }
