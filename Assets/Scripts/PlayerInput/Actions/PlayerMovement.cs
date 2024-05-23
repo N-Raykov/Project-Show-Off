@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 
 public class PlayerMovement : AbstractPlayerAction
 {
@@ -83,7 +79,6 @@ public class PlayerMovement : AbstractPlayerAction
         anim.SetFloat("MovementBlend", 0f);
 
         moveVector = Vector2.zero;
-
         //Debug.Log("STOP MOVEMENT");
     }
 }

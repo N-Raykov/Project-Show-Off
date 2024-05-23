@@ -32,11 +32,10 @@ public class CollectibleGui : MonoBehaviour
         {
             throw new System.Exception("There is no TextMeshProUGUI component.");
         }
+        collectibleTMPro.SetText(text + collectibleCount);
 
         originalScale = transform.localScale;
         targetScale = originalScale * scaleIncrease;
-        collectibleTMPro.SetText(text + collectibleCount);
-
         lerpDifference = targetScale.magnitude - originalScale.magnitude;
     }
 

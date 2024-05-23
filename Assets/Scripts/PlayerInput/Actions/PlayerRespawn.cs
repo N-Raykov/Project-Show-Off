@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Threading.Tasks;
 
 public class PlayerRespawn : AbstractPlayerAction
 {
-    [SerializeField] private float respawnHeight = 20f;
-    [SerializeField] private float respawnPointInterval = 0.1f;
+    [SerializeField] private float respawnHeight = 10f;
+    [SerializeField] private float respawnPointInterval = 0.5f;
 
     private Vector3 respawnPoint;
     private float currentTime;
@@ -27,7 +24,6 @@ public class PlayerRespawn : AbstractPlayerAction
     {
         if(transform.position.y < respawnHeight)
         {
-            //TODO other respawn actions besides position reset
             transform.position = respawnPoint;
             rb.velocity = new Vector3(0, 0, 0);
         }
