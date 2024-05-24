@@ -16,7 +16,7 @@ public static class CompleteTextWithButtonSprite
     public static string ReadAndReplaceBinding(string textToDsiplay, InputBinding actionNeeded, int deviceType)
     {
         string stringButtonName = actionNeeded.ToString();
-        Debug.Log(actionNeeded);
+        //Debug.Log(actionNeeded);
         stringButtonName = RenameInput(stringButtonName, deviceType);
         textToDsiplay = textToDsiplay.Replace("BUTTONPROMPT", $"<sprite=\"{deviceSprite[deviceType]}\" name=\"{stringButtonName}\">");
 

@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FanHover : MonoBehaviour
+public class FanHover : Activateable
 {
     [SerializeField] private float power = 10;
-    [SerializeField] private bool activated = true;
     [SerializeField] private float soundRange = 100;
 
     private Rigidbody rb;
@@ -30,11 +29,6 @@ public class FanHover : MonoBehaviour
         EventBus<PositionBroadcasted>.OnEvent -= OnPositionBroadcasted;
     }
 
-    private void Start() {
-        SetState(activated);
-        // EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Wind));
-    }
-
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == playerTag) {
             rb = other.GetComponent<Rigidbody>();
@@ -53,14 +47,23 @@ public class FanHover : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if(activated)
+            EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Wind));
+    }
+
     private void OnPositionBroadcasted(PositionBroadcasted pPositionBroadcasted)
     {
+        if (!activated)
+            return;
+
         //float reverseDist = MathF.Abs((pPositionBroadcasted.position - transform.position).magnitude - soundRange);
-        float reverseDist =(pPositionBroadcasted.position - transform.position).magnitude;
-        float volume = map(reverseDist, 0, soundRange, 1, 0);
+        float dist = (pPositionBroadcasted.position - transform.position).magnitude;
+        float volume = map(dist, 0, soundRange, 1, 0);
 
         EventBus<SoundEffectVolumeChanged>.Publish(new SoundEffectVolumeChanged(SoundEffectType.Wind, volume));
-        //Debug.Log("reverseDist: " + reverseDist + " vol: "+ volume);
+        //Debug.Log("dist: " + dist + " vol: "+ volume);
     }
 
     // Maps a value from ome arbitrary range to another arbitrary range

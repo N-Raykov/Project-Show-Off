@@ -1690,8 +1690,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f74a882af00da4182277dd32efcc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionPromptPrefab: {fileID: 2269452110677270372, guid: fc2989c93eedb0543a14dbb3073cc934, type: 3}
+  prompt: {fileID: 0}
   reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
+  actionType: 0
+  message: Press BUTTONPROMPT to interact.
   vCam: {fileID: 676199453}
   priority: 100
   animator: {fileID: 1387830760}
@@ -5692,7 +5694,6 @@ GameObject:
   - component: {fileID: 562226384}
   - component: {fileID: 562226383}
   - component: {fileID: 562226382}
-  - component: {fileID: 562226387}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Untagged
@@ -5712,8 +5713,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f432b3251ae7c488388e5fef5fec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 2
   activated: 0
+  power: 2
+  soundRange: 100
 --- !u!136 &562226383
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5802,34 +5804,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -1.821, y: -89.564, z: 0.023}
---- !u!114 &562226387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562226381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b589e998153d2e641bc43b8a14b45407, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnActivated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 562226382}
-        m_TargetAssemblyTypeName: FanHover, Assembly-CSharp
-        m_MethodName: SetState
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  activated: 0
 --- !u!1 &566132226
 GameObject:
   m_ObjectHideFlags: 0
@@ -8627,7 +8601,6 @@ GameObject:
   - component: {fileID: 791922598}
   - component: {fileID: 791922597}
   - component: {fileID: 791922596}
-  - component: {fileID: 791922601}
   m_Layer: 0
   m_Name: Cylinder (7)
   m_TagString: Untagged
@@ -8647,8 +8620,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f432b3251ae7c488388e5fef5fec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 1.3
   activated: 0
+  power: 1.3
+  soundRange: 100
 --- !u!136 &791922597
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8737,34 +8711,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &791922601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791922595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b589e998153d2e641bc43b8a14b45407, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnActivated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 791922596}
-        m_TargetAssemblyTypeName: FanHover, Assembly-CSharp
-        m_MethodName: SetState
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  activated: 0
 --- !u!1 &797743462
 GameObject:
   m_ObjectHideFlags: 3
@@ -9005,8 +8951,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f74a882af00da4182277dd32efcc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionPromptPrefab: {fileID: 2269452110677270372, guid: fc2989c93eedb0543a14dbb3073cc934, type: 3}
+  prompt: {fileID: 0}
   reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
+  actionType: 0
+  message: Press BUTTONPROMPT to interact.
   vCam: {fileID: 153734483}
   priority: 100
   animator: {fileID: 205689169}
@@ -14012,8 +13960,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f432b3251ae7c488388e5fef5fec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 3
   activated: 1
+  power: 3
+  soundRange: 100
 --- !u!136 &1250095044
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16465,6 +16414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
   shockwave: {fileID: 2901955225683187397, guid: 8d0f38f9053453948b2f329d5168259a, type: 3}
+  abilityCD: 5
 --- !u!114 &1502325695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17443,8 +17393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f432b3251ae7c488388e5fef5fec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 4
   activated: 1
+  power: 4
+  soundRange: 100
 --- !u!136 &1632837921
 CapsuleCollider:
   m_ObjectHideFlags: 0

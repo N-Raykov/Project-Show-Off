@@ -3,17 +3,15 @@ using UnityEngine.Events;
 
 public class Activateable : MonoBehaviour
 {
-
-    public UnityEvent OnActivated;
-    [SerializeField] bool activated = false;
+    [SerializeField] protected bool activated = false;
 
     public void Activate()
     {
         if(activated == false)
         {
-            Debug.Log("poggers");
+            EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Wind));
             activated = true;
-            OnActivated?.Invoke();
+            //Debug.Log("Fan activated");
         }
     }
 }
