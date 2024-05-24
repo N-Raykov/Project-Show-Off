@@ -11,9 +11,12 @@ public class PlayCutScene : Interactable
     [SerializeField] int priority;
     [SerializeField] Animator animator;
     [SerializeField] string triggerName;
+
+    private bool debounce = false;
+
     protected override void PerformInteraction()
     {
-        if (interactionPrompt == null)
+        if (interactionPrompt == null || debounce)
         {
             return;
         }
@@ -22,6 +25,8 @@ public class PlayCutScene : Interactable
         {
             vCam.gameObject.SetActive(true);
         }
+
+        debounce = true;
         vCam.m_Priority = priority;
         animator.SetTrigger(triggerName);
     }

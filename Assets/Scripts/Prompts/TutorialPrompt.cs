@@ -64,6 +64,7 @@ public class TutorialPrompt : Prompt
             gameObject.SetActive(false);
             // Destroy(prompt);
             prompt.SetActive(false);
+            EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Collectible));
         }
     }
 }

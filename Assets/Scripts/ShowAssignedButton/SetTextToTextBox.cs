@@ -45,6 +45,7 @@ public class SetTextToTextBox : MonoBehaviour
     private void SetText()
     {
         InputAction action = _playerInput.FindAction(actionType.ToString());
+        // Debug.Log(action);
         
         _textBox.text = CompleteTextWithButtonSprite.ReadAndReplaceBinding(message, action.bindings[(int)deviceType], (int)deviceType);
     }
