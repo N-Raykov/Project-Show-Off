@@ -32,7 +32,7 @@ public class FanHover : MonoBehaviour
 
     private void Start() {
         SetState(activated);
-        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Wind));
+        // EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Wind));
     }
 
     private void OnTriggerEnter(Collider other) {
