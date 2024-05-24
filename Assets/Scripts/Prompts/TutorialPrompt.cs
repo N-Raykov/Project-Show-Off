@@ -1,44 +1,59 @@
+using System;
+using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialPrompt : Prompt
 {
+    private string eventName;
+    private EventInfo eventInfo;
+    private Delegate eventHandler;
+
     protected override void OnEnable()
     {
-        switch (actionType)
-        {
-            case ActionTypes.ActionType.Interact: reader.interactEventPerformed += PerformInteraction;
-                break;
-            case ActionTypes.ActionType.Ability:
-                reader.abilityEventPerformed += PerformInteraction;
-                break;
-            case ActionTypes.ActionType.Jump:
-                reader.jumpEventPerformed += PerformInteraction;
-                break;
-            default:
-                Debug.LogError("This switch case doesn't have an assigned reader Action for the corresponding ActionType");
-                break;
-        }
+        SubscribeToEvent();
     }
 
     protected override void OnDisable()
     {
-        switch (actionType)
+        UnsubscribeFromEvent();
+    }
+
+    private void SubscribeToEvent()
+    {
+        eventName = actionType.ToString() + "EventPerformed";
+        eventInfo = typeof(PlayerInputReader).GetEvent(eventName, BindingFlags.Public | BindingFlags.Instance);
+
+        if (eventInfo != null)
         {
-            case ActionTypes.ActionType.Interact:
-                reader.interactEventPerformed -= PerformInteraction;
-                break;
-            case ActionTypes.ActionType.Ability:
-                reader.abilityEventPerformed -= PerformInteraction;
-                break;
-            case ActionTypes.ActionType.Jump:
-                reader.jumpEventPerformed -= PerformInteraction;
-                break;
-            default:
-                Debug.LogError("This switch case doesn't have an assigned reader Action for the corresponding ActionType");
-                break;
+            MethodInfo methodInfo = GetType().GetMethod("PerformInteraction", BindingFlags.NonPublic | BindingFlags.Instance);
+            eventHandler = Delegate.CreateDelegate(eventInfo.EventHandlerType, this, methodInfo);
+            eventInfo.AddEventHandler(reader, eventHandler);
         }
+        else
+        {
+            Debug.LogError($"No event found with the name {eventName} in Reader class.");
+        }
+    }
+
+    private void UnsubscribeFromEvent()
+    {
+        if (eventHandler == null) return;
+
+        eventName = actionType.ToString() + "EventPerformed";
+        eventInfo = typeof(PlayerInputReader).GetEvent(eventName, BindingFlags.Public | BindingFlags.Instance);
+
+        if (eventInfo != null)
+        {
+            eventInfo.RemoveEventHandler(reader, eventHandler);
+        }
+        else
+        {
+            Debug.LogError($"No event found with the name {eventName} in Reader class.");
+        }
+
+        eventHandler = null;
     }
 
     private void OnTriggerEnter(Collider other)

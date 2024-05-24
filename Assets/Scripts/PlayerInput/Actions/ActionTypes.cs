@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionTypes : MonoBehaviour
+//these should be lower case because the corresponding events in the PlayerInputReader class start with a lower case
+public enum ActionType
 {
-    public enum ActionType
-    {
-        Interact,
-        Ability,
-        Jump
-    }
-
+    interact,
+    ability,
+    jump
 }

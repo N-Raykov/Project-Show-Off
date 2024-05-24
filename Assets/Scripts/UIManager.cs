@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ChangeTMProText(GameObject textObject, string message, ActionTypes.ActionType actionType)
+    public void ChangeTMProText(GameObject textObject, string message, ActionType actionType)
     {
         SetTextToTextBox promptText = textObject.GetComponent<SetTextToTextBox>();
         promptText.actionType = actionType;

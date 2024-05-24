@@ -10,7 +10,7 @@ public class SetTextToTextBox : MonoBehaviour
     public string message = "Press BUTTONPROMPT to interact.";
 
     [Header("Set Action")]
-    public ActionTypes.ActionType actionType;
+    public ActionType actionType;
 
     private DeviceType deviceType;
     private CustomPlayerInput _playerInput;
@@ -40,7 +40,7 @@ public class SetTextToTextBox : MonoBehaviour
             deviceType = DeviceType.GamePad;
         }
     }
-
+    
     [ContextMenu("Set Text")]
     private void SetText()
     {

@@ -7,10 +7,10 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
 {
     public Action<Vector2> moveEventPerformed;
     public Action moveEventCancelled;
-    public Action jumpEventPerformed;
+    public event Action jumpEventPerformed;
     public Action jumpEventCancelled;
-    public Action interactEventPerformed;
-    public Action abilityEventPerformed;
+    public event Action interactEventPerformed;
+    public event Action abilityEventPerformed;
 
     private CustomPlayerInput input;
 
