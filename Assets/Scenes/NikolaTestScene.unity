@@ -6279,9 +6279,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f432b3251ae7c488388e5fef5fec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 562226382}
+        m_TargetAssemblyTypeName: FanHover, Assembly-CSharp
+        m_MethodName: SetState
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   activated: 0
   power: 2
-  soundRange: 100
+  activated: 0
+  soundRange: 5
 --- !u!136 &562226383
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8605,9 +8621,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f432b3251ae7c488388e5fef5fec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 791922596}
+        m_TargetAssemblyTypeName: FanHover, Assembly-CSharp
+        m_MethodName: SetState
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   activated: 0
   power: 2
-  soundRange: 100
+  activated: 0
+  soundRange: 5
 --- !u!136 &791922597
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10854,8 +10886,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9914449, z: -0.13052616, w: 0}
-  m_LocalPosition: {x: -183.16003, y: 60.368195, z: 306.8793}
+  m_LocalRotation: {x: 0.05372333, y: -0.81250453, z: 0.075848244, w: 0.57549727}
+  m_LocalPosition: {x: -296.47644, y: 78.88328, z: 610.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13860,9 +13892,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f432b3251ae7c488388e5fef5fec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnActivated:
+    m_PersistentCalls:
+      m_Calls: []
   activated: 1
   power: 4
-  soundRange: 100
+  activated: 1
+  soundRange: 5
 --- !u!136 &1250095044
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15370,9 +15406,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f432b3251ae7c488388e5fef5fec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1370446936}
+        m_TargetAssemblyTypeName: FanHover, Assembly-CSharp
+        m_MethodName: SetState
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   activated: 0
   power: 2.4
-  soundRange: 100
+  activated: 0
+  soundRange: 5
 --- !u!136 &1370446937
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21652,8 +21704,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966581736}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10924759, y: -0.32400015, z: 0.037696805, w: 0.93897176}
-  m_LocalPosition: {x: -397.68292, y: -27.15452, z: 411.1115}
+  m_LocalRotation: {x: 0.10924755, y: -0.32399964, z: 0.03769672, w: 0.9389719}
+  m_LocalPosition: {x: -397.6829, y: -27.154507, z: 411.11145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23585,6 +23637,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 524320312004892449, guid: f52042df5c521c14d861323bd3d65312, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524320312004892449, guid: f52042df5c521c14d861323bd3d65312, type: 3}
+      propertyPath: respawnHeight
+      value: 13.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000424884537901858, guid: f52042df5c521c14d861323bd3d65312, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -23664,6 +23724,10 @@ PrefabInstance:
     - target: {fileID: 4000424884537901858, guid: f52042df5c521c14d861323bd3d65312, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615979118396002420, guid: f52042df5c521c14d861323bd3d65312, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5101494387274378644, guid: f52042df5c521c14d861323bd3d65312, type: 3}
       propertyPath: m_Name
