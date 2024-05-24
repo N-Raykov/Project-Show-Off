@@ -56,8 +56,8 @@
                 },
                 {
                     "name": "",
-                    "id": "9534897f-5d3c-4d2c-825f-c92f1df4cc68",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "12ab3efb-051a-49a6-917b-849c19881cba",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "Hold(duration=1.401298E-45)",
                     "processors": "",
                     "groups": "",
@@ -67,8 +67,8 @@
                 },
                 {
                     "name": "",
-                    "id": "12ab3efb-051a-49a6-917b-849c19881cba",
-                    "path": "<Gamepad>/buttonNorth",
+                    "id": "9534897f-5d3c-4d2c-825f-c92f1df4cc68",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "Hold(duration=1.401298E-45)",
                     "processors": "",
                     "groups": "",
@@ -178,7 +178,7 @@
                 {
                     "name": "",
                     "id": "da433f43-9c4f-4f0c-ae77-6e01c36e527b",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "Hold(duration=1.401298E-45)",
                     "processors": "",
                     "groups": "",

@@ -6,11 +6,19 @@ using UnityEngine.InputSystem;
 
 public static class CompleteTextWithButtonSprite
 {
+
+    //Index 0 = Keyboard
+    //Index 1 = Gamepad
+    private static string[] deviceSprite = {
+        "KeyboardButtons",
+        "GamePadButtons"};
+
     public static string ReadAndReplaceBinding(string textToDsiplay, InputBinding actionNeeded, int deviceType)
     {
         string stringButtonName = actionNeeded.ToString();
+        Debug.Log(actionNeeded);
         stringButtonName = RenameInput(stringButtonName, deviceType);
-        textToDsiplay = textToDsiplay.Replace("BUTTONPROMPT", $"<sprite name=\"{stringButtonName}\">");
+        textToDsiplay = textToDsiplay.Replace("BUTTONPROMPT", $"<sprite=\"{deviceSprite[deviceType]}\" name=\"{stringButtonName}\">");
 
         return textToDsiplay;
     }

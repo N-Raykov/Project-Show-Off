@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class PlayerAbility : MonoBehaviour
+public class PlayerAbility : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
     [SerializeField] private Shockwave shockwave;
     [SerializeField] private float abilityCD = 5f;
     private float timeSinceLastAbility = 100;
-    private Animator anim;
+    // private Animator anim;
 
     private void Update()
     {
