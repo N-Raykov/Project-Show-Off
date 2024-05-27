@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class Activateable : MonoBehaviour
 {
     [SerializeField] protected bool activated = false;
+    protected ParticleSystem particles;
 
     public void Activate()
     {
@@ -11,6 +12,7 @@ public class Activateable : MonoBehaviour
         {
             EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Wind));
             activated = true;
+            particles.Play();
             //Debug.Log("Fan activated");
         }
     }

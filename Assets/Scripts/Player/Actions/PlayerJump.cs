@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerJump : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
+    [SerializeField] private ParticleSystem jumpingParticles;
+    [SerializeField] private ParticleSystem landingParticles;
     [SerializeField] private float jumpForceInitial = 10f;
     [SerializeField] private float jumpForceContinous = 1f;
     [SerializeField] private float maxJumpTime = 0.3f;
@@ -12,6 +14,8 @@ public class PlayerJump : AbstractPlayerAction
 
     private bool isJumping;
     private float jumpTime;
+
+    private bool _isGrounded;
 
     private void OnEnable()
     {
@@ -29,12 +33,26 @@ public class PlayerJump : AbstractPlayerAction
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
+        OnPlayerGrounded = isGrounded;
 
         HandleJumping();
         HandleGravity();
 
         if(!isGrounded)
             HandleAirDrag();
+    }
+
+    private bool OnPlayerGrounded
+    {
+        set
+        {
+            if(_isGrounded == false && value == true)
+            {
+                //When player lands, do stuff here
+                landingParticles.Play();
+            }
+            _isGrounded = value;
+        }
     }
 
     private void OnJumpPerformed()
@@ -49,6 +67,7 @@ public class PlayerJump : AbstractPlayerAction
         EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.PlayerJump));
 
         //Debug.Log("START JUMP: " + jumpForce);
+        jumpingParticles.Play();
     }
 
     private void OnJumpCancelled()

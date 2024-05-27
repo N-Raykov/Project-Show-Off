@@ -3,11 +3,14 @@ using UnityEngine;
 public class PlayerMovement : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
+    [SerializeField] private ParticleSystem particleEffect;
     [SerializeField] private float movementSpeed = 100f;
     [SerializeField] private float groundDrag = 0.1f;
 
     private Camera mainCamera;
     private Vector2 moveVector;
+
+    private bool _isEmittingParticles;
 
     new private void Awake()
     {
@@ -36,9 +39,11 @@ public class PlayerMovement : AbstractPlayerAction
         }
 
         HandleMovement();
-         
-        if(isGrounded)
+
+        if (isGrounded)
+        {
             HandleGroundDrag();
+        }
     }
 
     private void HandleMovement()
@@ -49,7 +54,19 @@ public class PlayerMovement : AbstractPlayerAction
             rb.velocity.x + currentMovement.x,
             rb.velocity.y,
             rb.velocity.z + currentMovement.y);
+
+        if (isGrounded && currentMovement.magnitude > 0 && _isEmittingParticles == false)
+        {
+            particleEffect.Play();
+            _isEmittingParticles = true;
+        }
+        else if (isGrounded == false && _isEmittingParticles == true || currentMovement.magnitude == 0 && _isEmittingParticles == true)
+        {
+            particleEffect.Stop();
+            _isEmittingParticles = false;
+        }
     }
+
     private void HandleGroundDrag()
     {
         rb.velocity = new Vector3(

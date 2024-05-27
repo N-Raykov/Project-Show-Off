@@ -49,8 +49,12 @@ public class FanHover : Activateable
 
     private void Start()
     {
-        if(activated)
+        particles = GetComponentInChildren<ParticleSystem>();
+        if (activated)
+        {
             EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Wind));
+            particles.Play();
+        }
     }
 
     private void OnPositionBroadcasted(PositionBroadcasted pPositionBroadcasted)
