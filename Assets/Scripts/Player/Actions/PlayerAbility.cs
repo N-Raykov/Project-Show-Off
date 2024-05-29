@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerAbility : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
+    [SerializeField] private ParticleSystem abilityParticles;
     [SerializeField] private Shockwave shockwave;
     [SerializeField] private float abilityCD = 5f;
     private float timeSinceLastAbility = 100;
@@ -31,6 +32,7 @@ public class PlayerAbility : AbstractPlayerAction
             {
                 anim.SetTrigger("UseAbility");
             }
+            abilityParticles.Play();
             Instantiate(shockwave, transform.position, transform.rotation, transform.parent);
             timeSinceLastAbility = 0;
             EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Ability));
