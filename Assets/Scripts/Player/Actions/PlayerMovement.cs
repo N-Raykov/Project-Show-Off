@@ -3,8 +3,10 @@ using UnityEngine;
 public class PlayerMovement : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
-    [SerializeField] private float movementSpeed = 100f;
-    [SerializeField] private float groundDrag = 0.1f;
+    [SerializeField] public float movementSpeed = 100f;
+    [SerializeField] public float groundDrag = 0.1f;
+
+    public Vector3 currentMovement;
 
     private Camera mainCamera;
     private Vector2 moveVector;
@@ -36,26 +38,28 @@ public class PlayerMovement : AbstractPlayerAction
         }
 
         HandleMovement();
-         
+
         if(isGrounded)
             HandleGroundDrag();
+
+        Debug.Log("Player Velocity: " + rb.velocity);
     }
 
     private void HandleMovement()
     {
-        Vector3 currentMovement = moveVector * movementSpeed * Time.fixedDeltaTime;
+        currentMovement = moveVector * movementSpeed;
 
         rb.velocity = new Vector3(
-            rb.velocity.x + currentMovement.x,
+            rb.velocity.x + currentMovement.x * Time.fixedDeltaTime,
             rb.velocity.y,
-            rb.velocity.z + currentMovement.y);
+            rb.velocity.z + currentMovement.y * Time.fixedDeltaTime);
     }
     private void HandleGroundDrag()
     {
         rb.velocity = new Vector3(
-            rb.velocity.x * (1 - groundDrag),
+            rb.velocity.x * (1 - groundDrag * Time.fixedDeltaTime),
             rb.velocity.y,
-            rb.velocity.z * (1 - groundDrag));
+            rb.velocity.z * (1 - groundDrag * Time.fixedDeltaTime));
     }
 
     private void OnMovementPerformed(Vector2 pMoveVector)
@@ -73,8 +77,8 @@ public class PlayerMovement : AbstractPlayerAction
         //Create move vector relative to camera rotation
         Vector3 desiredMoveDirection = right * pMoveVector.x + forward * pMoveVector.y;
         moveVector = new Vector2(desiredMoveDirection.x, desiredMoveDirection.z);
-
-        //Debug.Log("START MOVEMENT: " + moveVector.ToString());
+        
+        //Debug.Log("START MOVEMENT: " + moveVector);
     }
 
     private void OnMovementCancelled()
