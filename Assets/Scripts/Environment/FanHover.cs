@@ -49,6 +49,7 @@ public class FanHover : Activateable
 
     private void Start()
     {
+        SetState(activated);
         if(activated)
             EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Wind));
     }
@@ -63,6 +64,8 @@ public class FanHover : Activateable
         float volume = map(dist, 0, soundRange, 1, 0);
 
         EventBus<SoundEffectVolumeChanged>.Publish(new SoundEffectVolumeChanged(SoundEffectType.Wind, volume));
+        SetState(activated);
+
         //Debug.Log("dist: " + dist + " vol: "+ volume);
     }
 
