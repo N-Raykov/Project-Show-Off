@@ -62,7 +62,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0, z: 5.291}
+        value: {x: 0, y: 0, z: 7.804}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -71,7 +71,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 4.6833334
-        value: {x: 0, y: 0, z: 5.291}
+        value: {x: 0, y: 0, z: 7.804}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -81,8 +81,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 5.4
         value: {x: 0, y: 0, z: 19.739}
-        inSlope: {x: 0, y: 0, z: 25.15837}
-        outSlope: {x: 0, y: 0, z: 25.15837}
+        inSlope: {x: 0, y: 0, z: 22.081228}
+        outSlope: {x: 0, y: 0, z: 22.081228}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -1116,7 +1116,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 5.291
+        value: 7.804
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1125,7 +1125,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 4.6833334
-        value: 5.291
+        value: 7.804
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1135,8 +1135,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 5.4
         value: 19.739
-        inSlope: 25.15837
-        outSlope: 25.15837
+        inSlope: 22.081228
+        outSlope: 22.081228
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -1211,7 +1211,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
+    attribute: m_LocalEulerAngles.z
     path: Cup
     classID: 4
     script: {fileID: 0}
@@ -1235,7 +1235,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
+    attribute: m_LocalEulerAngles.x
     path: Cup
     classID: 4
     script: {fileID: 0}
