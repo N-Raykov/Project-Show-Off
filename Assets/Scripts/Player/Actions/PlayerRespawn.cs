@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerRespawn : AbstractPlayerAction
 {
-    [SerializeField] private float respawnHeight = 10f;
+    public float respawnHeight = 10f;
     [SerializeField] private float respawnPointInterval = 0.5f;
 
     private Vector3 respawnPoint;
