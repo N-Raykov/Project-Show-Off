@@ -3,13 +3,17 @@ using UnityEngine;
 public class PlayerMovement : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
-    [SerializeField] public float movementSpeed = 100f;
-    [SerializeField] public float groundDrag = 0.1f;
+    [SerializeField] public float movementSpeed = 135f;
+    [SerializeField] public float groundDrag = 8f;
+    [SerializeField] public float airDrag = 6f;
 
-    public Vector3 currentMovement;
+    private Vector3 currentMovement;
 
     private Camera mainCamera;
-    private Vector2 moveVector;
+    public Vector2 moveVector;
+
+    private float t;
+
 
     new private void Awake()
     {
@@ -37,12 +41,14 @@ public class PlayerMovement : AbstractPlayerAction
             anim.SetBool("isGrounded", IsGrounded());
         }
 
+        //Debug.Log("isGrounded: "+ isGrounded);
+        //if(isGrounded)
         HandleMovement();
 
-        if(isGrounded)
-            HandleGroundDrag();
 
-        Debug.Log("Player Velocity: " + rb.velocity);
+        HandleDrag();
+
+        //Debug.Log("Player Velocity: " + rb.velocity);
     }
 
     private void HandleMovement()
@@ -54,12 +60,12 @@ public class PlayerMovement : AbstractPlayerAction
             rb.velocity.y,
             rb.velocity.z + currentMovement.y * Time.fixedDeltaTime);
     }
-    private void HandleGroundDrag()
+    private void HandleDrag()
     {
         rb.velocity = new Vector3(
-            rb.velocity.x * (1 - groundDrag * Time.fixedDeltaTime),
+            rb.velocity.x * Mathf.Clamp01(1 - (isGrounded ? groundDrag : airDrag) * Time.fixedDeltaTime),
             rb.velocity.y,
-            rb.velocity.z * (1 - groundDrag * Time.fixedDeltaTime));
+            rb.velocity.z * Mathf.Clamp01(1 - (isGrounded ? groundDrag : airDrag) * Time.fixedDeltaTime));
     }
 
     private void OnMovementPerformed(Vector2 pMoveVector)
