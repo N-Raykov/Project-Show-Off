@@ -68,6 +68,11 @@ public class PlayerJump : AbstractPlayerAction
 
         //Debug.Log("START JUMP: " + jumpForce);
         jumpingParticles.Play();
+
+        if (anim != null)
+        {
+            anim.SetFloat("JumpingBlend", 0);
+        }
     }
 
     private void OnJumpCancelled()
@@ -96,9 +101,9 @@ public class PlayerJump : AbstractPlayerAction
 
     private void HandleGravity()
     {
-        if (anim != null)
+        if (anim != null && rb.velocity.y <= 0)
         {
-            anim.SetFloat("JumpingBlend", (rb.velocity.y <= 0 ? 1 : 0));
+            anim.SetFloat("JumpingBlend", 1);
         }
 
         float currentGravity = gravity * Time.fixedDeltaTime * (rb.velocity.y <= 0 ? gravityFallModifier : 1);

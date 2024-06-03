@@ -1,4 +1,5 @@
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 
 public enum SoundEffectType
 {
@@ -11,11 +12,8 @@ public enum SoundEffectType
 
 public class SoundPlayer : MonoBehaviour
 {
-    [SerializeField] private AudioSource playerJump;
-    [SerializeField] private AudioSource interact;
-    [SerializeField] private AudioSource ability;
-    [SerializeField] private AudioSource wind;
-    [SerializeField] private AudioSource collectible;
+    [SerializedDictionary("SoundEffectEnum", "AudioSource")]
+    [SerializeField] SerializedDictionary<SoundEffectType, AudioSource> soundEffects;
 
     private void OnEnable()
     {
@@ -32,24 +30,7 @@ public class SoundPlayer : MonoBehaviour
     {
         SoundEffectType soundEffectType = pSoundEffectPlayed.soundEffectType;
 
-        switch (soundEffectType)
-        {
-            case SoundEffectType.PlayerJump:
-                playerJump.Play();
-                break;
-            case SoundEffectType.Interact:
-                interact.Play();
-                break;
-            case SoundEffectType.Ability:
-                ability.Play();
-                break;
-            case SoundEffectType.Wind:
-                wind.Play();
-                break;
-            case SoundEffectType.Collectible:
-                collectible.Play();
-                break;
-        }
+        soundEffects[soundEffectType].Play();
     }
 
     private void OnSoundEffectVolumeChanged(SoundEffectVolumeChanged pSoundEffectVolumeChanged)
@@ -57,23 +38,6 @@ public class SoundPlayer : MonoBehaviour
         SoundEffectType soundEffectType = pSoundEffectVolumeChanged.soundEffectType;
         float volume = pSoundEffectVolumeChanged.volume;
 
-        switch (soundEffectType)
-        {
-            case SoundEffectType.PlayerJump:
-                playerJump.volume = volume;
-                break;
-            case SoundEffectType.Interact:
-                interact.volume = volume;
-                break;
-            case SoundEffectType.Ability:
-                ability.volume = volume;
-                break;
-            case SoundEffectType.Wind:
-                wind.volume = volume;
-                break;
-            case SoundEffectType.Collectible:
-                collectible.volume = volume;
-                break;
-        }
+        soundEffects[soundEffectType].volume = volume;
     }
 }
