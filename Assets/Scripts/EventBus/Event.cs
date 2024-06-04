@@ -18,10 +18,23 @@ public class CollectibleGathered : Event
 public class SoundEffectPlayed : Event
 {
     public readonly SoundEffectType soundEffectType;
-
-    public SoundEffectPlayed(SoundEffectType pSoundEffectType)
+    public Vector3 position;
+    public string identifier;
+    public SoundEffectPlayed(SoundEffectType pSoundEffectType, Vector3 pPosition, string pIdentifier = "")
     {
         soundEffectType = pSoundEffectType;
+        position = pPosition;
+        identifier = pIdentifier;
+    }
+}
+
+public class StopLoopingSoundEffect : Event
+{
+    public string identifier;
+
+    public StopLoopingSoundEffect(string pPidentifier = "")
+    {
+        identifier = pPidentifier;
     }
 }
 

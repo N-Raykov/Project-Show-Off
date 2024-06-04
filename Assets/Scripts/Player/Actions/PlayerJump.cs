@@ -64,7 +64,7 @@ public class PlayerJump : AbstractPlayerAction
 
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y + jumpForceInitial, rb.velocity.z);
 
-        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.PlayerJump));
+        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.PlayerJump, transform.position));
 
         //Debug.Log("START JUMP: " + jumpForce);
         jumpingParticles.Play();
