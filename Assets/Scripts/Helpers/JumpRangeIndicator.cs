@@ -2,42 +2,46 @@ using UnityEngine;
 
 public class JumpRangeIndicator : MonoBehaviour
 {
-    [SerializeField] private float maxTimeToLive = 5f;
+    [SerializeField] private float timeToLive = 5f;
     [SerializeField] private bool alwaysRender = false;
+    [SerializeField] private bool maxRunningSpeedGreenCurve = true;
+    [SerializeField] private bool maxJumpDistanceGreenCurve = true;
+    [SerializeField] private bool maxForwardInAirGreenCurve = true;
+    [SerializeField] private bool useActualDirectionGreenCurve = true;
+    [SerializeField] private bool maxRunningSpeedRedCurve = true;
+    [SerializeField] private bool maxJumpDistanceRedCurve = false;
+    [SerializeField] private bool maxForwardInAirRedCurve = true;
+    [SerializeField] private bool useActualDirectionRedCurve = true;
 
-    private LineRenderer lineRendererMax;
-    private LineRenderer lineRendererMin;
+    private LineRenderer lineRendererGreen;
+    private LineRenderer lineRendererRed;
     private PlayerMovement playerMovement;
-    private float distToBottomOfSprite;
-    private float terminalRunningSpeed;
-    private float jumpForceContinous;
-    private int linePoints;
-    private float gravityFallModifier;
-    private float jumpForceInitial; 
-    private float gravity;
-    private float maxJumpTime;
-    private float currentTimeAlive = 0;
+    private PlayerJump playerJump;
+    private JumpIndicatorDataPlayerJump jumpIndicatorDataJump;
+    private JumpIndicatorDataPlayerMovement jumpIndicatorDataMove;
+    private float linePoints = 1f;
+    private float currentTimeAlive;
 
-    public void Initialize(PlayerMovement pPlayerMovement, float pDistToBottomOfSprite, float pTerminalRunningSpeed, float pJumpForceContinous, int pLinePoints, float pGravityFallModifier, float pJumpForceInitial, float pGravity, float pMaxJumpTime)
+    public void Initialize(PlayerMovement pPlayerMovement, PlayerJump pPlayerJump)
     {
         playerMovement = pPlayerMovement;
-        distToBottomOfSprite = pDistToBottomOfSprite;
-        terminalRunningSpeed = pTerminalRunningSpeed;
-        jumpForceContinous = pJumpForceContinous;
-        linePoints = pLinePoints;
-        gravityFallModifier = pGravityFallModifier;
-        jumpForceInitial = pJumpForceInitial;
-        gravity = pGravity;
-        maxJumpTime = pMaxJumpTime;
+        playerJump = pPlayerJump;
+
+        jumpIndicatorDataJump = playerJump.GetJumpIndicatorData();
+        jumpIndicatorDataMove = playerMovement.GetJumpIndicatorData();
 
         Draw();
     }
 
     private void Awake()
     {
-        lineRendererMax = GetComponentsInChildren<LineRenderer>()[0];
-        lineRendererMin = GetComponentsInChildren<LineRenderer>()[1];
-        if (lineRendererMax == null || lineRendererMin == null)
+        lineRendererGreen = GetComponentsInChildren<LineRenderer>()[0];
+        lineRendererGreen.startColor = Color.green;
+        lineRendererGreen.endColor = Color.green;
+        lineRendererRed = GetComponentsInChildren<LineRenderer>()[1];
+        lineRendererRed.startColor = Color.red;
+        lineRendererRed.endColor = Color.red;
+        if (lineRendererGreen == null || lineRendererRed == null)
         {
             throw new System.Exception("There is a missing LineRenderer component.");
         }
@@ -49,7 +53,7 @@ public class JumpRangeIndicator : MonoBehaviour
         {
             DestroyAfterTime();
         }
-        else
+        else if(lineRendererGreen != null && lineRendererRed != null)
         {
             Draw();
         }
@@ -57,144 +61,80 @@ public class JumpRangeIndicator : MonoBehaviour
 
     private void Draw()
     {
-        DrawTrajectory(lineRendererMax, true, true, true, true);
-        DrawTrajectory(lineRendererMin, false, false, true, true);
+        DrawTrajectoryAlt(lineRendererGreen, maxRunningSpeedGreenCurve, maxJumpDistanceGreenCurve, maxForwardInAirGreenCurve, useActualDirectionGreenCurve);
+        DrawTrajectoryAlt(lineRendererRed, maxRunningSpeedRedCurve, maxJumpDistanceRedCurve, maxForwardInAirRedCurve, useActualDirectionRedCurve);
     }
 
-    private void DrawTrajectory(LineRenderer pLineRenderer, bool pMaxRunningSpeed, bool pMaxJump, bool pMaxForwardInAir, bool pUseActualDirection)
+    private void DrawTrajectoryAlt(LineRenderer pLineRenderer, bool pMaxRunningSpeed, bool pMaxJump, bool pMaxForwardInAir, bool pUseActualDirection)
     {
-        Vector2 moveDirection = pUseActualDirection && playerMovement.moveVector != new Vector2(0, 0) ? playerMovement.moveVector : new Vector2(0, -1);
+        if (pLineRenderer == null || playerJump == null || playerMovement == null)
+            return;
+
+        jumpIndicatorDataMove = playerMovement.GetJumpIndicatorData();
+        jumpIndicatorDataJump = playerJump.GetJumpIndicatorData();
 
         pLineRenderer.enabled = true;
-        pLineRenderer.positionCount = Mathf.CeilToInt(linePoints / Time.fixedDeltaTime) + 1;
+        pLineRenderer.positionCount = Mathf.CeilToInt(linePoints / Time.fixedDeltaTime) + 2; //Debug.Log("pLineRenderer.positionCount: " + pLineRenderer.positionCount);
 
-        Vector3 startPosition = new Vector3(transform.position.x, transform.position.y - (alwaysRender ? distToBottomOfSprite : 0), transform.position.z);
+        Vector3 position = new Vector3(transform.position.x, transform.position.y - (alwaysRender ? jumpIndicatorDataJump.distToBottomOfSprite : 0), transform.position.z);
 
-        Vector3 startJumpVelocity = new Vector3(0, jumpForceInitial, 0); //Debug.Log("startJumpVelocity: "+ startJumpVelocity);
+        Vector3 startJumpVelocity = new Vector3(0, jumpIndicatorDataJump.jumpForceInitial, 0); //Debug.Log("startJumpVelocity: " + startJumpVelocity);
 
-        Vector2 startMovement = moveDirection * (pMaxRunningSpeed ? terminalRunningSpeed : 0);
+        Vector2 moveDirection = pUseActualDirection && jumpIndicatorDataMove.moveVector != new Vector2(0, 0) ? jumpIndicatorDataMove.moveVector : new Vector2(0, -1);
+        Vector2 startMovement = moveDirection * (pMaxRunningSpeed ? jumpIndicatorDataJump.terminalRunningSpeed : 0);
         Vector3 terminalRunningVelocity = new Vector3(
             startMovement.x,
             0,
-            startMovement.y); //Debug.Log("terminalRunningVelocity: "+ terminalRunningVelocity);
+            startMovement.y); //Debug.Log("terminalRunningVelocity: " + terminalRunningVelocity);
 
-        Vector3 startVelocity = terminalRunningVelocity + startJumpVelocity; //Debug.Log("startVelocity: " + startVelocity);
+        Vector3 velocity = terminalRunningVelocity + startJumpVelocity; //Debug.Log("startVelocity: " + startVelocity);
+
+        Vector3 gravityAcceleration = new Vector3(
+            0,
+            -jumpIndicatorDataJump.gravity,
+            0); //Debug.Log("-gravity: " + (-gravity));
+
+        Vector3 continousJumpAcceleration = new Vector3(
+            0,
+            jumpIndicatorDataJump.jumpForceContinous,
+            0);
+
+        Vector3 currentMovement = moveDirection * jumpIndicatorDataMove.movementSpeed;
+        Vector3 moveInAirAcceleration = new Vector3(
+            currentMovement.x,
+            0,
+            currentMovement.y); //Debug.Log("moveInAirVelocity: " + moveInAirVelocity);       
 
         int i = 0;
-        float lastYPoint = 0;
-        pLineRenderer.SetPosition(i, startPosition);
-        Vector3 simulatedForce = new Vector3();
+        float lastY = position.y;
+        pLineRenderer.SetPosition(i, position); //Debug.Log("i: " + i + " startPosition: " + startPosition);
         for (float time = 0; time < linePoints; time += Time.fixedDeltaTime)
         {
             i++;
-            Vector3 point = startPosition + time * startVelocity;
-
-            if (time < maxJumpTime && pMaxJump)
+            
+            if(i > 1)
             {
-                simulatedForce = new Vector3(
-                    simulatedForce.x,
-                    simulatedForce.y + jumpForceContinous * Time.fixedDeltaTime,
-                    simulatedForce.z);
+                velocity += gravityAcceleration * (lastY > position.y ? jumpIndicatorDataJump.gravityFallModifier : 1) * Time.fixedDeltaTime
+                + (pMaxForwardInAir ? moveInAirAcceleration * Time.fixedDeltaTime : new Vector3())
+                + (pMaxJump && time < jumpIndicatorDataJump.maxJumpTime ? continousJumpAcceleration * Time.fixedDeltaTime : new Vector3());
+
+                float dragForce = Mathf.Clamp01(1 - jumpIndicatorDataMove.airDrag * Time.fixedDeltaTime);
+                velocity.x *= dragForce;
+                velocity.z *= dragForce;
             }
 
-            float currentGravity = gravity * (point.y < lastYPoint ? gravityFallModifier : 1);
-            simulatedForce = new Vector3(
-                simulatedForce.x,
-                simulatedForce.y - currentGravity * Time.fixedDeltaTime,
-                simulatedForce.z); //Debug.Log("2:" + (-currentGravity * Time.fixedDeltaTime));
+            lastY = position.y;
+            position += velocity * Time.fixedDeltaTime;
 
-            if (pMaxForwardInAir)
-            {
-                Vector3 currentMovement = moveDirection * playerMovement.movementSpeed;
-                simulatedForce = new Vector3(
-                    simulatedForce.x + currentMovement.x * Time.fixedDeltaTime,
-                    simulatedForce.y,
-                    simulatedForce.z + currentMovement.y * Time.fixedDeltaTime);
-            }
-
-            simulatedForce = new Vector3(
-                simulatedForce.x * Mathf.Clamp01(1 - playerMovement.airDrag * Time.fixedDeltaTime),
-                simulatedForce.y,
-                simulatedForce.z * Mathf.Clamp01(1 - playerMovement.airDrag * Time.fixedDeltaTime));
-
-            point = startPosition + startVelocity * time + (simulatedForce / 2f * time * time);
-
-            lastYPoint = point.y;
-            pLineRenderer.SetPosition(i, point);
-        }       
+            pLineRenderer.SetPosition(i, position); //Debug.Log("i: " + i + " point: " + point);
+        }
     }
-
     private void DestroyAfterTime()
     {
         currentTimeAlive += Time.fixedDeltaTime;
-        if (maxTimeToLive <= currentTimeAlive)
+        if (timeToLive <= currentTimeAlive)
         {
             Destroy(gameObject);
         }
     }
-
-
-    /*
-Vector3[] trajectory = Plot(transform.position, 500, true, true, true, true);
-lineRendererMax.positionCount = trajectory.Length;
-
-Vector3[] positions = new Vector3[trajectory.Length];
-for (int i = 0; i < trajectory.Length; i++)
-{
-    positions[i] = trajectory[i];
-}
-
-lineRendererMax.SetPositions(positions);
-private Vector3[] Plot(Vector3 pPosition, int pSteps, bool pMaxRunningSpeed, bool pMaxJump, bool pMaxForwardInAir, bool pUseActualDirection)
-{
-Vector3[] results = new Vector3[pSteps];
-
-Vector3 startJumpVelocity = new Vector3(0, jumpForceInitial, 0); //Debug.Log("startJumpVelocity: "+ startJumpVelocity);
-
-Vector2 startMovement = (pUseActualDirection ? playerMovement.moveVector : new Vector2(0, -1)) * (pMaxRunningSpeed ? terminalRunningSpeed : 0);
-Vector3 terminalRunningVelocity = new Vector3(
-    startMovement.x,
-    0,
-    startMovement.y); //Debug.Log("terminalRunningVelocity: "+ terminalRunningVelocity);
-
-Vector3 startVelocity = terminalRunningVelocity + startJumpVelocity; //Debug.Log("startVelocity: " + startVelocity);
-
-float dragForce = Mathf.Clamp01(1 - playerMovement.airDrag * Time.fixedDeltaTime);
-
-for (int i = 0; i < pSteps; i++)
-{
-    Vector3 continousJumpVelocity = new Vector3();
-    if (pSteps < maxJumpTime && pMaxJump)
-    {
-        continousJumpVelocity = new Vector3(
-            0,
-            jumpForceContinous * Time.fixedDeltaTime,
-            0);
-    }
-
-    float currentGravity = gravity;
-    Vector3 gravityVelocity = new Vector3(
-        0,
-        -currentGravity * Time.fixedDeltaTime,
-        0); //Debug.Log("2:" + (-currentGravity * Time.fixedDeltaTime));
-
-    Vector3 moveInAirVelocity = new Vector3();
-    if (pMaxForwardInAir)
-    {
-        Vector3 currentMovement = (pUseActualDirection ? playerMovement.moveVector : new Vector2(0, -1)) * playerMovement.movementSpeed;
-        moveInAirVelocity = new Vector3(
-            currentMovement.x * Time.fixedDeltaTime,
-            0,
-            currentMovement.y * Time.fixedDeltaTime);
-    }
-
-    Vector3 moveStep = (continousJumpVelocity + gravityVelocity + moveInAirVelocity) * dragForce;
-    pPosition += startVelocity;
-    pPosition += moveStep;
-    results[i] = pPosition;
-}
-
-return results;
-}
-    */
 }

@@ -1,19 +1,36 @@
 using UnityEngine;
 
+public struct JumpIndicatorDataPlayerMovement
+{
+    public float movementSpeed;
+    public float airDrag;
+    public float groundDrag;
+    public Vector2 moveVector;
+
+    public JumpIndicatorDataPlayerMovement(float pMovementSpeed, float pAirDrag, float pGroundDrag, Vector2 pMoveVector)
+    {
+        movementSpeed = pMovementSpeed;
+        airDrag = pAirDrag;
+        groundDrag = pGroundDrag;
+        moveVector = pMoveVector;
+    }
+}
+
 public class PlayerMovement : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
-    [SerializeField] public float movementSpeed = 135f;
-    [SerializeField] public float groundDrag = 8f;
-    [SerializeField] public float airDrag = 6f;
-
-    private Vector3 currentMovement;
+    [SerializeField] private float movementSpeed = 135f;
+    [SerializeField] private float groundDrag = 8f;
+    [SerializeField] private float airDrag = 6f;
 
     private Camera mainCamera;
-    public Vector2 moveVector;
+    private Vector3 currentMovement;
+    private Vector2 moveVector;
 
-    private float t;
-
+    public JumpIndicatorDataPlayerMovement GetJumpIndicatorData()
+    {
+        return new JumpIndicatorDataPlayerMovement(movementSpeed, airDrag, groundDrag, moveVector);
+    }
 
     new private void Awake()
     {
@@ -41,14 +58,8 @@ public class PlayerMovement : AbstractPlayerAction
             anim.SetBool("isGrounded", IsGrounded());
         }
 
-        //Debug.Log("isGrounded: "+ isGrounded);
-        //if(isGrounded)
         HandleMovement();
-
-
         HandleDrag();
-
-        //Debug.Log("Player Velocity: " + rb.velocity);
     }
 
     private void HandleMovement()
@@ -58,8 +69,9 @@ public class PlayerMovement : AbstractPlayerAction
         rb.velocity = new Vector3(
             rb.velocity.x + currentMovement.x * Time.fixedDeltaTime,
             rb.velocity.y,
-            rb.velocity.z + currentMovement.y * Time.fixedDeltaTime);
+            rb.velocity.z + currentMovement.y * Time.fixedDeltaTime); //Debug.Log("currentMovement: " + currentMovement);
     }
+
     private void HandleDrag()
     {
         rb.velocity = new Vector3(
@@ -82,16 +94,13 @@ public class PlayerMovement : AbstractPlayerAction
 
         //Create move vector relative to camera rotation
         Vector3 desiredMoveDirection = right * pMoveVector.x + forward * pMoveVector.y;
-        moveVector = new Vector2(desiredMoveDirection.x, desiredMoveDirection.z);
-        
-        //Debug.Log("START MOVEMENT: " + moveVector);
+        moveVector = new Vector2(desiredMoveDirection.x, desiredMoveDirection.z); //Debug.Log("START MOVEMENT: " + moveVector);
     }
 
     private void OnMovementCancelled()
     {
         anim.SetFloat("MovementBlend", 0f);
 
-        moveVector = Vector2.zero;
-        //Debug.Log("STOP MOVEMENT");
+        moveVector = Vector2.zero; //Debug.Log("STOP MOVEMENT");
     }
 }

@@ -53,7 +53,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,17 +97,17 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.005535841, g: 1, b: 0, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 0.005535841, g: 1, b: 0, a: 1}
+      key2: {r: 0.005535841, g: 1, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
+      ctime0: 65535
       ctime1: 65535
-      ctime2: 0
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -115,7 +115,7 @@ LineRenderer:
       ctime7: 0
       atime0: 0
       atime1: 65535
-      atime2: 0
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -182,7 +182,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c94f94fdf5046541810a85bea6ad2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimeToLive: 5
+  maxTimeToLive: 3
+  alwaysRender: 0
+  maxRunningSpeedGreenCurve: 1
+  maxJumpDistanceGreenCurve: 1
+  maxForwardInAirGreenCurve: 1
+  useActualDirectionGreenCurve: 1
+  maxRunningSpeedRedCurve: 1
+  maxJumpDistanceRedCurve: 0
+  maxForwardInAirRedCurve: 1
+  useActualDirectionRedCurve: 1
 --- !u!120 &-9048773804368701465
 LineRenderer:
   serializedVersion: 2
@@ -204,7 +213,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -248,18 +257,18 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 0.048710406, b: 0.048710406, a: 1}
+      key2: {r: 1, g: 0.048710406, b: 0.048710406, a: 0}
+      key3: {r: 1, g: 0.048710406, b: 0.048710406, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
+      ctime0: 65535
       ctime1: 65535
-      ctime2: 0
-      ctime3: 0
+      ctime2: 55898
+      ctime3: 55898
       ctime4: 0
       ctime5: 0
       ctime6: 0
