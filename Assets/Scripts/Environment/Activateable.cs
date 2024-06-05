@@ -7,7 +7,7 @@ public class Activateable : MonoBehaviour
     protected ParticleSystem particles;
     protected SoundEffectType soundEffectType;
     protected string soundIdentifier;
-    bool testing = false;
+
     public void Activate()
     {
         if(activated == false)
@@ -21,10 +21,10 @@ public class Activateable : MonoBehaviour
 
     public void DeActivate()
     {
-        if (testing == false)
+        if (activated == true)
         {
             EventBus<StopLoopingSoundEffect>.Publish(new StopLoopingSoundEffect(soundIdentifier));
-            testing = true;
+            activated = false;
             particles.Stop();
         }
     }

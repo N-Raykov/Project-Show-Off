@@ -34,11 +34,6 @@ public class FanHover : Activateable
         if (rb != null && activated) {
             rb.velocity += gameObject.transform.up * power;
         }
-
-        if (activated == false)
-        {
-            DeActivate();
-        }
     }
 
     private void Start()

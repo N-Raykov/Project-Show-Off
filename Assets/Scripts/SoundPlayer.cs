@@ -15,10 +15,20 @@ public enum SoundEffectType
 
 public class SoundPlayer : MonoBehaviour
 {
+    [Header("SoundEffects")]
     [SerializedDictionary("SoundEffectEnum", "AudioSource")]
     [SerializeField] private SerializedDictionary<SoundEffectType, AudioSource> soundEffects;
-
     private Dictionary<string, AudioSource> activeAudioSources = new Dictionary<string, AudioSource>();
+
+
+    [Header("Music")]
+    [SerializeField] private AudioSource introMusicPart;
+    [RangeFromAudioClip("introMusicPart")]
+    [SerializeField] private float introMusicLength;
+
+    [Space(20)]
+
+    [SerializeField] private AudioSource loopingMusicPart;
 
     private void OnEnable()
     {
@@ -32,6 +42,11 @@ public class SoundPlayer : MonoBehaviour
         EventBus<SoundEffectPlayed>.OnEvent -= OnSoundPlayed;
         EventBus<SoundEffectVolumeChanged>.OnEvent -= OnSoundEffectVolumeChanged;
         EventBus<StopLoopingSoundEffect>.OnEvent -= OnStopSoundEffect;
+    }
+
+    private void Start()
+    {
+        PlayIntroMusic();
     }
 
     private void OnSoundPlayed(SoundEffectPlayed pSoundEffectPlayed)
@@ -92,6 +107,26 @@ public class SoundPlayer : MonoBehaviour
             StartCoroutine(FadeOutLoopingSound(audioSource));
             activeAudioSources.Remove(identifier);
         }
+    }
+
+    private void PlayIntroMusic()
+    {
+        if (introMusicPart != null && loopingMusicPart != null)
+        {
+            introMusicPart.Play();
+            Invoke("PlayLoopingMusic", introMusicLength);
+        }
+        else
+        {
+            Debug.LogWarning("Intro or Looping Music AudioSource is not assigned.");
+        }
+    }
+
+    private void PlayLoopingMusic()
+    {
+        introMusicPart.Stop();
+        loopingMusicPart.loop = true;
+        loopingMusicPart.Play();
     }
 
     private IEnumerator FadeOutLoopingSound(AudioSource audioSource)
