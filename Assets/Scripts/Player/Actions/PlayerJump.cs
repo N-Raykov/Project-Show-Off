@@ -64,10 +64,15 @@ public class PlayerJump : AbstractPlayerAction
 
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y + jumpForceInitial, rb.velocity.z);
 
-        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.PlayerJump));
+        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.PlayerJump, transform.position));
 
         //Debug.Log("START JUMP: " + jumpForce);
         jumpingParticles.Play();
+
+        if (anim != null)
+        {
+            anim.SetFloat("JumpingBlend", 0);
+        }
     }
 
     private void OnJumpCancelled()
@@ -96,9 +101,9 @@ public class PlayerJump : AbstractPlayerAction
 
     private void HandleGravity()
     {
-        if (anim != null)
+        if (anim != null && rb.velocity.y <= 0)
         {
-            anim.SetFloat("JumpingBlend", (rb.velocity.y <= 0 ? 1 : 0));
+            anim.SetFloat("JumpingBlend", 1);
         }
 
         float currentGravity = gravity * Time.fixedDeltaTime * (rb.velocity.y <= 0 ? gravityFallModifier : 1);

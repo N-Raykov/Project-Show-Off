@@ -35,7 +35,7 @@ public class PlayerAbility : AbstractPlayerAction
             abilityParticles.Play();
             Instantiate(shockwave, transform.position, transform.rotation, transform.parent);
             timeSinceLastAbility = 0;
-            EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Ability));
+            EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Ability, transform.position));
             UIManager.instance.AbilityUsed(abilityCD);
             //Debug.Log("pog"); 
         }
