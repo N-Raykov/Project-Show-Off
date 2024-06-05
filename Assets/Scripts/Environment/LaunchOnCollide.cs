@@ -10,6 +10,7 @@ public class LaunchOnCollide : MonoBehaviour
     
     if (other.gameObject.tag == "Player") {
         other.rigidbody.velocity = transform.up * launchPower;
+        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Trampoline, transform.position));
     }
    }
  }
