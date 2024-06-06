@@ -14815,7 +14815,6 @@ GameObject:
   - component: {fileID: 6903741648982740790}
   - component: {fileID: 924594275179675650}
   - component: {fileID: 1313562640987999501}
-  - component: {fileID: 524320312004892449}
   - component: {fileID: 811009520216355236}
   - component: {fileID: 4545507870021975533}
   m_Layer: 3
@@ -14950,20 +14949,6 @@ MonoBehaviour:
   abilityParticles: {fileID: 6111262107858620983}
   shockwave: {fileID: 2901955225683187397, guid: 8d0f38f9053453948b2f329d5168259a, type: 3}
   abilityCD: 5
---- !u!114 &524320312004892449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5101494387274378644}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974de097b4ee02546a7ca1012110803a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  respawnHeight: 13.1
-  respawnPointInterval: 0.5
 --- !u!114 &811009520216355236
 MonoBehaviour:
   m_ObjectHideFlags: 0
