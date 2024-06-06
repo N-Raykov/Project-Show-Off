@@ -1,16 +1,39 @@
 using UnityEngine;
 
+public struct JumpIndicatorDataPlayerMovement
+{
+    public float movementSpeed;
+    public float airDrag;
+    public float groundDrag;
+    public Vector2 moveVector;
+
+    public JumpIndicatorDataPlayerMovement(float pMovementSpeed, float pAirDrag, float pGroundDrag, Vector2 pMoveVector)
+    {
+        movementSpeed = pMovementSpeed;
+        airDrag = pAirDrag;
+        groundDrag = pGroundDrag;
+        moveVector = pMoveVector;
+    }
+}
+
 public class PlayerMovement : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
     [SerializeField] private ParticleSystem particleEffect;
     [SerializeField] private float movementSpeed = 100f;
     [SerializeField] private float groundDrag = 0.1f;
+    [SerializeField] private float airDrag = 6f;
 
     private Camera mainCamera;
+    private Vector3 currentMovement;
     private Vector2 moveVector;
 
     private bool _isEmittingParticles;
+
+    public JumpIndicatorDataPlayerMovement GetJumpIndicatorData()
+    {
+        return new JumpIndicatorDataPlayerMovement(movementSpeed, airDrag, groundDrag, moveVector);
+    }
 
     new private void Awake()
     {
@@ -39,21 +62,17 @@ public class PlayerMovement : AbstractPlayerAction
         }
 
         HandleMovement();
-
-        if (isGrounded)
-        {
-            HandleGroundDrag();
-        }
+        HandleDrag();
     }
 
     private void HandleMovement()
     {
-        Vector3 currentMovement = moveVector * movementSpeed * Time.fixedDeltaTime;
+        currentMovement = moveVector * movementSpeed;
 
         rb.velocity = new Vector3(
-            rb.velocity.x + currentMovement.x,
+            rb.velocity.x + currentMovement.x * Time.fixedDeltaTime,
             rb.velocity.y,
-            rb.velocity.z + currentMovement.y);
+            rb.velocity.z + currentMovement.y * Time.fixedDeltaTime);
 
         if (isGrounded && currentMovement.magnitude > 0 && _isEmittingParticles == false)
         {
@@ -67,12 +86,12 @@ public class PlayerMovement : AbstractPlayerAction
         }
     }
 
-    private void HandleGroundDrag()
+    private void HandleDrag()
     {
         rb.velocity = new Vector3(
-            rb.velocity.x * (1 - groundDrag),
+            rb.velocity.x * Mathf.Clamp01(1 - (isGrounded ? groundDrag : airDrag) * Time.fixedDeltaTime),
             rb.velocity.y,
-            rb.velocity.z * (1 - groundDrag));
+            rb.velocity.z * Mathf.Clamp01(1 - (isGrounded ? groundDrag : airDrag) * Time.fixedDeltaTime));
     }
 
     private void OnMovementPerformed(Vector2 pMoveVector)
@@ -89,16 +108,13 @@ public class PlayerMovement : AbstractPlayerAction
 
         //Create move vector relative to camera rotation
         Vector3 desiredMoveDirection = right * pMoveVector.x + forward * pMoveVector.y;
-        moveVector = new Vector2(desiredMoveDirection.x, desiredMoveDirection.z);
-
-        //Debug.Log("START MOVEMENT: " + moveVector.ToString());
+        moveVector = new Vector2(desiredMoveDirection.x, desiredMoveDirection.z); //Debug.Log("START MOVEMENT: " + moveVector);
     }
 
     private void OnMovementCancelled()
     {
         anim.SetFloat("MovementBlend", 0f);
 
-        moveVector = Vector2.zero;
-        //Debug.Log("STOP MOVEMENT");
+        moveVector = Vector2.zero; //Debug.Log("STOP MOVEMENT");
     }
 }

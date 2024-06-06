@@ -1,5 +1,27 @@
 using UnityEngine;
 
+public struct JumpIndicatorDataPlayerJump
+{
+    public float distToBottomOfSprite;
+    public float terminalRunningSpeed;
+    public float jumpForceContinous;
+    public float jumpForceInitial;
+    public float gravity;
+    public float gravityFallModifier;
+    public float maxJumpTime;
+
+    public JumpIndicatorDataPlayerJump(float pDistToBottomOfSprite, float pTerminalRunningSpeed, float pJumpForceContinous, float pJumpForceInitial, float pGravity, float pGravityFallModifier, float pMaxJumpTime)
+    {
+        distToBottomOfSprite = pDistToBottomOfSprite;
+        terminalRunningSpeed = pTerminalRunningSpeed;
+        jumpForceContinous = pJumpForceContinous;
+        jumpForceInitial = pJumpForceInitial;
+        gravity = pGravity;
+        gravityFallModifier = pGravityFallModifier;
+        maxJumpTime = pMaxJumpTime;
+    }
+}
+
 public class PlayerJump : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
@@ -8,12 +30,18 @@ public class PlayerJump : AbstractPlayerAction
     [SerializeField] private float jumpForceInitial = 10f;
     [SerializeField] private float jumpForceContinous = 1f;
     [SerializeField] private float maxJumpTime = 0.3f;
-    [SerializeField] private float gravity = 40f;
-    [SerializeField] private float gravityFallModifier = 4f;
-    [SerializeField] private float airDrag = 0.03f;
+    [SerializeField] private float gravity = 80f;
+    [SerializeField] private float gravityFallModifier = 1f;
+    [SerializeField] GameObject rangeIndicatorPrefab;
 
+    private PlayerMovement playerMovement;
     private bool isJumping;
-    private float jumpTime;
+    private float jumpTime = 0;
+
+    public JumpIndicatorDataPlayerJump GetJumpIndicatorData()
+    {
+        return new JumpIndicatorDataPlayerJump(distToBottomOfSprite, CalculateTerminalRunningSpeed(), jumpForceContinous, jumpForceInitial, gravity, gravityFallModifier, maxJumpTime);
+    }
 
     private bool _isGrounded;
 
@@ -21,7 +49,6 @@ public class PlayerJump : AbstractPlayerAction
     {
         reader.jumpEventPerformed += OnJumpPerformed;
         reader.jumpEventCancelled += OnJumpCancelled;
-
     }
 
     private void OnDisable()
@@ -30,16 +57,41 @@ public class PlayerJump : AbstractPlayerAction
         reader.jumpEventCancelled -= OnJumpCancelled;
     }
 
+    new private void Awake()
+    {
+        base.Awake();
+
+        playerMovement = GetComponent<PlayerMovement>();
+        if (playerMovement == null)
+        {
+            throw new System.Exception("There is a missing PlayerMovement component.");
+        }
+
+        JumpRangeIndicator jumpRangeIndicator = GetComponentInChildren<JumpRangeIndicator>();
+        if (jumpRangeIndicator != null)
+        {
+            jumpRangeIndicator.Initialize(playerMovement, this);
+        }
+    }
+
+    private float CalculateTerminalRunningSpeed()
+    {
+        JumpIndicatorDataPlayerMovement jumpIndicatorDataPlayerMovement = playerMovement.GetJumpIndicatorData();
+        float terminalRunningSpeed = ((jumpIndicatorDataPlayerMovement.movementSpeed / jumpIndicatorDataPlayerMovement.groundDrag) - Time.fixedDeltaTime * jumpIndicatorDataPlayerMovement.movementSpeed) / rb.mass; //Debug.Log("terminalRunningSpeed: " + terminalRunningSpeed);
+        return terminalRunningSpeed;
+    }
+
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
         OnPlayerGrounded = isGrounded;
 
         HandleJumping();
-        HandleGravity();
 
-        if(!isGrounded)
-            HandleAirDrag();
+        if (!isGrounded)
+        {
+            HandleGravity();
+        }
     }
 
     private bool OnPlayerGrounded
@@ -62,10 +114,14 @@ public class PlayerJump : AbstractPlayerAction
 
         isJumping = true;
 
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y + jumpForceInitial, rb.velocity.z);
+        rb.velocity = new Vector3(
+            rb.velocity.x,
+            rb.velocity.y + jumpForceInitial,
+            rb.velocity.z); //Debug.Log("Velocity at jump start: " + rb.velocity);
 
         EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.PlayerJump, transform.position));
 
+        InitializeRangeIndicatorPrefab();        
         //Debug.Log("START JUMP: " + jumpForce);
         jumpingParticles.Play();
 
@@ -77,9 +133,7 @@ public class PlayerJump : AbstractPlayerAction
 
     private void OnJumpCancelled()
     {
-        isJumping = false;
-
-        //Debug.Log("STOP JUMP");
+        isJumping = false; //Debug.Log("STOP JUMP");
     }
 
     private void HandleJumping()
@@ -95,8 +149,8 @@ public class PlayerJump : AbstractPlayerAction
 
         rb.velocity = new Vector3(
             rb.velocity.x,
-            rb.velocity.y + jumpForceContinous,
-            rb.velocity.z);
+            rb.velocity.y + jumpForceContinous * Time.fixedDeltaTime,
+            rb.velocity.z);        
     }
 
     private void HandleGravity()
@@ -106,18 +160,25 @@ public class PlayerJump : AbstractPlayerAction
             anim.SetFloat("JumpingBlend", 1);
         }
 
-        float currentGravity = gravity * Time.fixedDeltaTime * (rb.velocity.y <= 0 ? gravityFallModifier : 1);
+        float currentGravity = gravity * (rb.velocity.y < 0 ? gravityFallModifier : 1);
         rb.velocity = new Vector3(
             rb.velocity.x,
-            rb.velocity.y - currentGravity,
-            rb.velocity.z);
+            rb.velocity.y - currentGravity * Time.fixedDeltaTime,
+            rb.velocity.z); //Debug.Log("1:" + (-currentGravity * Time.fixedDeltaTime)); //Debug.Log("-currentGravity: " + (-currentGravity));
+
     }
 
-    private void HandleAirDrag()
+    private void InitializeRangeIndicatorPrefab()
     {
-        rb.velocity = new Vector3(
-            rb.velocity.x * (1 - airDrag),
-            rb.velocity.y,
-            rb.velocity.z * (1 - airDrag));
+        if (rangeIndicatorPrefab == null)
+            return;
+
+        GameObject prefab = Instantiate(rangeIndicatorPrefab);
+        prefab.transform.position = new Vector3(transform.position.x, transform.position.y - distToBottomOfSprite, transform.position.z);
+        JumpRangeIndicator jumpRangeIndicator = prefab.GetComponent<JumpRangeIndicator>();
+        if (jumpRangeIndicator != null)
+        {
+            jumpRangeIndicator.Initialize(playerMovement, this);
+        }
     }
 }
