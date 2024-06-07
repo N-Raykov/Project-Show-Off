@@ -25,8 +25,6 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     public void AbilityUsed(float abilityCD)
