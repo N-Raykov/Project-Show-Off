@@ -10,9 +10,10 @@ public class Checkpoint : MonoBehaviour
         CreateChildGameObject();
     }
 
-    private void Update()
+    private void OnDrawGizmos()
     {
-        Debug.DrawLine(transform.position, respawnPoint.transform.position, Color.red);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, respawnPoint.transform.position);
     }
 
     private void CreateChildGameObject()
