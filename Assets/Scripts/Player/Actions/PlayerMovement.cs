@@ -19,6 +19,7 @@ public struct JumpIndicatorDataPlayerMovement
 public class PlayerMovement : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
+    [SerializeField] private ParticleSystem particleEffect;
     [SerializeField] private float movementSpeed = 135f;
     [SerializeField] private float groundDrag = 8f;
     [SerializeField] private float airDrag = 6f;
@@ -26,6 +27,8 @@ public class PlayerMovement : AbstractPlayerAction
     private Camera mainCamera;
     private Vector3 currentMovement;
     private Vector2 moveVector;
+
+    private bool _isEmittingParticles;
 
     public JumpIndicatorDataPlayerMovement GetJumpIndicatorData()
     {
@@ -70,6 +73,17 @@ public class PlayerMovement : AbstractPlayerAction
             rb.velocity.x + currentMovement.x * Time.fixedDeltaTime,
             rb.velocity.y,
             rb.velocity.z + currentMovement.y * Time.fixedDeltaTime); //Debug.Log("currentMovement: " + currentMovement);
+
+        if (isGrounded && currentMovement.magnitude > 0 && _isEmittingParticles == false)
+        {
+            particleEffect.Play();
+            _isEmittingParticles = true;
+        }
+        else if (isGrounded == false && _isEmittingParticles == true || currentMovement.magnitude == 0 && _isEmittingParticles == true)
+        {
+            particleEffect.Stop();
+            _isEmittingParticles = false;
+        }
     }
 
     private void HandleDrag()

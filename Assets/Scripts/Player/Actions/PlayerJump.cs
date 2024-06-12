@@ -27,6 +27,8 @@ public class PlayerJump : AbstractPlayerAction
     [SerializeField] private PlayerInputReader reader;
     [SerializeField] private float jumpForceInitial = 16f;
     [SerializeField] private float jumpForceContinous = 50f;
+    [SerializeField] private ParticleSystem jumpingParticles;
+    [SerializeField] private ParticleSystem landingParticles;
     [SerializeField] private float maxJumpTime = 0.3f;
     [SerializeField] private float gravity = 80f;
     [SerializeField] private float gravityFallModifier = 1f;
@@ -35,6 +37,8 @@ public class PlayerJump : AbstractPlayerAction
     private PlayerMovement playerMovement;
     private bool isJumping;
     private float jumpTime = 0;
+
+    private bool _isGrounded;
 
     public JumpIndicatorDataPlayerJump GetJumpIndicatorData()
     {
@@ -80,11 +84,26 @@ public class PlayerJump : AbstractPlayerAction
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
+        OnPlayerGrounded = isGrounded;
+
         HandleJumping();
 
         if (!isGrounded)
         {
             HandleGravity();
+        }
+    }
+
+    private bool OnPlayerGrounded
+    {
+        set
+        {
+            if(_isGrounded == false && value == true)
+            {
+                //When player lands, do stuff here
+                landingParticles.Play();
+            }
+            _isGrounded = value;
         }
     }
 
@@ -100,9 +119,16 @@ public class PlayerJump : AbstractPlayerAction
             rb.velocity.y + jumpForceInitial,
             rb.velocity.z); //Debug.Log("Velocity at jump start: " + rb.velocity);
 
-        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.PlayerJump));
+        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.PlayerJump, transform.position));
 
         InitializeRangeIndicatorPrefab();        
+        //Debug.Log("START JUMP: " + jumpForce);
+        jumpingParticles.Play();
+
+        if (anim != null)
+        {
+            anim.SetFloat("JumpingBlend", 0);
+        }
     }
 
     private void OnJumpCancelled()
@@ -129,9 +155,9 @@ public class PlayerJump : AbstractPlayerAction
 
     private void HandleGravity()
     {
-        if (anim != null)
+        if (anim != null && rb.velocity.y <= 0)
         {
-            anim.SetFloat("JumpingBlend", rb.velocity.y <= 0 ? 1 : 0);
+            anim.SetFloat("JumpingBlend", 1);
         }
 
         float currentGravity = gravity * (rb.velocity.y < 0 ? gravityFallModifier : 1);

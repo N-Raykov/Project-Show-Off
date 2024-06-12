@@ -10,7 +10,7 @@ public class Interactable : Prompt
     {
         if (other.CompareTag("Player"))
         {
-            interactionPrompt = Instantiate(prompt, transform.position + Vector3.up * 8f, Quaternion.identity);
+            interactionPrompt = Instantiate(prompt, transform.position + Vector3.up * 6f, Quaternion.identity);
             UIManager.instance.ChangeTMProText(interactionPrompt, message, actionType);
         }
     }
@@ -27,7 +27,7 @@ public class Interactable : Prompt
     {
         if (interactionPrompt != null)
         {
-            interactionPrompt.transform.position = transform.position + Vector3.up * 8f;
+            interactionPrompt.transform.position = transform.position + Vector3.up * 6f;
 
             interactionPrompt.transform.rotation = Camera.main.transform.rotation;
         }

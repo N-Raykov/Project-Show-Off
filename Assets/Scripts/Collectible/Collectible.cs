@@ -68,7 +68,7 @@ public class Collectible : MonoBehaviour
         col.enabled = false;
         collectionInProgress = true;
         transform.parent = mainCamera.transform;
-        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Collectible));
+        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Collectible, transform.position));
     }
 
     private void CollectionFinished()
