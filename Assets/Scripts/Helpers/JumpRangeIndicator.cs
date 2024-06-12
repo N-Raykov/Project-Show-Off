@@ -61,11 +61,11 @@ public class JumpRangeIndicator : MonoBehaviour
 
     private void Draw()
     {
-        DrawTrajectoryAlt(lineRendererGreen, maxRunningSpeedGreenCurve, maxJumpDistanceGreenCurve, maxForwardInAirGreenCurve, useActualDirectionGreenCurve);
-        DrawTrajectoryAlt(lineRendererRed, maxRunningSpeedRedCurve, maxJumpDistanceRedCurve, maxForwardInAirRedCurve, useActualDirectionRedCurve);
+        DrawTrajectory(lineRendererGreen, maxRunningSpeedGreenCurve, maxJumpDistanceGreenCurve, maxForwardInAirGreenCurve, useActualDirectionGreenCurve);
+        DrawTrajectory(lineRendererRed, maxRunningSpeedRedCurve, maxJumpDistanceRedCurve, maxForwardInAirRedCurve, useActualDirectionRedCurve);
     }
 
-    private void DrawTrajectoryAlt(LineRenderer pLineRenderer, bool pMaxRunningSpeed, bool pMaxJump, bool pMaxForwardInAir, bool pUseActualDirection)
+    private void DrawTrajectory(LineRenderer pLineRenderer, bool pMaxRunningSpeed, bool pMaxJump, bool pMaxForwardInAir, bool pUseActualDirection)
     {
         if (pLineRenderer == null || playerJump == null || playerMovement == null)
             return;
