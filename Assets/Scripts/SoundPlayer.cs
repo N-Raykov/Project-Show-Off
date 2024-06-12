@@ -10,7 +10,8 @@ public enum SoundEffectType
     Interact,
     Ability,
     Wind,
-    Collectible
+    Collectible,
+    Trampoline
 }
 
 public class SoundPlayer : MonoBehaviour
