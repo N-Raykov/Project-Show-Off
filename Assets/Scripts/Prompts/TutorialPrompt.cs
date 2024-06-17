@@ -1,15 +1,16 @@
 using System;
 using System.Reflection;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialPrompt : Prompt
 {
-    private string eventName;
     private EventInfo eventInfo;
     private Delegate eventHandler;
-    private SetTextToTextBox setTextToTextBox;
+    private string eventName;
+
+    private string playerTag = "Player";
+    private string eventPerformed = "EventPerformed";
+    private string performInteraction = "PerformInteraction";
 
     protected override void OnEnable()
     {
@@ -23,12 +24,12 @@ public class TutorialPrompt : Prompt
 
     private void SubscribeToEvent()
     {
-        eventName = actionType.ToString() + "EventPerformed";
+        eventName = actionType.ToString() + eventPerformed;
         eventInfo = typeof(PlayerInputReader).GetEvent(eventName, BindingFlags.Public | BindingFlags.Instance);
 
         if (eventInfo != null)
         {
-            MethodInfo methodInfo = GetType().GetMethod("PerformInteraction", BindingFlags.NonPublic | BindingFlags.Instance);
+            MethodInfo methodInfo = GetType().GetMethod(performInteraction, BindingFlags.NonPublic | BindingFlags.Instance);
             eventHandler = Delegate.CreateDelegate(eventInfo.EventHandlerType, this, methodInfo);
             eventInfo.AddEventHandler(reader, eventHandler);
         }
@@ -42,7 +43,7 @@ public class TutorialPrompt : Prompt
     {
         if (eventHandler == null) return;
 
-        eventName = actionType.ToString() + "EventPerformed";
+        eventName = actionType.ToString() + eventPerformed;
         eventInfo = typeof(PlayerInputReader).GetEvent(eventName, BindingFlags.Public | BindingFlags.Instance);
 
         if (eventInfo != null)
@@ -59,7 +60,7 @@ public class TutorialPrompt : Prompt
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && prompt != null)
+        if (other.CompareTag(playerTag) && prompt != null)
         {
             prompt.SetActive(true);
             setTextToTextBox = prompt.GetComponentInChildren<SetTextToTextBox>();
@@ -70,7 +71,7 @@ public class TutorialPrompt : Prompt
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && prompt != null)
+        if (other.CompareTag(playerTag) && prompt != null)
         {
             prompt.SetActive(false);
         }

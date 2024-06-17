@@ -7,40 +7,12 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
 {
     public Action<Vector2> moveEventPerformed;
     public Action moveEventCancelled;
-    public event Action jumpEventPerformed;
     public Action jumpEventCancelled;
+    public event Action jumpEventPerformed;
     public event Action interactEventPerformed;
     public event Action abilityEventPerformed;
 
     private CustomPlayerInput input;
-
-    private void OnEnable()
-    {
-        if (input == null)
-        {
-            input = new CustomPlayerInput();
-            input.Player.SetCallbacks(this);
-        }
-
-        input.Player.Enable();
-    }
-
-    private void OnDisable()
-    {
-        if (input != null) input.Player.Disable();
-    }
-
-    public void OnMove(InputAction.CallbackContext pContext)
-    {
-        if (pContext.phase == InputActionPhase.Performed)
-        {
-            moveEventPerformed?.Invoke(pContext.ReadValue<Vector2>());
-        }
-        else if (pContext.phase == InputActionPhase.Canceled)
-        {
-            moveEventCancelled?.Invoke();
-        }
-    }
 
     public void OnJump(InputAction.CallbackContext pContext)
     {
@@ -68,5 +40,33 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         {
             interactEventPerformed?.Invoke();
         }
+    }
+
+    public void OnMove(InputAction.CallbackContext pContext)
+    {
+        if (pContext.phase == InputActionPhase.Performed)
+        {
+            moveEventPerformed?.Invoke(pContext.ReadValue<Vector2>());
+        }
+        else if (pContext.phase == InputActionPhase.Canceled)
+        {
+            moveEventCancelled?.Invoke();
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (input == null)
+        {
+            input = new CustomPlayerInput();
+            input.Player.SetCallbacks(this);
+        }
+
+        input.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        if (input != null) input.Player.Disable();
     }
 }

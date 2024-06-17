@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class Collectible : MonoBehaviour
 {
@@ -14,26 +15,26 @@ public class Collectible : MonoBehaviour
     private Vector3 targetPosition;
     private string playerTag = "Player";
     private bool collectionInProgress;
-    private float standardCameraDistance = 10f; //Standard distance between player and camera
+    private float standardCameraDistance = 10f;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         if (rb == null)
         {
-            throw new System.Exception("There is no Rigidbody component.");
+            throw new Exception("There is no Rigidbody component.");
         }
 
         col = GetComponent<Collider>();
         if (col == null)
         {
-            throw new System.Exception("There is no Collider component.");
+            throw new Exception("There is no Collider component.");
         }
 
         sr = GetComponent<SpriteRenderer>();
         if (sr == null)
         {
-            throw new System.Exception("There is no SpriteRenderer component.");
+            throw new Exception("There is no SpriteRenderer component.");
         }
 
         mainCamera = Camera.main;

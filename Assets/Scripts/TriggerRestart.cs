@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TriggerRestart : MonoBehaviour
 {
+    private string playerTag = "Player";
+
     //I don't like this code but it works for a quick prototype
-    void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Player") {
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == playerTag)
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

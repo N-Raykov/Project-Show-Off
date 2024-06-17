@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
 public class RotateCameraTrigger : MonoBehaviour
 {
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private int priority;
+    [SerializeField] private bool targetState;
 
-    [SerializeField] CinemachineVirtualCamera virtualCamera;
-    [SerializeField] int priority;
-    [SerializeField] bool targetState;
+    private string playerTag = "Player";
 
     void OnTriggerEnter(Collider other) {
         // Debug.Log("Collided with: " + other.gameObject);
-        if (other.gameObject.tag == "Player") {
+        if (other.gameObject.tag == playerTag) {
             virtualCamera.gameObject.SetActive(targetState);
             virtualCamera.m_Priority = priority;
         }

@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,12 +8,24 @@ public class UIManager : MonoBehaviour
 
     public static UIManager instance;
 
+    public void AbilityUsed(float abilityCD)
+    {
+        StartCoroutine(AbilityCDInitiated(abilityCD));
+    }
+
+    public void ChangeTMProText(GameObject textObject, string message, ActionType actionType)
+    {
+        SetTextToTextBox promptText = textObject.GetComponent<SetTextToTextBox>();
+        promptText.actionType = actionType;
+        promptText.message = message;
+    }
+
     private void Awake()
     {
         CreateSingleton();
     }
 
-    void CreateSingleton()
+    private void CreateSingleton()
     {
         if (instance == null)
         {
@@ -27,12 +37,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void AbilityUsed(float abilityCD)
-    {
-        StartCoroutine(AbilityCDInitiated(abilityCD));
-    }
-
-    IEnumerator AbilityCDInitiated(float duration)
+    private IEnumerator AbilityCDInitiated(float duration)
     {
         abilityImage.fillAmount = 0f;
         for (int i = 0; i < 100; i++)
@@ -40,12 +45,5 @@ public class UIManager : MonoBehaviour
             abilityImage.fillAmount += 0.01f;
             yield return new WaitForSeconds(duration / 100);
         }
-    }
-
-    public void ChangeTMProText(GameObject textObject, string message, ActionType actionType)
-    {
-        SetTextToTextBox promptText = textObject.GetComponent<SetTextToTextBox>();
-        promptText.actionType = actionType;
-        promptText.message = message;
     }
 }

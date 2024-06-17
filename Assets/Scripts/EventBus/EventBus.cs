@@ -6,7 +6,6 @@ using System;
 /// For listening: EventBus<CLASS>.OnEvent += METHOD;
 /// Every event gets its own class which contains all variables that need to be passed
 /// </summary>
-/// <typeparam name="T">The event targeted either in subscribing or publishing</typeparam>
 public class EventBus<T> where T : Event
 {
     public static event Action<T> OnEvent;

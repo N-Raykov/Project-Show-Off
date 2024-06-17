@@ -2,17 +2,17 @@ using UnityEngine;
 
 public struct JumpIndicatorDataPlayerMovement
 {
+    public Vector2 moveVector;
     public float movementSpeed;
     public float airDrag;
     public float groundDrag;
-    public Vector2 moveVector;
 
     public JumpIndicatorDataPlayerMovement(float pMovementSpeed, float pAirDrag, float pGroundDrag, Vector2 pMoveVector)
     {
+        moveVector = pMoveVector;
         movementSpeed = pMovementSpeed;
         airDrag = pAirDrag;
         groundDrag = pGroundDrag;
-        moveVector = pMoveVector;
     }
 }
 
@@ -27,8 +27,9 @@ public class PlayerMovement : AbstractPlayerAction
     private Camera mainCamera;
     private Vector3 currentMovement;
     private Vector2 moveVector;
-
     private bool _isEmittingParticles;
+    private string isGroundedParamName = "isGrounded";
+    private string movementBlendParamName = "MovementBlend";
 
     public JumpIndicatorDataPlayerMovement GetJumpIndicatorData()
     {
@@ -58,7 +59,7 @@ public class PlayerMovement : AbstractPlayerAction
         isGrounded = IsGrounded();
         if(anim != null)
         {
-            anim.SetBool("isGrounded", IsGrounded());
+            anim.SetBool(isGroundedParamName, IsGrounded());
         }
 
         HandleMovement();
@@ -96,7 +97,7 @@ public class PlayerMovement : AbstractPlayerAction
 
     private void OnMovementPerformed(Vector2 pMoveVector)
     {
-        anim.SetFloat("MovementBlend", 1f);
+        anim.SetFloat(movementBlendParamName, 1f);
 
         //project forward and right camera vectors on the horizontal plane (y = 0)
         Vector3 right = mainCamera.transform.right;
@@ -113,7 +114,7 @@ public class PlayerMovement : AbstractPlayerAction
 
     private void OnMovementCancelled()
     {
-        anim.SetFloat("MovementBlend", 0f);
+        anim.SetFloat(movementBlendParamName, 0f);
 
         moveVector = Vector2.zero; //Debug.Log("STOP MOVEMENT");
     }

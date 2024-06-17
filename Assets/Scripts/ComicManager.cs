@@ -1,16 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.SceneManagement;
 
 public class ComicManager : MonoBehaviour
 {
     [SerializeField] private PlayerInputReader reader;
-    [SerializeField] private string sceneName;
-    [SerializeField] private GameObject loadingScreenPrefab;
-
-    private LoadingScreenHandler loadingScreenHandler;
 
     private Dictionary<GameObject, List<GameObject>> comicList = new Dictionary<GameObject, List<GameObject>>();
     private int pageCounter = 0;
@@ -70,11 +64,7 @@ public class ComicManager : MonoBehaviour
     {
         if (pageCounter > comicList.Count - 1)
         {
-            // Debug.Log("COMIC OVER");
-            // SceneManager.LoadScene(sceneName);
-            loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
-            loadingScreenHandler.targetScene = sceneName;
-            loadingScreenHandler.ToScene();
+            Debug.Log("COMIC OVER");
             return;
         }
 
@@ -99,7 +89,6 @@ public class ComicManager : MonoBehaviour
                 Animator animator = panelsOfPage[panelInPageCounter - 1].GetComponent<Animator>();
                 if (animator != null)
                 {
-                    //animator.runtimeAnimatorController.animationClips[0].wrapMode = WrapMode.ClampForever;
                     animator.SetBool(doneParameterName, true);
                 }
             }
@@ -107,3 +96,7 @@ public class ComicManager : MonoBehaviour
         }
     }
 }
+
+            loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
+            loadingScreenHandler.targetScene = sceneName;
+            loadingScreenHandler.ToScene();

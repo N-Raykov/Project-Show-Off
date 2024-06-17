@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Activateable : MonoBehaviour
 {
     [SerializeField] protected bool activated = false;
+
     [SerializeField] protected Animator animator;
     [SerializeField] protected SoundEffectType soundEffectType;
     protected ParticleSystem particles;
@@ -11,7 +11,7 @@ public class Activateable : MonoBehaviour
 
     public void Activate()
     {
-        if(activated == false)
+        if(!activated)
         {
             EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(soundEffectType, transform.position, soundIdentifier));
             activated = true;
@@ -23,7 +23,7 @@ public class Activateable : MonoBehaviour
 
     public void DeActivate()
     {
-        if (activated == true)
+        if (activated)
         {
             EventBus<StopLoopingSoundEffect>.Publish(new StopLoopingSoundEffect(soundIdentifier));
             activated = false;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
@@ -7,10 +5,10 @@ public class PlayCutScene : Interactable
 {
     [Space(10)]
 
-    [SerializeField] CinemachineVirtualCamera vCam;
-    [SerializeField] int priority;
-    [SerializeField] Animator animator;
-    [SerializeField] string triggerName;
+    [SerializeField] private CinemachineVirtualCamera vCam;
+    [SerializeField] private Animator animator;
+    [SerializeField] private int priority;
+    [SerializeField] private string triggerName;
 
     private bool debounce = false;
 

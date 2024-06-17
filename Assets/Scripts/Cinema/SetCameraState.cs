@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
 public class SetCameraState : MonoBehaviour
 {
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private int priority;
+    [SerializeField] private bool targetState;
 
-    [SerializeField] CinemachineVirtualCamera virtualCamera;
-    [SerializeField] int priority;
-    [SerializeField] bool targetState;
-
-    void UpdateState()
+    private void UpdateState()
     {
         virtualCamera.gameObject.SetActive(targetState);
         virtualCamera.m_Priority = priority;

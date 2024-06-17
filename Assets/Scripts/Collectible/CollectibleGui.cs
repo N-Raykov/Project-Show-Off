@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using TMPro;
 
 public class CollectibleGui : MonoBehaviour
@@ -30,7 +31,7 @@ public class CollectibleGui : MonoBehaviour
         collectibleTMPro = GetComponent<TextMeshProUGUI>();
         if (collectibleTMPro == null)
         {
-            throw new System.Exception("There is no TextMeshProUGUI component.");
+            throw new Exception("There is no TextMeshProUGUI component.");
         }
         collectibleTMPro.SetText(text + collectibleCount);
 
@@ -39,7 +40,7 @@ public class CollectibleGui : MonoBehaviour
         lerpDifference = targetScale.magnitude - originalScale.magnitude;
     }
 
-    void Update()
+    private void Update()
     {
         if(isLerping)
             LerpScale();
@@ -63,7 +64,6 @@ public class CollectibleGui : MonoBehaviour
         {
             transform.localScale = originalScale;
             isLerping = false;
-            //Debug.Log("STOP LERP");
         }
     }
 
