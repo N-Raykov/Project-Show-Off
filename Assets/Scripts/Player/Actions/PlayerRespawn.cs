@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerRespawn : AbstractPlayerAction
 {
@@ -7,6 +9,8 @@ public class PlayerRespawn : AbstractPlayerAction
     public float respawnHeight = 10f;
 
     [SerializeField] Image panelFade;
+
+    private bool debounce = false;
 
     private void Start()
     {
@@ -19,14 +23,23 @@ public class PlayerRespawn : AbstractPlayerAction
         HandleRespawn();
     }
 
+    IEnumerator FadeTransition() {
+        panelFade.DOFade(1.0f, 0.25f);
+        yield return new WaitForSeconds(0.5f);
+        transform.position = activeRespawnPoint;
+        rb.velocity = new Vector3(0, 0, 0);
+        panelFade.DOFade(0f, 0.25f);
+        debounce = false;
+    }
+
     private void HandleRespawn()
     {
-        if(transform.position.y < respawnHeight)
+        if(transform.position.y < respawnHeight && debounce == false)
         {
-            transform.position = activeRespawnPoint;
-            rb.velocity = new Vector3(0, 0, 0);
-            
-            
+            debounce = true;
+            StartCoroutine(FadeTransition());
         }
     }
+    
+
 }
