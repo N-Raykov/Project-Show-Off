@@ -63,9 +63,7 @@ public class TutorialPrompt : Prompt
         if (other.CompareTag(playerTag) && prompt != null)
         {
             prompt.SetActive(true);
-            setTextToTextBox = prompt.GetComponentInChildren<SetTextToTextBox>();
-
-            UIManager.instance.ChangeTMProText(setTextToTextBox.gameObject, message, actionType);
+            UIManager.instance.ChangeTMProText(prompt, message, actionType);
         }
     }
 

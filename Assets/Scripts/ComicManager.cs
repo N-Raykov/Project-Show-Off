@@ -5,6 +5,8 @@ using System.Linq;
 public class ComicManager : MonoBehaviour
 {
     [SerializeField] private PlayerInputReader reader;
+    [SerializeField] private GameObject loadingScreenPrefab;
+    [SerializeField] private string sceneName;
 
     private Dictionary<GameObject, List<GameObject>> comicList = new Dictionary<GameObject, List<GameObject>>();
     private int pageCounter = 0;
@@ -12,6 +14,8 @@ public class ComicManager : MonoBehaviour
     private string pageTag = "ComicPage";
     private string panelTag = "ComicPanel";
     private string doneParameterName = "isDone";
+
+    private LoadingScreenHandler loadingScreenHandler;
 
     private void OnEnable()
     {
@@ -64,6 +68,9 @@ public class ComicManager : MonoBehaviour
     {
         if (pageCounter > comicList.Count - 1)
         {
+            loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
+            loadingScreenHandler.targetScene = sceneName;
+            loadingScreenHandler.ToScene();
             Debug.Log("COMIC OVER");
             return;
         }
@@ -96,7 +103,3 @@ public class ComicManager : MonoBehaviour
         }
     }
 }
-
-            loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
-            loadingScreenHandler.targetScene = sceneName;
-            loadingScreenHandler.ToScene();

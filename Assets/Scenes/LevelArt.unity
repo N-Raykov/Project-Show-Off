@@ -1408,8 +1408,8 @@ MonoBehaviour:
   actionType: 0
   message: BUTTONPROMPT
   vCam: {fileID: 676199453}
-  priority: 100
   animator: {fileID: 567471922}
+  priority: 100
   triggerName: Activate
 --- !u!1001 &82938947
 PrefabInstance:
@@ -4756,8 +4756,8 @@ MonoBehaviour:
   actionType: 0
   message: BUTTONPROMPT
   vCam: {fileID: 1966581738}
-  priority: 100
   animator: {fileID: 738027796}
+  priority: 100
   triggerName: Activate
 --- !u!135 &271123532
 SphereCollider:
@@ -17314,8 +17314,8 @@ MonoBehaviour:
   actionType: 0
   message: BUTTONPROMPT
   vCam: {fileID: 153734483}
-  priority: 100
   animator: {fileID: 205689169}
+  priority: 100
   triggerName: Activate
 --- !u!135 &817584575
 SphereCollider:
@@ -24344,6 +24344,7 @@ GameObject:
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
   - component: {fileID: 963194232}
+  - component: {fileID: 963194233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -24544,6 +24545,14 @@ MonoBehaviour:
   alpha: 0.5
   fadeDuration: 1
   obstructions: []
+--- !u!81 &963194233
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
 --- !u!4 &976015881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9218974491078605826, guid: 509ff85d9cfe136439bbaea54e8b8cd1, type: 3}
@@ -40049,8 +40058,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966581736}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17499247, y: -0.32054764, z: 0.060382552, w: 0.9289676}
-  m_LocalPosition: {x: -371.9603, y: -23.12177, z: 411.21024}
+  m_LocalRotation: {x: 0.17499262, y: -0.32054803, z: 0.06038268, w: 0.9289674}
+  m_LocalPosition: {x: -371.96027, y: -23.121769, z: 411.21024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
