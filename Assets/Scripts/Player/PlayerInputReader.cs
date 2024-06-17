@@ -11,6 +11,7 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
     public event Action jumpEventPerformed;
     public event Action interactEventPerformed;
     public event Action abilityEventPerformed;
+    public event Action pauseEventPerformed;
 
     private CustomPlayerInput input;
 
@@ -53,6 +54,14 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
             moveEventCancelled?.Invoke();
         }
     }
+
+    public void OnPause(InputAction.CallbackContext pContext) {
+        if (pContext.phase == InputActionPhase.Performed)
+        {
+            pauseEventPerformed?.Invoke();
+        }
+    }
+
 
     private void OnEnable()
     {

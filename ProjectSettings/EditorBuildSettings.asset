@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelArt.unity
     guid: 9b00660eb28b3c048b6bfe3824c99d8f
+  - enabled: 1
+    path: Assets/Scenes/ComicEndScene.unity
+    guid: 9981aa755158ca2429ab4c6a28ae02b4
   m_configObjects: {}

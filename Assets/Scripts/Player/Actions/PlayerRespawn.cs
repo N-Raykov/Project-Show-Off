@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerRespawn : AbstractPlayerAction
 {
     public Vector3 activeRespawnPoint;
     public float respawnHeight = 10f;
+
+    [SerializeField] Image panelFade;
 
     private void Start()
     {
@@ -22,6 +25,8 @@ public class PlayerRespawn : AbstractPlayerAction
         {
             transform.position = activeRespawnPoint;
             rb.velocity = new Vector3(0, 0, 0);
+            
+            
         }
     }
 }

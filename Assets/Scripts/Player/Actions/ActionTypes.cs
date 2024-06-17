@@ -3,5 +3,6 @@ public enum ActionType
 {
     interact,
     ability,
-    jump
+    jump,
+    pause
 }
