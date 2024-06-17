@@ -9,6 +9,7 @@ public class TutorialPrompt : Prompt
     private string eventName;
     private EventInfo eventInfo;
     private Delegate eventHandler;
+    private SetTextToTextBox setTextToTextBox;
 
     protected override void OnEnable()
     {
@@ -61,7 +62,9 @@ public class TutorialPrompt : Prompt
         if (other.CompareTag("Player") && prompt != null)
         {
             prompt.SetActive(true);
-            UIManager.instance.ChangeTMProText(prompt, message, actionType);
+            setTextToTextBox = prompt.GetComponentInChildren<SetTextToTextBox>();
+
+            UIManager.instance.ChangeTMProText(setTextToTextBox.gameObject, message, actionType);
         }
     }
 
@@ -80,6 +83,7 @@ public class TutorialPrompt : Prompt
             // Destroy(prompt);
             prompt.SetActive(false);
             EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Collectible, transform.position));
+            
         }
     }
 }

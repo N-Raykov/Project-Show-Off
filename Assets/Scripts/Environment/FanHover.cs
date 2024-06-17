@@ -38,7 +38,6 @@ public class FanHover : Activateable
 
     private void Start()
     {
-        soundEffectType = SoundEffectType.Wind;
         soundIdentifier = System.Guid.NewGuid().ToString();
         SetState(activated);
         particles = GetComponentInChildren<ParticleSystem>();
@@ -46,6 +45,7 @@ public class FanHover : Activateable
         {
             EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(soundEffectType, transform.position, soundIdentifier));
             particles.Play();
+            animator.SetTrigger("Activated");
         }
     }
 }

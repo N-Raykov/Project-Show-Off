@@ -25,10 +25,10 @@ public struct JumpIndicatorDataPlayerJump
 public class PlayerJump : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
+    [SerializeField] private float jumpForceInitial = 16f;
+    [SerializeField] private float jumpForceContinous = 50f;
     [SerializeField] private ParticleSystem jumpingParticles;
     [SerializeField] private ParticleSystem landingParticles;
-    [SerializeField] private float jumpForceInitial = 10f;
-    [SerializeField] private float jumpForceContinous = 1f;
     [SerializeField] private float maxJumpTime = 0.3f;
     [SerializeField] private float gravity = 80f;
     [SerializeField] private float gravityFallModifier = 1f;
@@ -38,12 +38,12 @@ public class PlayerJump : AbstractPlayerAction
     private bool isJumping;
     private float jumpTime = 0;
 
+    private bool _isGrounded;
+
     public JumpIndicatorDataPlayerJump GetJumpIndicatorData()
     {
         return new JumpIndicatorDataPlayerJump(distToBottomOfSprite, CalculateTerminalRunningSpeed(), jumpForceContinous, jumpForceInitial, gravity, gravityFallModifier, maxJumpTime);
     }
-
-    private bool _isGrounded;
 
     private void OnEnable()
     {

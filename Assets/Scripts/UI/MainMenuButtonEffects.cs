@@ -5,6 +5,9 @@ public class MainMenuButtonEffects : MonoBehaviour
 {
     [SerializeField] private PlayerInputReader reader;
     [SerializeField] private string gameSceneName;
+    [SerializeField] private GameObject loadingScreenPrefab;
+
+    private LoadingScreenHandler loadingScreenHandler;
 
     public void LoadGameScene()
     {
@@ -32,6 +35,9 @@ public class MainMenuButtonEffects : MonoBehaviour
 
     private void OnAnyButtonPressed()
     {
-        SceneManager.LoadScene(gameSceneName);
+        // SceneManager.LoadScene(gameSceneName);
+        loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
+        loadingScreenHandler.targetScene = gameSceneName;
+        loadingScreenHandler.ToScene();
     }
 }

@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 20
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,7 +44,6 @@ MonoBehaviour:
   - {fileID: 5343119595114766738}
   - {fileID: -6428558112901121356}
   - {fileID: 2003186315644221808}
-  - {fileID: 2386534963953353377}
 --- !u!114 &2003186315644221808
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -109,8 +108,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.08559783
-          value: 0.06442577
+          time: 0.08589952
+          value: 0.04026848
           inSlope: 1
           outSlope: 1
           tangentMode: 0
@@ -149,8 +148,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.07744565
-          value: 0.058823526
+          time: 0.08589952
+          value: 0.046979845
           inSlope: 1
           outSlope: 1
           tangentMode: 0
@@ -172,7 +171,7 @@ MonoBehaviour:
   blue:
     m_OverrideState: 1
     m_Value:
-      <length>k__BackingField: 2
+      <length>k__BackingField: 3
       m_Loop: 0
       m_ZeroValue: 0
       m_Range: 1
@@ -189,10 +188,19 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 1
-          value: 1
+          time: 0.815235
+          value: 0.7718121
           inSlope: 1
           outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.8422819
+          inSlope: 0.22026283
+          outSlope: 0.22026283
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -252,31 +260,6 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
---- !u!114 &2386534963953353377
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 1
-  mode:
-    m_OverrideState: 0
-    m_Value: 0
-  quality:
-    m_OverrideState: 1
-    m_Value: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.6
-  clamp:
-    m_OverrideState: 1
-    m_Value: 0.2
 --- !u!114 &5343119595114766738
 MonoBehaviour:
   m_ObjectHideFlags: 3

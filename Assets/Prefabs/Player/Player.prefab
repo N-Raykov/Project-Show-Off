@@ -14816,6 +14816,7 @@ GameObject:
   - component: {fileID: 924594275179675650}
   - component: {fileID: 1313562640987999501}
   - component: {fileID: 811009520216355236}
+  - component: {fileID: 6318913867645419234}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -14911,6 +14912,7 @@ MonoBehaviour:
   particleEffect: {fileID: 2934549829702493292}
   movementSpeed: 135
   groundDrag: 0.15
+  airDrag: 6
 --- !u!114 &924594275179675650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14931,7 +14933,7 @@ MonoBehaviour:
   maxJumpTime: 0.3
   gravity: 80
   gravityFallModifier: 1
-  airDrag: 0.2
+  rangeIndicatorPrefab: {fileID: 0}
 --- !u!114 &1313562640987999501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14960,6 +14962,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57bee4da560fa64497c115e8bb928bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6318913867645419234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101494387274378644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974de097b4ee02546a7ca1012110803a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnHeight: 10
+  activeRespawnPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &7483812279318108372
 GameObject:
   m_ObjectHideFlags: 0

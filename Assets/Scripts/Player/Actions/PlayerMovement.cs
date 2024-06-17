@@ -20,8 +20,8 @@ public class PlayerMovement : AbstractPlayerAction
 {
     [SerializeField] private PlayerInputReader reader;
     [SerializeField] private ParticleSystem particleEffect;
-    [SerializeField] private float movementSpeed = 100f;
-    [SerializeField] private float groundDrag = 0.1f;
+    [SerializeField] private float movementSpeed = 135f;
+    [SerializeField] private float groundDrag = 8f;
     [SerializeField] private float airDrag = 6f;
 
     private Camera mainCamera;
@@ -72,7 +72,7 @@ public class PlayerMovement : AbstractPlayerAction
         rb.velocity = new Vector3(
             rb.velocity.x + currentMovement.x * Time.fixedDeltaTime,
             rb.velocity.y,
-            rb.velocity.z + currentMovement.y * Time.fixedDeltaTime);
+            rb.velocity.z + currentMovement.y * Time.fixedDeltaTime); //Debug.Log("currentMovement: " + currentMovement);
 
         if (isGrounded && currentMovement.magnitude > 0 && _isEmittingParticles == false)
         {
