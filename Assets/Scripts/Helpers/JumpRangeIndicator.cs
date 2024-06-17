@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class JumpRangeIndicator : MonoBehaviour
@@ -35,16 +36,7 @@ public class JumpRangeIndicator : MonoBehaviour
 
     private void Awake()
     {
-        lineRendererGreen = GetComponentsInChildren<LineRenderer>()[0];
-        lineRendererGreen.startColor = Color.green;
-        lineRendererGreen.endColor = Color.green;
-        lineRendererRed = GetComponentsInChildren<LineRenderer>()[1];
-        lineRendererRed.startColor = Color.red;
-        lineRendererRed.endColor = Color.red;
-        if (lineRendererGreen == null || lineRendererRed == null)
-        {
-            throw new System.Exception("There is a missing LineRenderer component.");
-        }
+        InititializeLineRenderers();
     }
 
     private void FixedUpdate()
@@ -53,9 +45,23 @@ public class JumpRangeIndicator : MonoBehaviour
         {
             DestroyAfterTime();
         }
-        else if(lineRendererGreen != null && lineRendererRed != null)
+        else
         {
             Draw();
+        }
+    }
+
+    private void InititializeLineRenderers()
+    {
+        lineRendererGreen = GetComponentsInChildren<LineRenderer>()[0];
+        lineRendererGreen.startColor = Color.green;
+        lineRendererGreen.endColor = Color.green;
+        lineRendererRed = GetComponentsInChildren<LineRenderer>()[1];
+        lineRendererRed.startColor = Color.red;
+        lineRendererRed.endColor = Color.red;
+        if (lineRendererGreen == null || lineRendererRed == null)
+        {
+            throw new Exception("There is a missing LineRenderer component.");
         }
     }
 
@@ -65,6 +71,10 @@ public class JumpRangeIndicator : MonoBehaviour
         DrawTrajectory(lineRendererRed, maxRunningSpeedRedCurve, maxJumpDistanceRedCurve, maxForwardInAirRedCurve, useActualDirectionRedCurve);
     }
 
+    /// <summary>
+    /// Draws a trajectory line that predicts the players jump. Takes multiple booleans that configure certain properties of the jump, such as wether or not the player
+    /// pressed the jump button all the time while jumping, which results in longer or shorter jumps
+    /// </summary>
     private void DrawTrajectory(LineRenderer pLineRenderer, bool pMaxRunningSpeed, bool pMaxJump, bool pMaxForwardInAir, bool pUseActualDirection)
     {
         if (pLineRenderer == null || playerJump == null || playerMovement == null)

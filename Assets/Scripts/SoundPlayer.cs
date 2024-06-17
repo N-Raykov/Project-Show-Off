@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +29,8 @@ public class SoundPlayer : MonoBehaviour
     [Space(20)]
 
     [SerializeField] private AudioSource loopingMusicPart;
+
+    private string playLoopingMusic = "PlayLoopingMusic";
 
     private void OnEnable()
     {
@@ -115,7 +116,7 @@ public class SoundPlayer : MonoBehaviour
         if (introMusicPart != null && loopingMusicPart != null)
         {
             introMusicPart.Play();
-            Invoke("PlayLoopingMusic", introMusicLength);
+            Invoke(playLoopingMusic, introMusicLength);
         }
         else
         {

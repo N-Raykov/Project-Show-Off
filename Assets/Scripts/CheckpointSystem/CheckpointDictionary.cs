@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 
 public class RespawnPointDictionary : MonoBehaviour
@@ -33,6 +32,7 @@ public class RespawnPointDictionary : MonoBehaviour
         }
     }
 }
+
 #if UNITY_EDITOR
 [CustomEditor(typeof(RespawnPointDictionary))]
 public class RespawnPointDictionaryEditor : Editor

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public struct JumpIndicatorDataPlayerJump
 {
@@ -37,8 +38,8 @@ public class PlayerJump : AbstractPlayerAction
     private PlayerMovement playerMovement;
     private bool isJumping;
     private float jumpTime = 0;
-
     private bool _isGrounded;
+    private string jumpingBlendParamName = "JumpingBlend";
 
     public JumpIndicatorDataPlayerJump GetJumpIndicatorData()
     {
@@ -64,7 +65,7 @@ public class PlayerJump : AbstractPlayerAction
         playerMovement = GetComponent<PlayerMovement>();
         if (playerMovement == null)
         {
-            throw new System.Exception("There is a missing PlayerMovement component.");
+            throw new Exception("There is a missing PlayerMovement component.");
         }
 
         JumpRangeIndicator jumpRangeIndicator = GetComponentInChildren<JumpRangeIndicator>();
@@ -100,7 +101,7 @@ public class PlayerJump : AbstractPlayerAction
         {
             if(_isGrounded == false && value == true)
             {
-                //When player lands, do stuff here
+                //Player lands
                 landingParticles.Play();
             }
             _isGrounded = value;
@@ -112,7 +113,7 @@ public class PlayerJump : AbstractPlayerAction
         if (!isGrounded)
             return;
 
-        isJumping = true;
+        isJumping = true; //Debug.Log("START JUMP: " + jumpForce);
 
         rb.velocity = new Vector3(
             rb.velocity.x,
@@ -122,12 +123,12 @@ public class PlayerJump : AbstractPlayerAction
         EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.PlayerJump, transform.position));
 
         InitializeRangeIndicatorPrefab();        
-        //Debug.Log("START JUMP: " + jumpForce);
+        
         jumpingParticles.Play();
 
         if (anim != null)
         {
-            anim.SetFloat("JumpingBlend", 0);
+            anim.SetFloat(jumpingBlendParamName, 0);
         }
     }
 
@@ -157,7 +158,7 @@ public class PlayerJump : AbstractPlayerAction
     {
         if (anim != null && rb.velocity.y <= 0)
         {
-            anim.SetFloat("JumpingBlend", 1);
+            anim.SetFloat(jumpingBlendParamName, 1);
         }
 
         float currentGravity = gravity * (rb.velocity.y < 0 ? gravityFallModifier : 1);

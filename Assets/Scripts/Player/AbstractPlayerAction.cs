@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public abstract class AbstractPlayerAction : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public abstract class AbstractPlayerAction : MonoBehaviour
     protected float distToBottomOfSprite;
     protected float spriteRadius;
 
-    private int _points = 10;
+    private int points = 10;
 
     protected void Awake()
     {
@@ -18,13 +17,13 @@ public abstract class AbstractPlayerAction : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         if (rb == null)
         {
-            throw new System.Exception("There is no Rigidbody component.");
+            throw new Exception("There is no Rigidbody component.");
         }
 
         anim = GetComponentInChildren<Animator>();
         if (anim == null)
         {
-            throw new System.Exception("There is no Animator component.");
+            throw new Exception("There is no Animator component.");
         }
 
         distToBottomOfSprite = GetComponent<CapsuleCollider>().bounds.extents.y;
@@ -33,9 +32,9 @@ public abstract class AbstractPlayerAction : MonoBehaviour
 
     protected bool IsGrounded()
     {
-        float anglebetween = 360f / _points;
+        float anglebetween = 360f / points;
 
-        for (int i = 0; i <= _points; i++)
+        for (int i = 0; i <= points; i++)
         {
             float angle = i * anglebetween * Mathf.Deg2Rad;
             Vector3 direction = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle));

@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.InputSystem;
 
 public static class CompleteTextWithButtonSprite
 {
-
     //Index 0 = Keyboard
     //Index 1 = Gamepad
     private static string[] deviceSprite = {

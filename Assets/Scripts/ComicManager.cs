@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -90,7 +89,6 @@ public class ComicManager : MonoBehaviour
                 Animator animator = panelsOfPage[panelInPageCounter - 1].GetComponent<Animator>();
                 if (animator != null)
                 {
-                    //animator.runtimeAnimatorController.animationClips[0].wrapMode = WrapMode.ClampForever;
                     animator.SetBool(doneParameterName, true);
                 }
             }

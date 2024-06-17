@@ -1,10 +1,9 @@
 using UnityEngine;
-using AYellowpaper.SerializedCollections;
+
 public class PlayerRespawn : AbstractPlayerAction
 {
-    public float respawnHeight = 10f;
-
     public Vector3 activeRespawnPoint;
+    public float respawnHeight = 10f;
 
     private void Start()
     {

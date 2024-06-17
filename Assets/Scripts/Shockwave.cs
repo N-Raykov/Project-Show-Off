@@ -1,16 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shockwave : MonoBehaviour
 {
     [Header("Functionality")]
-    [SerializeField] int points;
-    [SerializeField] float maxRadius;
-    [SerializeField] float speed;
+    [SerializeField] private int points;
+    [SerializeField] private float maxRadius;
+    [SerializeField] private float speed;
 
     [Header("LineRenderer")]
-    [SerializeField] float startWidth;
+    [SerializeField] private float startWidth;
     
     private LineRenderer linerender;
 

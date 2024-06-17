@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DisableObject : MonoBehaviour
 {
-    [SerializeField] GameObject[] targets;
+    [SerializeField] private GameObject[] targets;
 
-    void DisableTargets()
+    private void DisableTargets()
     {
         foreach(GameObject target in targets)
         {

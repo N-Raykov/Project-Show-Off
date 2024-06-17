@@ -1,9 +1,6 @@
 using UnityEngine;
 
-public class Event
-{
-
-}
+public class Event {}
 
 public class CollectibleGathered : Event
 {
@@ -20,6 +17,7 @@ public class SoundEffectPlayed : Event
     public readonly SoundEffectType soundEffectType;
     public Vector3 position;
     public string identifier;
+
     public SoundEffectPlayed(SoundEffectType pSoundEffectType, Vector3 pPosition, string pIdentifier = "")
     {
         soundEffectType = pSoundEffectType;
