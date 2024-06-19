@@ -24,6 +24,7 @@ public class PlayCutScene : Interactable
             vCam.gameObject.SetActive(true);
         }
 
+        EventBus<SoundEffectPlayed>.Publish(new SoundEffectPlayed(SoundEffectType.Interact, transform.position));
         debounce = true;
         vCam.m_Priority = priority;
         animator.SetTrigger(triggerName);

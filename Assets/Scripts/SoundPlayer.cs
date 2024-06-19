@@ -91,7 +91,21 @@ public class SoundPlayer : MonoBehaviour
         SoundEffectType soundEffectType = pSoundEffectVolumeChanged.soundEffectType;
         float volume = pSoundEffectVolumeChanged.volume;
 
-        foreach (var audioSource in activeAudioSources.Values)
+        if (introMusicPart != null && loopingMusicPart != null)
+        {
+            introMusicPart.volume = volume;
+            loopingMusicPart.volume = volume;
+        }
+
+        foreach (AudioSource audioSource in activeAudioSources.Values)
+        {
+            if (audioSource.clip == soundEffects[soundEffectType].clip)
+            {
+                audioSource.volume = volume;
+            }
+        }
+
+        foreach (AudioSource audioSource in soundEffects.Values)
         {
             if (audioSource.clip == soundEffects[soundEffectType].clip)
             {

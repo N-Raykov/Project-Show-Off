@@ -9,7 +9,7 @@ public class TriggerScene : MonoBehaviour
     private string playerTag = "Player";
     private LoadingScreenHandler loadingScreenHandler;
 
-    //I don't like this code but it works for a quick prototype
+    //Puts a loading screen in front when loading level
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == playerTag)

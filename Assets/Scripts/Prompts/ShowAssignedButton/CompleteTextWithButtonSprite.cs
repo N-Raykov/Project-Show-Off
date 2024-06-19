@@ -11,6 +11,7 @@ public static class CompleteTextWithButtonSprite
         "KeyboardButtons",
         "GamePadButtons"};
 
+    //Reads the text and replaces the BUTTONPROMPT with the name for the corresponding sprite
     public static string ReadAndReplaceBinding(string textToDsiplay, InputBinding actionNeeded, int deviceType)
     {
         string stringButtonName = actionNeeded.ToString();
