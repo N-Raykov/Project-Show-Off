@@ -469,12 +469,6 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
-        },
-        {
-            ""name"": ""UI"",
-            ""id"": ""6d50d43b-3edf-41aa-a6dd-9f9b352e64f8"",
-            ""actions"": [],
-            ""bindings"": []
         }
     ],
     ""controlSchemes"": []
@@ -487,8 +481,6 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Ability = m_Player.FindAction("Ability", throwIfNotFound: true);
-        // UI
-        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -632,44 +624,6 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-
-    // UI
-    private readonly InputActionMap m_UI;
-    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    public struct UIActions
-    {
-        private @CustomPlayerInput m_Wrapper;
-        public UIActions(@CustomPlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputActionMap Get() { return m_Wrapper.m_UI; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
-        public void AddCallbacks(IUIActions instance)
-        {
-            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-        }
-
-        private void UnregisterCallbacks(IUIActions instance)
-        {
-        }
-
-        public void RemoveCallbacks(IUIActions instance)
-        {
-            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IUIActions instance)
-        {
-            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public UIActions @UI => new UIActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -678,8 +632,5 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
-    }
-    public interface IUIActions
-    {
     }
 }

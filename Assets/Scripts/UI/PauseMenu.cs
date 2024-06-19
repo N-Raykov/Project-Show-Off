@@ -12,6 +12,8 @@ public class PauseMenu : MonoBehaviour
 
     private bool isActive;
     private string menuSceneName = "MainMenu";
+    private string musicVolumeParamName = "musicVolume";
+    private string menuSceneNameParamName = "soundEffectVolume";
 
     public void ContinueBtnPressed()
     {
@@ -30,12 +32,12 @@ public class PauseMenu : MonoBehaviour
 
     public void MusicSliderValueChanged()
     {
-        masterMixer.SetFloat("musicVolume", musicVolumeSlider.value);
+        masterMixer.SetFloat(musicVolumeParamName, musicVolumeSlider.value);
     }
 
     public void SoundEffectSliderValueChanged()
     {
-        masterMixer.SetFloat("soundEffectVolume", soundEffectVolumeSlider.value);
+        masterMixer.SetFloat(menuSceneNameParamName, soundEffectVolumeSlider.value);
     }
 
     private void OnEnable()
