@@ -11,7 +11,7 @@ public class MainMenuButtonEffects : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene(gameSceneName);
+        OnAnyButtonPressed();
     }
 
     public void QuitGame()
@@ -21,6 +21,8 @@ public class MainMenuButtonEffects : MonoBehaviour
 
     private void OnEnable()
     {
+        reader.SetEnabledActionMap(true, false);
+
         reader.abilityEventPerformed += OnAnyButtonPressed;
         reader.interactEventPerformed += OnAnyButtonPressed;
         reader.jumpEventPerformed += OnAnyButtonPressed;
