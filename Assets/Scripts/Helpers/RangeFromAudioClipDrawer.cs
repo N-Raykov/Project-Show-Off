@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
+//Kinda like Unity's [Range(float,float)] slider, but it takes a sounds clip and adjusts the slider's values to 0, clip.length
 public class RangeFromAudioClipAttribute : PropertyAttribute
 {
     public string AudioSourceFieldName { get; private set; }

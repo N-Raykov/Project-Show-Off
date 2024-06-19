@@ -40,6 +40,7 @@ public class Collectible : MonoBehaviour
         mainCamera = Camera.main;
     }
 
+    //If the collectible is currently being collected, it moves it towards UI icon for the collectible
     private void FixedUpdate()
     {
         if (collectionInProgress)

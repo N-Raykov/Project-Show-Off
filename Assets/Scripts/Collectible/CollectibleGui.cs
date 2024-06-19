@@ -46,6 +46,7 @@ public class CollectibleGui : MonoBehaviour
             LerpScale();
     }
 
+    //When you collect a collectible it makes the icon lerp to being slightly bigger and then back to the original size
     private void OnCollectibleGathered(CollectibleGathered pCollectibleGathered)
     {
         collectibleCount += pCollectibleGathered.value;

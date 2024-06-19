@@ -91,7 +91,21 @@ public class SoundPlayer : MonoBehaviour
         SoundEffectType soundEffectType = pSoundEffectVolumeChanged.soundEffectType;
         float volume = pSoundEffectVolumeChanged.volume;
 
-        foreach (var audioSource in activeAudioSources.Values)
+        if (introMusicPart != null && loopingMusicPart != null)
+        {
+            introMusicPart.volume = volume;
+            loopingMusicPart.volume = volume;
+        }
+
+        foreach (AudioSource audioSource in activeAudioSources.Values)
+        {
+            if (audioSource.clip == soundEffects[soundEffectType].clip)
+            {
+                audioSource.volume = volume;
+            }
+        }
+
+        foreach (AudioSource audioSource in soundEffects.Values)
         {
             if (audioSource.clip == soundEffects[soundEffectType].clip)
             {
@@ -116,13 +130,26 @@ public class SoundPlayer : MonoBehaviour
         if (introMusicPart != null && loopingMusicPart != null)
         {
             introMusicPart.Play();
-            Invoke(playLoopingMusic, introMusicLength);
+            Time.timeScale = 0f;
+            StartCoroutine(StartLoopingMusic(introMusicLength));
         }
         else
         {
             Debug.LogWarning("Intro or Looping Music AudioSource is not assigned.");
         }
     }
+    private IEnumerator StartLoopingMusic(float delay)
+    {
+        float timeElapsed = 0f;
+        while (timeElapsed < delay)
+        {
+            timeElapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        PlayLoopingMusic();
+    }
+
+
 
     private void PlayLoopingMusic()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,9 +17,10 @@ public class XRay : MonoBehaviour
     [SerializeField] private Transform[] obstructions;
     private LayerMask ignoredLayers;
     private int oldHitsNumber;
+    //change the array to a list and iterate through each material on the obstacle creating a *NEW* material for it from the renderer
+    //instead of making the array = the renderer.materials
     private Dictionary<Transform, Material[]> originalMaterials;
     private Dictionary<Transform, Coroutine> fadeCoroutines;
-
     void Start()
     {
         oldHitsNumber = 0;
@@ -32,6 +34,7 @@ public class XRay : MonoBehaviour
         ViewObstructed();
     }
 
+    //Gets the objects that are obstructing the view
     void ViewObstructed()
     {
         float characterDistance = Vector3.Distance(transform.position, player.transform.position);
@@ -56,7 +59,7 @@ public class XRay : MonoBehaviour
                 obstructions[i] = obstruction;
                 if (!originalMaterials.ContainsKey(obstruction) && obstruction.GetComponent<MeshRenderer>() != null)
                 {
-                    originalMaterials[obstruction] = obstruction.GetComponent<MeshRenderer>().materials;
+                    originalMaterials[obstruction] = (Material[])obstruction.GetComponent<MeshRenderer>().materials.Clone();
                 }
                 MakeTransparent(obstruction);
             }
@@ -109,7 +112,7 @@ public class XRay : MonoBehaviour
 
     private IEnumerator FadeToAlpha(MeshRenderer renderer, float targetAlpha, Material[] restoreMaterials = null)
     {
-        Material[] materials = restoreMaterials ?? renderer.materials;
+        Material[] materials = (Material[])renderer.materials.Clone();
         float startAlpha = materials[0].color.a;
         float elapsedTime = 0f;
 
