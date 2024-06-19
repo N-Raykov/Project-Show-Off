@@ -153,6 +153,7 @@ public class SoundPlayer : MonoBehaviour
     private void PlayLoopingMusic()
     {
         introMusicPart.Stop();
+        Debug.Log("It's looping!!!");
         loopingMusicPart.loop = true;
         loopingMusicPart.Play();
     }

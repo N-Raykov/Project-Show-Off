@@ -9,12 +9,12 @@ public class SkipSequence : MonoBehaviour
 
     private bool isPlaying = true;
 
-    private void OnEnable() {
-        reader.pauseEventPerformed += Skip;
+    void OnEnable() {
+        reader.skipEventPerformed += Skip;
     }
 
-    private void OnDisable() {
-        reader.pauseEventPerformed -= Skip;
+    void OnDisable() {
+        reader.skipEventPerformed -= Skip;
     }
 
     private void Update()
