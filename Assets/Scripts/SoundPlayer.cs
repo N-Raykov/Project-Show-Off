@@ -130,13 +130,26 @@ public class SoundPlayer : MonoBehaviour
         if (introMusicPart != null && loopingMusicPart != null)
         {
             introMusicPart.Play();
-            Invoke(playLoopingMusic, introMusicLength);
+            Time.timeScale = 0f;
+            StartCoroutine(StartLoopingMusic(introMusicLength));
         }
         else
         {
             Debug.LogWarning("Intro or Looping Music AudioSource is not assigned.");
         }
     }
+    private IEnumerator StartLoopingMusic(float delay)
+    {
+        float timeElapsed = 0f;
+        while (timeElapsed < delay)
+        {
+            timeElapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        PlayLoopingMusic();
+    }
+
+
 
     private void PlayLoopingMusic()
     {

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-
 public class XRay : MonoBehaviour
 {
     [SerializeField] private Transform player;
@@ -35,6 +34,7 @@ public class XRay : MonoBehaviour
         ViewObstructed();
     }
 
+    //Gets the objects that are obstructing the view
     void ViewObstructed()
     {
         float characterDistance = Vector3.Distance(transform.position, player.transform.position);
