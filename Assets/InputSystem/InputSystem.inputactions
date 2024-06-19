@@ -15,21 +15,12 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "OpenCloseMenu",
+                    "name": "OpenMenu",
                     "type": "Button",
-                    "id": "5724c9fb-2e27-4a11-b2cd-42b81e4f55c8",
+                    "id": "14dbb796-3e5f-4642-99f7-5895bfd16fbd",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Hold(duration=1.401298E-45)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "NavigateMenu",
-                    "type": "Button",
-                    "id": "b0195a19-a662-4836-a816-3a7814fec073",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -324,8 +315,56 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "b9e137e6-2955-433c-9236-91a61500845d",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5dd573c4-04ef-41ef-8375-6cfd02fe3a32",
+                    "path": "<Gamepad>/start",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "d70d2312-d3eb-4b48-afb5-e49a772b68a9",
+            "actions": [
+                {
+                    "name": "NavigateMenu",
+                    "type": "Button",
+                    "id": "dd7fd44c-4824-4d50-b1cf-fb15b0394819",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CloseMenu",
+                    "type": "Button",
+                    "id": "2ee22950-8f03-40f9-a86e-858ee90189f9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
                     "name": "Joystick",
-                    "id": "aa652817-6655-4be5-a2db-73465f6d53e3",
+                    "id": "8664a07d-bad3-4e07-8c20-76c70db1e053",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -336,7 +375,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "06f40db3-1db9-46a9-8eb7-5c50120e393e",
+                    "id": "fdc861da-f4c1-4bde-9683-402ca44005b1",
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
@@ -347,7 +386,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "4c393209-3dd7-446c-874b-55ca809f27ec",
+                    "id": "3c1f5505-da27-4d2b-8301-28724a6cfd2a",
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
@@ -358,7 +397,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "1d60becd-fb1b-46eb-8bf2-66e15ba45288",
+                    "id": "47fcb172-f5a8-4da3-a01f-d5f2b639467c",
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
@@ -369,7 +408,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "82d1cf26-3874-434b-89a3-333a3e66abae",
+                    "id": "e3df36fb-c112-4d49-9e78-ce76cdea893a",
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
@@ -379,30 +418,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "9017f74e-f0e4-4cfd-be4c-519ace635f3a",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenCloseMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "05e30167-96ac-40bc-9ef8-b2e579ef6dfd",
-                    "path": "<Gamepad>/start",
-                    "interactions": "Hold(duration=1.401298E-45)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenCloseMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "WASD",
-                    "id": "5f0beb01-b965-49b7-9d1f-d76b8540b426",
+                    "id": "2b44c58e-262d-49f5-8539-870282d35bd3",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -413,7 +430,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "df77bf4f-e858-4a27-983e-5712122f4ddb",
+                    "id": "a9787b5e-df19-45af-b980-d18b129a6e72",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -424,7 +441,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "3a00107f-0fdb-424e-9c04-928bb04e5bee",
+                    "id": "59850206-db62-4688-998e-e9d8ad24007b",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -435,7 +452,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "17e4a2d4-d05e-4b36-a424-81ea65418728",
+                    "id": "69b8f32b-10c6-4af3-aa5b-25690d527d6a",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -446,7 +463,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "bd1fc6c5-8b4e-4799-92f1-1db62e39ec8b",
+                    "id": "fdef1780-29fb-486f-8518-1b245379fcaa",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -454,6 +471,28 @@
                     "action": "NavigateMenu",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9f2649cc-fb4a-46f7-a6d4-8a6a2ce43ee6",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "504deb1c-ad1a-4be8-bc74-2f8923441f4c",
+                    "path": "<Gamepad>/start",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",

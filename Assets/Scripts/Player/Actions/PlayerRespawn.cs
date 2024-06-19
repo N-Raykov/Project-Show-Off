@@ -36,10 +36,13 @@ public class PlayerRespawn : AbstractPlayerAction
     {
         if(transform.position.y < respawnHeight && debounce == false)
         {
-            debounce = true;
-            StartCoroutine(FadeTransition());
+            Respawn();
         }
     }
     
-
+    public void Respawn()
+    {
+        debounce = true;
+        StartCoroutine(FadeTransition());
+    }
 }

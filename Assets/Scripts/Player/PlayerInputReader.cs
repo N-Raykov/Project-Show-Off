@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "New Player Movement", menuName = "Player Input")]
-public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActions
+public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActions, CustomPlayerInput.IUIActions
 {
     public event Action<Vector2> moveEventPerformed;
     public event Action moveEventCancelled;
@@ -56,17 +56,20 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         }
     }
 
-    public void OnOpenCloseMenu(InputAction.CallbackContext pContext)
+    public void OnOpenMenu(InputAction.CallbackContext pContext)
     {
         if (pContext.phase == InputActionPhase.Performed)
         {
-            openCloseMenuEventPerformed?.Invoke();
+            openMenuEventPerformed?.Invoke(); //Debug.Log("OnOpenMenu: Player: " + (input.Player.enabled ? "ENABLED" : "DISABLED") + " UI: " + (input.UI.enabled ? "ENABLED" : "DISABLED"));
         }
     }
 
-    public void OnNavigateMenu(InputAction.CallbackContext pContext)
+    public void OnCloseMenu(InputAction.CallbackContext pContext)
     {
-
+        if (pContext.phase == InputActionPhase.Performed)
+        {
+            closeMenuEventPerformed?.Invoke(); //Debug.Log("OnOpenMenu: Player: " + (input.Player.enabled ? "ENABLED" : "DISABLED") + " UI: " + (input.UI.enabled ? "ENABLED" : "DISABLED"));
+        }
     }
 
     public void OnSkip(InputAction.CallbackContext pContext)
@@ -77,19 +80,45 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         }
     }
 
+    public void SetEnabledActionMap(bool pEnablePlayer, bool pEnableUI)
+    {
+        if (pEnablePlayer)
+        {
+            input.Player.Enable();
+        } else
+        {
+            input.Player.Disable();
+        }
+
+        if (pEnableUI)
+        {
+            input.UI.Enable();
+        }
+        else
+        {
+            input.UI.Disable();
+        }
+    } 
+
     private void OnEnable()
     {
         if (input == null)
         {
             input = new CustomPlayerInput();
             input.Player.SetCallbacks(this);
+            input.UI.SetCallbacks(this);
         }
 
-        input.Player.Enable();
+        input.Player.Disable();
+        input.UI.Disable();
     }
 
     private void OnDisable()
     {
-        if (input != null) input.Player.Disable();
+        if (input != null)
+        {
+            input.Player.Disable();
+            input.UI.Disable();
+        }
     }
 }

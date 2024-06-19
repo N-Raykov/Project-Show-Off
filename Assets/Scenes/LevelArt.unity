@@ -3683,6 +3683,7 @@ GameObject:
   - component: {fileID: 205689169}
   - component: {fileID: 205689171}
   - component: {fileID: 205689172}
+  - component: {fileID: 205689173}
   m_Layer: 0
   m_Name: BlockAndRope
   m_TagString: Untagged
@@ -3773,6 +3774,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 262666208}
+--- !u!114 &205689173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205689167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e0e1c07ff1534f88f7b5daeec3b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
 --- !u!1001 &209301798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9246,6 +9260,7 @@ GameObject:
   - component: {fileID: 567471925}
   - component: {fileID: 567471924}
   - component: {fileID: 567471923}
+  - component: {fileID: 567471926}
   m_Layer: 0
   m_Name: FloatingPlatformHolder
   m_TagString: Untagged
@@ -14116,6 +14131,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 567471923}
+--- !u!114 &567471926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567471919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e0e1c07ff1534f88f7b5daeec3b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
 --- !u!1001 &575311767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17163,6 +17191,7 @@ GameObject:
   - component: {fileID: 738027795}
   - component: {fileID: 738027796}
   - component: {fileID: 738027797}
+  - component: {fileID: 738027798}
   m_Layer: 0
   m_Name: MakeupCutscene
   m_TagString: Untagged
@@ -17225,6 +17254,19 @@ MonoBehaviour:
   virtualCamera: {fileID: 1966581738}
   priority: 0
   targetState: 0
+--- !u!114 &738027798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738027794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e0e1c07ff1534f88f7b5daeec3b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
 --- !u!1001 &738936123
 PrefabInstance:
   m_ObjectHideFlags: 0
