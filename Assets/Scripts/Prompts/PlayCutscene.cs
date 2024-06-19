@@ -10,7 +10,6 @@ public class PlayCutScene : Interactable
     [SerializeField] private int priority;
     [SerializeField] private string triggerName;
 
-
     protected override void PerformInteraction()
     {
         if (interactionPrompt == null || debounce)
@@ -28,5 +27,7 @@ public class PlayCutScene : Interactable
         vCam.m_Priority = priority;
         animator.SetTrigger(triggerName);
         Destroy(interactionPrompt);
+
+        reader.SetEnabledActionMap(false, false);
     }
 }

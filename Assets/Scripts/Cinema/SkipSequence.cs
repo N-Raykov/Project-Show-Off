@@ -1,27 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
 public class SkipSequence : MonoBehaviour
 {
+    [SerializeField] private PlayableDirector director;
 
-    [SerializeField] PlayableDirector director;
     [SerializeField] protected PlayerInputReader reader;
 
-    void OnEnable() {
+    private bool isPlaying = true;
+
+    private void OnEnable() {
         reader.pauseEventPerformed += Skip;
     }
 
-    void OnDisable() {
+    private void OnDisable() {
         reader.pauseEventPerformed -= Skip;
     }
 
-    void Skip() {
-        if (director == null) {
-            return;
-        }
+    private void Update()
+    {
+        if(isPlaying)
+        {
+            if (director.state != PlayState.Playing)
+            {
+                isPlaying = false;
+                CutsceneOver();
+            }
+        }         
+    }
 
+    private void Skip() {
+        if (director == null)
+            return;
+
+        CutsceneOver();
+    }
+
+    private void CutsceneOver()
+    {
         director.Stop();
+        reader.SetEnabledActionMap(true, false);
     }
 }
