@@ -3168,6 +3168,7 @@ GameObject:
   - component: {fileID: 205689169}
   - component: {fileID: 205689171}
   - component: {fileID: 205689172}
+  - component: {fileID: 205689173}
   m_Layer: 0
   m_Name: BlockAndRope
   m_TagString: Untagged
@@ -3258,6 +3259,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 262666208}
+--- !u!114 &205689173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205689167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e0e1c07ff1534f88f7b5daeec3b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
 --- !u!1001 &209301798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5858,7 +5872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1436805414}
+  respawnPoint: {fileID: 1436805415}
 --- !u!65 &350397392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6205,7 +6219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 452585869}
+  respawnPoint: {fileID: 452585870}
 --- !u!65 &382537970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8335,6 +8349,7 @@ GameObject:
   - component: {fileID: 567471925}
   - component: {fileID: 567471924}
   - component: {fileID: 567471923}
+  - component: {fileID: 567471926}
   m_Layer: 0
   m_Name: FloatingPlatformHolder
   m_TagString: Untagged
@@ -13205,6 +13220,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 567471923}
+--- !u!114 &567471926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567471919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e0e1c07ff1534f88f7b5daeec3b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
 --- !u!1001 &575311767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14503,7 +14531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 189507354}
+  respawnPoint: {fileID: 189507355}
 --- !u!65 &661691072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14623,7 +14651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1227917833}
+  respawnPoint: {fileID: 1227917834}
 --- !u!65 &675011738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15818,6 +15846,7 @@ GameObject:
   - component: {fileID: 738027795}
   - component: {fileID: 738027796}
   - component: {fileID: 738027797}
+  - component: {fileID: 738027798}
   m_Layer: 0
   m_Name: MakeupCutscene
   m_TagString: Untagged
@@ -15880,6 +15909,19 @@ MonoBehaviour:
   virtualCamera: {fileID: 1966581738}
   priority: 0
   targetState: 0
+--- !u!114 &738027798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738027794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e0e1c07ff1534f88f7b5daeec3b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
 --- !u!1001 &738936123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29454,7 +29496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1725649865}
+  respawnPoint: {fileID: 1725649866}
 --- !u!65 &1263188888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35630,7 +35672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1645996655}
+  respawnPoint: {fileID: 1645996656}
 --- !u!65 &1667678509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40323,7 +40365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1015659615}
+  respawnPoint: {fileID: 1015659616}
 --- !u!65 &1940037177
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40607,8 +40649,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966581736}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17499238, y: -0.3205476, z: 0.060382493, w: 0.92896765}
-  m_LocalPosition: {x: -371.9603, y: -23.121775, z: 411.21027}
+  m_LocalRotation: {x: 0.1749926, y: -0.32054794, z: 0.060382638, w: 0.9289675}
+  m_LocalPosition: {x: -371.9603, y: -23.121773, z: 411.21027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41007,7 +41049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1563678098}
+  respawnPoint: {fileID: 1563678099}
 --- !u!65 &1973371063
 BoxCollider:
   m_ObjectHideFlags: 0

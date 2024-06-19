@@ -66,14 +66,14 @@ public class PauseMenu : MonoBehaviour
         float soundEffectsVolume;
         masterMixer.GetFloat(soundEffetcsParamName, out soundEffectsVolume);
         soundEffectVolumeSlider.value = soundEffectsVolume;
-        reader.SwitchInputActionMaps();
+        reader.SetEnabledActionMap(false, true);
         //Time.timeScale = 0;
     }
 
     private void CloseMenu()
     {
         transform.localScale = new Vector3(0, 0, 0);
-        reader.SwitchInputActionMaps();
+        reader.SetEnabledActionMap(true, false);
         //Time.timeScale = 1;
     }
 }

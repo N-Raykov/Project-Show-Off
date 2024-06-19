@@ -61,8 +61,7 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
     {
         if (pContext.phase == InputActionPhase.Performed)
         {
-            openMenuEventPerformed?.Invoke();
-            //Debug.Log("OnOpenMenu: Player: " + (input.Player.enabled ? "ENABLED" : "DISABLED") + " UI: " + (input.UI.enabled ? "ENABLED" : "DISABLED"));
+            openMenuEventPerformed?.Invoke(); //Debug.Log("OnOpenMenu: Player: " + (input.Player.enabled ? "ENABLED" : "DISABLED") + " UI: " + (input.UI.enabled ? "ENABLED" : "DISABLED"));
         }
     }
 
@@ -70,8 +69,7 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
     {
         if (pContext.phase == InputActionPhase.Performed)
         {
-            closeMenuEventPerformed?.Invoke();
-            //Debug.Log("OnCloseMenu: Player: " + (input.Player.enabled ? "ENABLED" : "DISABLED") + " UI: " + (input.UI.enabled ? "ENABLED" : "DISABLED"));
+            closeMenuEventPerformed?.Invoke(); //Debug.Log("OnOpenMenu: Player: " + (input.Player.enabled ? "ENABLED" : "DISABLED") + " UI: " + (input.UI.enabled ? "ENABLED" : "DISABLED"));
         }
     }
 
@@ -85,16 +83,23 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         }
     }
 
-    public void SwitchInputActionMaps()
+    public void SetEnabledActionMap(bool pEnablePlayer, bool pEnableUI)
     {
-        if (input.Player.enabled)
+        if (pEnablePlayer)
         {
-            input.Player.Disable();
-            input.UI.Enable();
+            input.Player.Enable();
         } else
         {
+            input.Player.Disable();
+        }
+
+        if (pEnableUI)
+        {
+            input.UI.Enable();
+        }
+        else
+        {
             input.UI.Disable();
-            input.Player.Enable();
         }
     } 
 
@@ -107,8 +112,8 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
             input.UI.SetCallbacks(this);
         }
 
-        input.Player.Enable();
-        input.UI.Enable();
+        input.Player.Disable();
+        input.UI.Disable();
     }
 
     private void OnDisable()
