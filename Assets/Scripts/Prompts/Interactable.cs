@@ -6,9 +6,11 @@ public class Interactable : Prompt
 
     private string playerTag = "Player";
 
+    protected bool debounce = false; //if we have interacted with the object before
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(playerTag))
+        if (other.CompareTag(playerTag) && debounce == false)
         {
             interactionPrompt = Instantiate(prompt, transform.position + Vector3.up * 6f, Quaternion.identity);
             UIManager.instance.ChangeTMProText(interactionPrompt, message, actionType);

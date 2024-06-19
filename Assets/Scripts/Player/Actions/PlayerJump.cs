@@ -97,6 +97,7 @@ public class PlayerJump : AbstractPlayerAction
         }
     }
 
+    //Plays particle effects when the player becomes grounded
     private bool OnPlayerGrounded
     {
         set
@@ -139,6 +140,7 @@ public class PlayerJump : AbstractPlayerAction
         isJumping = false; //Debug.Log("STOP JUMP");
     }
 
+    //Makes the player jump
     private void HandleJumping()
     {
         if (!isJumping || jumpTime >= maxJumpTime)
@@ -171,6 +173,7 @@ public class PlayerJump : AbstractPlayerAction
 
     }
 
+    //Creates the jump indicator
     private void InitializeRangeIndicatorPrefab()
     {
         if (rangeIndicatorPrefab == null)

@@ -30,6 +30,7 @@ public abstract class AbstractPlayerAction : MonoBehaviour
         spriteRadius = GetComponent<Collider>().bounds.extents.x;
     }
 
+    //Raycasts down to see if the player is on the ground
     protected bool IsGrounded()
     {
         float anglebetween = 360f / points;

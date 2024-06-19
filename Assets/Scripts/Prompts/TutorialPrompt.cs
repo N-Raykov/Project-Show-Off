@@ -22,6 +22,7 @@ public class TutorialPrompt : Prompt
         UnsubscribeFromEvent();
     }
 
+    //Subscribes the correct event to the assigned action type
     private void SubscribeToEvent()
     {
         eventName = actionType.ToString() + eventPerformed;
@@ -39,6 +40,7 @@ public class TutorialPrompt : Prompt
         }
     }
 
+    //Unsubscribes to the event
     private void UnsubscribeFromEvent()
     {
         if (eventHandler == null) return;
