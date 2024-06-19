@@ -12,7 +12,8 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
     public event Action interactEventPerformed;
     public event Action abilityEventPerformed;
     public event Action openCloseMenuEventPerformed;
-
+    public event Action pauseEventPerformed;
+    
     private CustomPlayerInput input;
 
     public void OnJump(InputAction.CallbackContext pContext)
@@ -66,6 +67,14 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
     public void OnNavigateMenu(InputAction.CallbackContext pContext)
     {
 
+    }
+
+    public void OnPause(InputAction.CallbackContext pContext)
+    {
+        if (pContext.phase == InputActionPhase.Performed)
+        {
+            pauseEventPerformed?.Invoke();
+        }
     }
 
     private void OnEnable()

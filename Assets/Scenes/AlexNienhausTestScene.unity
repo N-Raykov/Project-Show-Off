@@ -5681,9 +5681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
   musicVolumeSlider: {fileID: 327873845}
-  soundEffectVolumeSlider: {fileID: 0}
-  musicMixer: {fileID: 6495018853474633282, guid: 9b568ea0795d54641893314721681127, type: 2}
-  soundEffectMixer: {fileID: 4649284468004013843, guid: 9b568ea0795d54641893314721681127, type: 2}
+  soundEffectVolumeSlider: {fileID: 1844790495}
+  masterMixer: {fileID: 24100000, guid: 9b568ea0795d54641893314721681127, type: 2}
 --- !u!1001 &431580298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11615,7 +11614,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -23233,8 +23232,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966581736}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10924759, y: -0.32400015, z: 0.037696805, w: 0.93897176}
-  m_LocalPosition: {x: -397.68292, y: -27.15452, z: 411.1115}
+  m_LocalRotation: {x: 0.10924746, y: -0.32399964, z: 0.0376967, w: 0.9389719}
+  m_LocalPosition: {x: -397.6829, y: -27.154512, z: 411.11145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
