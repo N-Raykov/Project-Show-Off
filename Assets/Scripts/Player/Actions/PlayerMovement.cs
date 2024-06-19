@@ -95,6 +95,8 @@ public class PlayerMovement : AbstractPlayerAction
             rb.velocity.z * Mathf.Clamp01(1 - (isGrounded ? groundDrag : airDrag) * Time.fixedDeltaTime));
     }
 
+    //Gets called when the player presses a movement key
+    //Adjusts the controls to be relative to the camera
     private void OnMovementPerformed(Vector2 pMoveVector)
     {
         anim.SetFloat(movementBlendParamName, 1f);
@@ -112,6 +114,7 @@ public class PlayerMovement : AbstractPlayerAction
         moveVector = new Vector2(desiredMoveDirection.x, desiredMoveDirection.z); //Debug.Log("START MOVEMENT: " + moveVector);
     }
 
+    //Gets called when the player stops pressing a movement key
     private void OnMovementCancelled()
     {
         anim.SetFloat(movementBlendParamName, 0f);

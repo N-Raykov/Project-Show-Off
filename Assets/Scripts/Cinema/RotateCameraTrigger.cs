@@ -9,6 +9,7 @@ public class RotateCameraTrigger : MonoBehaviour
 
     private string playerTag = "Player";
 
+    //Changes the active virtual camera
     void OnTriggerEnter(Collider other) {
         // Debug.Log("Collided with: " + other.gameObject);
         if (other.gameObject.tag == playerTag) {

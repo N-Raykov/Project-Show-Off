@@ -5,16 +5,17 @@ using AYellowpaper.SerializedCollections;
 public class RespawnPointDictionary : MonoBehaviour
 {
     [SerializedDictionary("Checkpoints", "RespawnPoints")]
-    [SerializeField] private SerializedDictionary<GameObject, GameObject> respawnPoints;
+    [SerializeField] private SerializedDictionary<Transform, Transform> respawnPoints;
 
     public void UpdateDictionary()
     {
+        //This part makes sure that the assigned value is the correct respawn point for the checkpoint
         Checkpoint[] respawnPointsArray = FindObjectsOfType<Checkpoint>();
         foreach (Checkpoint checkpoint in respawnPointsArray)
         {
-            if (checkpoint != null && checkpoint.respawnPoint != null && respawnPoints.ContainsKey(checkpoint.gameObject))
+            if (checkpoint != null && checkpoint.respawnPoint != null && respawnPoints.ContainsKey(checkpoint.gameObject.transform))
             {
-                checkpoint.respawnPoint = respawnPoints[checkpoint.gameObject];
+                checkpoint.respawnPoint = respawnPoints[checkpoint.gameObject.transform];
             }
         }
 
@@ -26,13 +27,14 @@ public class RespawnPointDictionary : MonoBehaviour
             {
                 if (Checkpoint.respawnPoint != null)
                 {
-                    respawnPoints.Add(Checkpoint.gameObject, Checkpoint.respawnPoint);
+                    respawnPoints.Add(Checkpoint.gameObject.transform, Checkpoint.respawnPoint);
                 }
             }
         }
     }
 }
 
+//Adds the Update Dictionary button in the inspector
 #if UNITY_EDITOR
 [CustomEditor(typeof(RespawnPointDictionary))]
 public class RespawnPointDictionaryEditor : Editor
