@@ -12,7 +12,7 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
     public event Action interactEventPerformed;
     public event Action abilityEventPerformed;
     public event Action openCloseMenuEventPerformed;
-    public event Action pauseEventPerformed;
+    public event Action skipEventPerformed;
     
     private CustomPlayerInput input;
 
@@ -69,11 +69,11 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
 
     }
 
-    public void OnPause(InputAction.CallbackContext pContext)
+    public void OnSkip(InputAction.CallbackContext pContext)
     {
         if (pContext.phase == InputActionPhase.Performed)
         {
-            pauseEventPerformed?.Invoke();
+            skipEventPerformed?.Invoke();
         }
     }
 

@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "Skip",
                     "type": "Button",
                     "id": "74723c2f-799f-4b24-b4f1-8ffe6bda19fb",
                     "expectedControlType": "Button",
@@ -454,6 +454,28 @@
                     "action": "NavigateMenu",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "cd7424e4-b482-49c1-ae0a-f7e09c1f2d72",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a876804d-3455-4927-a1b6-d520f0cfaa64",
+                    "path": "<XInputController>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

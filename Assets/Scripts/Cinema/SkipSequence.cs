@@ -10,11 +10,11 @@ public class SkipSequence : MonoBehaviour
     [SerializeField] protected PlayerInputReader reader;
 
     void OnEnable() {
-        reader.pauseEventPerformed += Skip;
+        reader.skipEventPerformed += Skip;
     }
 
     void OnDisable() {
-        reader.pauseEventPerformed -= Skip;
+        reader.skipEventPerformed -= Skip;
     }
 
     void Skip() {
