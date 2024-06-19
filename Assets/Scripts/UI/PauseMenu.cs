@@ -21,7 +21,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ResetFromLastCheckpointBtnPressed()
     {
-
+        CloseMenu();
+        FindObjectOfType<PlayerRespawn>().Respawn();
     }
 
     public void QuitBtnPressed()
