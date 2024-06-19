@@ -5,12 +5,13 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(fileName = "New Player Movement", menuName = "Player Input")]
 public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActions
 {
-    public Action<Vector2> moveEventPerformed;
-    public Action moveEventCancelled;
-    public Action jumpEventCancelled;
+    public event Action<Vector2> moveEventPerformed;
+    public event Action moveEventCancelled;
+    public event Action jumpEventCancelled;
     public event Action jumpEventPerformed;
     public event Action interactEventPerformed;
     public event Action abilityEventPerformed;
+    public event Action openCloseMenuEventPerformed;
 
     private CustomPlayerInput input;
 
@@ -52,6 +53,19 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         {
             moveEventCancelled?.Invoke();
         }
+    }
+
+    public void OnOpenCloseMenu(InputAction.CallbackContext pContext)
+    {
+        if (pContext.phase == InputActionPhase.Performed)
+        {
+            openCloseMenuEventPerformed?.Invoke();
+        }
+    }
+
+    public void OnNavigateMenu(InputAction.CallbackContext pContext)
+    {
+
     }
 
     private void OnEnable()
