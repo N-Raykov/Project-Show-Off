@@ -10,7 +10,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Slider soundEffectVolumeSlider;
     [SerializeField] private AudioMixer masterMixer;
 
-    private bool isActive;
     private string menuSceneName = "MainMenu";
     private string musicVolumeParamName = "musicVolume";
     private string soundEffetcsParamName = "soundEffectVolume";
@@ -42,29 +41,20 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        reader.openCloseMenuEventPerformed += OnOptionsPressed;
+        reader.openMenuEventPerformed += OpenMenu;
+        reader.closeMenuEventPerformed += CloseMenu;
+
     }
 
     private void OnDisable()
     {
-        reader.openCloseMenuEventPerformed -= OnOptionsPressed;
+        reader.openMenuEventPerformed -= OpenMenu;
+        reader.closeMenuEventPerformed -= CloseMenu;
     }
 
     private void Awake()
     {
-        CloseMenu();
-    }
-
-    private void OnOptionsPressed()
-    {
-        if (isActive)
-        {
-            CloseMenu();
-        }
-        else
-        {
-            OpenMenu();
-        }
+        transform.localScale = new Vector3(0, 0, 0);
     }
 
     private void OpenMenu()
@@ -76,14 +66,14 @@ public class PauseMenu : MonoBehaviour
         float soundEffectsVolume;
         masterMixer.GetFloat(soundEffetcsParamName, out soundEffectsVolume);
         soundEffectVolumeSlider.value = soundEffectsVolume;
-        Time.timeScale = 0;
-        isActive = true;
+        reader.SwitchInputActionMaps();
+        //Time.timeScale = 0;
     }
 
     private void CloseMenu()
     {
         transform.localScale = new Vector3(0, 0, 0);
-        Time.timeScale = 1;
-        isActive = false;
+        reader.SwitchInputActionMaps();
+        //Time.timeScale = 1;
     }
 }

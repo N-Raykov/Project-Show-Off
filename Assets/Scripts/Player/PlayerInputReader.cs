@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "New Player Movement", menuName = "Player Input")]
-public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActions
+public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActions, CustomPlayerInput.IUIActions
 {
     public event Action<Vector2> moveEventPerformed;
     public event Action moveEventCancelled;
@@ -11,7 +11,8 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
     public event Action jumpEventPerformed;
     public event Action interactEventPerformed;
     public event Action abilityEventPerformed;
-    public event Action openCloseMenuEventPerformed;
+    public event Action openMenuEventPerformed;
+    public event Action closeMenuEventPerformed;
     public event Action pauseEventPerformed;
     
     private CustomPlayerInput input;
@@ -56,18 +57,25 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         }
     }
 
-    public void OnOpenCloseMenu(InputAction.CallbackContext pContext)
+    public void OnOpenMenu(InputAction.CallbackContext pContext)
     {
         if (pContext.phase == InputActionPhase.Performed)
         {
-            openCloseMenuEventPerformed?.Invoke();
+            openMenuEventPerformed?.Invoke();
+            //Debug.Log("OnOpenMenu: Player: " + (input.Player.enabled ? "ENABLED" : "DISABLED") + " UI: " + (input.UI.enabled ? "ENABLED" : "DISABLED"));
         }
     }
 
-    public void OnNavigateMenu(InputAction.CallbackContext pContext)
+    public void OnCloseMenu(InputAction.CallbackContext pContext)
     {
-
+        if (pContext.phase == InputActionPhase.Performed)
+        {
+            closeMenuEventPerformed?.Invoke();
+            //Debug.Log("OnCloseMenu: Player: " + (input.Player.enabled ? "ENABLED" : "DISABLED") + " UI: " + (input.UI.enabled ? "ENABLED" : "DISABLED"));
+        }
     }
+
+    public void OnNavigateMenu(InputAction.CallbackContext pContext) {}
 
     public void OnPause(InputAction.CallbackContext pContext)
     {
@@ -77,19 +85,38 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         }
     }
 
+    public void SwitchInputActionMaps()
+    {
+        if (input.Player.enabled)
+        {
+            input.Player.Disable();
+            input.UI.Enable();
+        } else
+        {
+            input.UI.Disable();
+            input.Player.Enable();
+        }
+    } 
+
     private void OnEnable()
     {
         if (input == null)
         {
             input = new CustomPlayerInput();
             input.Player.SetCallbacks(this);
+            input.UI.SetCallbacks(this);
         }
 
         input.Player.Enable();
+        input.UI.Enable();
     }
 
     private void OnDisable()
     {
-        if (input != null) input.Player.Disable();
+        if (input != null)
+        {
+            input.Player.Disable();
+            input.UI.Disable();
+        }
     }
 }
