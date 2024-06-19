@@ -130,7 +130,6 @@ public class SoundPlayer : MonoBehaviour
         if (introMusicPart != null && loopingMusicPart != null)
         {
             introMusicPart.Play();
-            Time.timeScale = 0f;
             StartCoroutine(StartLoopingMusic(introMusicLength));
         }
         else

@@ -6396,7 +6396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1436805414}
+  respawnPoint: {fileID: 1436805415}
 --- !u!65 &350397392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6820,7 +6820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 452585869}
+  respawnPoint: {fileID: 452585870}
 --- !u!65 &382537970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15487,7 +15487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 189507354}
+  respawnPoint: {fileID: 189507355}
 --- !u!65 &661691072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15819,7 +15819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1227917833}
+  respawnPoint: {fileID: 1227917834}
 --- !u!65 &675011738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20075,22 +20075,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoints:
     _serializedList:
-    - Key: {fileID: 1263188885}
-      Value: {fileID: 1725649865}
-    - Key: {fileID: 382537967}
-      Value: {fileID: 452585869}
-    - Key: {fileID: 350397389}
-      Value: {fileID: 1436805414}
-    - Key: {fileID: 675011735}
-      Value: {fileID: 1227917833}
-    - Key: {fileID: 1667678506}
-      Value: {fileID: 1645996655}
-    - Key: {fileID: 1973371060}
-      Value: {fileID: 1563678098}
-    - Key: {fileID: 1940037174}
-      Value: {fileID: 1015659615}
-    - Key: {fileID: 661691069}
-      Value: {fileID: 189507354}
+    - Key: {fileID: 350397390}
+      Value: {fileID: 1436805415}
+    - Key: {fileID: 382537968}
+      Value: {fileID: 452585870}
+    - Key: {fileID: 661691070}
+      Value: {fileID: 189507355}
+    - Key: {fileID: 675011736}
+      Value: {fileID: 1227917834}
+    - Key: {fileID: 1263188886}
+      Value: {fileID: 1725649866}
+    - Key: {fileID: 1667678507}
+      Value: {fileID: 1645996656}
+    - Key: {fileID: 1940037175}
+      Value: {fileID: 1015659616}
+    - Key: {fileID: 1973371061}
+      Value: {fileID: 1563678099}
 --- !u!4 &926622405
 Transform:
   m_ObjectHideFlags: 0
@@ -25471,7 +25471,7 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: c631e0b19092b5e41b56594bc18c5a13, type: 2}
   m_InitialState: 1
@@ -27954,7 +27954,7 @@ PrefabInstance:
       objectReference: {fileID: 1107192810}
     - target: {fileID: 564121508798005905, guid: d60ea77e8b75c554781af15523a7104b, type: 3}
       propertyPath: introMusicLength
-      value: 11
+      value: 11.54
       objectReference: {fileID: 0}
     - target: {fileID: 564121508798005905, guid: d60ea77e8b75c554781af15523a7104b, type: 3}
       propertyPath: loopingMusicPart
@@ -30602,7 +30602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1725649865}
+  respawnPoint: {fileID: 1725649866}
 --- !u!65 &1263188888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37156,7 +37156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1645996655}
+  respawnPoint: {fileID: 1645996656}
 --- !u!65 &1667678509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41277,7 +41277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1015659615}
+  respawnPoint: {fileID: 1015659616}
 --- !u!65 &1940037177
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41532,8 +41532,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966581736}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17499249, y: -0.32054752, z: 0.060382523, w: 0.92896765}
-  m_LocalPosition: {x: -371.9603, y: -23.121769, z: 411.21024}
+  m_LocalRotation: {x: 0.1749925, y: -0.32054803, z: 0.060382627, w: 0.92896754}
+  m_LocalPosition: {x: -371.96033, y: -23.121788, z: 411.2103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41932,7 +41932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e78d64479e41943b98567c2b8091e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1563678098}
+  respawnPoint: {fileID: 1563678099}
 --- !u!65 &1973371063
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43470,7 +43470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.99994, y: -95.479904}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 662.6904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2051008278
