@@ -7,6 +7,8 @@ public class SkipSequence : MonoBehaviour
 
     [SerializeField] protected PlayerInputReader reader;
 
+    private bool isPlaying = true;
+
     void OnEnable() {
         reader.skipEventPerformed += Skip;
     }

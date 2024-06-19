@@ -11,7 +11,8 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
     public event Action jumpEventPerformed;
     public event Action interactEventPerformed;
     public event Action abilityEventPerformed;
-    public event Action openCloseMenuEventPerformed;
+    public event Action openMenuEventPerformed;
+    public event Action closeMenuEventPerformed;
     public event Action skipEventPerformed;
     
     private CustomPlayerInput input;
@@ -72,6 +73,8 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         }
     }
 
+    public void OnNavigateMenu(InputAction.CallbackContext pContext) {}
+    
     public void OnSkip(InputAction.CallbackContext pContext)
     {
         if (pContext.phase == InputActionPhase.Performed)
