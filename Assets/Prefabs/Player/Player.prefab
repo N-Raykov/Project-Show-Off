@@ -14872,7 +14872,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &2431276717327314060
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14926,10 +14926,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
-  jumpingParticles: {fileID: 6925981503487682495}
-  landingParticles: {fileID: 2814433809866206097}
   jumpForceInitial: 18
   jumpForceContinous: 1
+  jumpingParticles: {fileID: 6925981503487682495}
+  landingParticles: {fileID: 2814433809866206097}
   maxJumpTime: 0.3
   gravity: 80
   gravityFallModifier: 1
@@ -14974,8 +14974,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974de097b4ee02546a7ca1012110803a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnHeight: 10
   activeRespawnPoint: {x: 0, y: 0, z: 0}
+  respawnHeight: 10
+  panelFade: {fileID: 0}
 --- !u!1 &7483812279318108372
 GameObject:
   m_ObjectHideFlags: 0

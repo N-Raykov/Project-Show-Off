@@ -26,28 +26,28 @@ public class Shockwave : MonoBehaviour
         while(currentRadius < maxRadius)
         {
             currentRadius += Time.deltaTime * speed; 
-            Draw(currentRadius);
+            // Draw(currentRadius);
             Contact(currentRadius);
             yield return null;
         }
         Destroy(this.gameObject);
     }
 
-    private void Draw(float currentRadius)
-    {
-        float anglebetween = 360f / points;
+    // private void Draw(float currentRadius)
+    // {
+    //     float anglebetween = 360f / points;
 
-        for(int i=0; i <= points; i++)
-        {
-            float angle = i * anglebetween * Mathf.Deg2Rad;
-            Vector3 direction = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle));
-            Vector3 position = direction * currentRadius; 
+    //     for(int i=0; i <= points; i++)
+    //     {
+    //         float angle = i * anglebetween * Mathf.Deg2Rad;
+    //         Vector3 direction = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle));
+    //         Vector3 position = direction * currentRadius; 
 
-            linerender.SetPosition(i, position); 
-        }
+    //         linerender.SetPosition(i, position); 
+    //     }
 
-        linerender.widthMultiplier = Mathf.Lerp(0f, startWidth, 1f - currentRadius/maxRadius);
-    }
+    //     linerender.widthMultiplier = Mathf.Lerp(0f, startWidth, 1f - currentRadius/maxRadius);
+    // }
 
     private void Contact(float currentRadius) 
     {

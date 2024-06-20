@@ -11,6 +11,7 @@ public class SkipSequence : MonoBehaviour
 
     void OnEnable() {
         reader.skipEventPerformed += Skip;
+        reader.SetEnabledActionMap(false, true);
     }
 
     void OnDisable() {
