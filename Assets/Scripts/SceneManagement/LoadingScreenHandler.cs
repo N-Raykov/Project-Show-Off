@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoadingScreenHandler : MonoBehaviour
 {
     public string targetScene;
-    [SerializeField] private float transitionTime = 0.5f;
+    [SerializeField] private float transitionSpeed = 2.5f;
 
     private CanvasGroup canvasGroup;
 
@@ -21,24 +21,22 @@ public class LoadingScreenHandler : MonoBehaviour
         // FadeIn();
         // yield return new WaitForSeconds(transitionTime);
 
-         for (int i = 0; i < 100; i++)
+         while (canvasGroup.alpha < 1.0f)
         {
-            canvasGroup.alpha += 0.01f;
-            yield return new WaitForSeconds(transitionTime / 100);
+            canvasGroup.alpha += Time.deltaTime * transitionSpeed;
+            yield return new WaitForSeconds( Time.deltaTime);
         }
 
 
         SceneManager.LoadScene(targetScene);
         // FadeOut();
 
-          for (int i = 0; i < 100; i++)
+         while (canvasGroup.alpha > 0.0f)
         {
-            canvasGroup.alpha -= 0.01f;
-            yield return new WaitForSeconds(transitionTime / 100);
+            canvasGroup.alpha -= Time.deltaTime * transitionSpeed;
+            yield return new WaitForSeconds(Time.deltaTime);
         }
 
-
-        yield return new WaitForSeconds(transitionTime);
         Destroy(this.gameObject);
     }
 
