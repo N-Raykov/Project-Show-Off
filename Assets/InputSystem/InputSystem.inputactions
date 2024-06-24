@@ -330,7 +330,7 @@
             ]
         },
         {
-            "name": "UI",
+            "name": "IngameMenu",
             "id": "d70d2312-d3eb-4b48-afb5-e49a772b68a9",
             "actions": [
                 {
@@ -349,15 +349,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Hold(duration=1.401298E-45)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Skip",
-                    "type": "Button",
-                    "id": "50624bed-2d73-494d-a554-ebcba9969cd9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -493,10 +484,36 @@
                     "action": "CloseMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "BeforeAfterGameMenu",
+            "id": "33b91d40-7cb0-46da-b1cb-05b9885fcd30",
+            "actions": [
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "e72fb9b8-f79e-4bfc-bc6f-ac9f6d845956",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
+                    "name": "Continue",
+                    "type": "Button",
+                    "id": "efcce3bc-f4a8-437c-9362-f76bbaec82c6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
                     "name": "",
-                    "id": "cd7424e4-b482-49c1-ae0a-f7e09c1f2d72",
+                    "id": "569ec03d-a691-4bf9-82fc-24d579f99a76",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
@@ -507,7 +524,7 @@
                 },
                 {
                     "name": "",
-                    "id": "a876804d-3455-4927-a1b6-d520f0cfaa64",
+                    "id": "bcd2299b-ac98-4714-9ee7-ce66e04cf76d",
                     "path": "<XInputController>/select",
                     "interactions": "",
                     "processors": "",
@@ -518,7 +535,7 @@
                 },
                 {
                     "name": "",
-                    "id": "aa604d32-fa15-4579-8c46-297f0df126ad",
+                    "id": "30f11eda-f1cb-4dfc-87e5-e40739da8305",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
@@ -529,7 +546,7 @@
                 },
                 {
                     "name": "",
-                    "id": "0a579cad-fdae-444a-b458-0007904b2599",
+                    "id": "34cad506-7254-4499-8a23-730bd5ff289c",
                     "path": "<XInputController>/select",
                     "interactions": "",
                     "processors": "",
@@ -540,12 +557,67 @@
                 },
                 {
                     "name": "",
-                    "id": "de92de8b-37b0-4a98-b080-7d1396d1fc0d",
+                    "id": "32959cc8-0933-4193-bab4-0d5408ee0dc7",
                     "path": "<XboxOneGamepadAndroid>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8cbf32ea-4070-4203-b462-d5c7bc15d4cd",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e46352d6-af12-4b78-ae44-5a65c883c8eb",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02ca8311-c9ac-4acd-baa3-09d6425f46e1",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "45f16285-7faa-4450-998a-6f8517cb675e",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2e1b5bc-1c7a-43ee-b6c0-d63b57e1df21",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

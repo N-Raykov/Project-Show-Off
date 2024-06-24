@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenuButtonEffects : MonoBehaviour
 {
     [SerializeField] private PlayerInputReader reader;
-    [SerializeField] private string gameSceneName;
     [SerializeField] private GameObject loadingScreenPrefab;
+    [SerializeField] private string gameSceneName;
 
     private LoadingScreenHandler loadingScreenHandler;
 
@@ -21,23 +20,16 @@ public class MainMenuButtonEffects : MonoBehaviour
 
     private void OnEnable()
     {
-        reader.SetEnabledActionMap(true, false);
-
-        reader.abilityEventPerformed += OnAnyButtonPressed;
-        reader.interactEventPerformed += OnAnyButtonPressed;
-        reader.jumpEventPerformed += OnAnyButtonPressed;
+        reader.continueEventPerformed += OnAnyButtonPressed;
     }
 
     private void OnDisable()
     {
-        reader.abilityEventPerformed -= OnAnyButtonPressed;
-        reader.interactEventPerformed -= OnAnyButtonPressed;
-        reader.jumpEventPerformed -= OnAnyButtonPressed;
+        reader.continueEventPerformed -= OnAnyButtonPressed;
     }
 
     private void OnAnyButtonPressed()
     {
-        // SceneManager.LoadScene(gameSceneName);
         loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
         loadingScreenHandler.targetScene = gameSceneName;
         loadingScreenHandler.ToScene();

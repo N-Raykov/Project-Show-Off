@@ -6,10 +6,6 @@ public class CutsceneAnimationHelper : MonoBehaviour
 
     public void OnLastFrame()
     {
-        reader.SetEnabledActionMap(true, false);
+        reader.SetEnabledActionMap(true, false, false); Debug.Log("huh2");
     }
-
-    //Falling block
-    //activate platform new
-    //Ruler bridge
 }

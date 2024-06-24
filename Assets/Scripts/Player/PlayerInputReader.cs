@@ -3,18 +3,24 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "New Player Movement", menuName = "Player Input")]
-public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActions, CustomPlayerInput.IUIActions
+public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActions, CustomPlayerInput.IIngameMenuActions, CustomPlayerInput.IBeforeAfterGameMenuActions
 {
+    //For IPlayerActions
     public event Action<Vector2> moveEventPerformed;
     public event Action moveEventCancelled;
-    public event Action jumpEventCancelled;
     public event Action jumpEventPerformed;
+    public event Action jumpEventCancelled;
     public event Action interactEventPerformed;
     public event Action abilityEventPerformed;
     public event Action openMenuEventPerformed;
+
+    //For IIngameMenuActions
     public event Action closeMenuEventPerformed;
+
+    //For IBeforeAfterGameMenuActions
     public event Action skipEventPerformed;
-    
+    public event Action continueEventPerformed;
+
     private CustomPlayerInput input;
 
     public void OnJump(InputAction.CallbackContext pContext)
@@ -83,7 +89,15 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         }
     }
 
-    public void SetEnabledActionMap(bool pEnablePlayer, bool pEnableUI)
+    public void OnContinue(InputAction.CallbackContext pContext)
+    {
+        if (pContext.phase == InputActionPhase.Performed)
+        {
+            continueEventPerformed?.Invoke();
+        }
+    }
+
+    public void SetEnabledActionMap(bool pEnablePlayer, bool pEnableIngameMenu, bool pEnableBeforeAfterGameMenu)
     {
         if (pEnablePlayer)
         {
@@ -93,13 +107,22 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
             input.Player.Disable();
         }
 
-        if (pEnableUI)
+        if (pEnableIngameMenu)
         {
-            input.UI.Enable();
+            input.IngameMenu.Enable();
         }
         else
         {
-            input.UI.Disable();
+            input.IngameMenu.Disable();
+        }
+
+        if (pEnableBeforeAfterGameMenu)
+        {
+            input.BeforeAfterGameMenu.Enable();
+        }
+        else
+        {
+            input.BeforeAfterGameMenu.Disable();
         }
     } 
 
@@ -109,11 +132,13 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         {
             input = new CustomPlayerInput();
             input.Player.SetCallbacks(this);
-            input.UI.SetCallbacks(this);
+            input.IngameMenu.SetCallbacks(this);
+            input.BeforeAfterGameMenu.SetCallbacks(this);
         }
 
         input.Player.Disable();
-        input.UI.Disable();
+        input.IngameMenu.Disable();
+        input.BeforeAfterGameMenu.Enable();
     }
 
     private void OnDisable()
@@ -121,7 +146,8 @@ public class PlayerInputReader : ScriptableObject, CustomPlayerInput.IPlayerActi
         if (input != null)
         {
             input.Player.Disable();
-            input.UI.Disable();
+            input.IngameMenu.Disable();
+            input.BeforeAfterGameMenu.Disable();
         }
     }
 }

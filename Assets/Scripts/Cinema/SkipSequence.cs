@@ -5,13 +5,12 @@ public class SkipSequence : MonoBehaviour
 {
     [SerializeField] private PlayableDirector director;
 
-    [SerializeField] protected PlayerInputReader reader;
+    [SerializeField] protected PlayerInputReader reader;                
 
     private bool isPlaying = true;
 
     void OnEnable() {
         reader.skipEventPerformed += Skip;
-        reader.SetEnabledActionMap(false, true);
     }
 
     void OnDisable() {
@@ -40,6 +39,6 @@ public class SkipSequence : MonoBehaviour
     private void CutsceneOver()
     {
         director.Stop();
-        reader.SetEnabledActionMap(true, false);
+        reader.SetEnabledActionMap(true, false, false);
     }
 }

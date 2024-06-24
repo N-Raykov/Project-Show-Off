@@ -19,12 +19,12 @@ public class ComicManager : MonoBehaviour
 
     private void OnEnable()
     {
-        reader.jumpEventPerformed += OnJumpButtonPressed;
+        reader.continueEventPerformed += OnJumpButtonPressed;
     }
 
     private void OnDisable()
     {
-        reader.jumpEventPerformed -= OnJumpButtonPressed;
+        reader.continueEventPerformed -= OnJumpButtonPressed;
     }
 
     private void Start()
@@ -70,8 +70,7 @@ public class ComicManager : MonoBehaviour
         {
             loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
             loadingScreenHandler.targetScene = sceneName;
-            loadingScreenHandler.ToScene();
-            Debug.Log("COMIC OVER");
+            loadingScreenHandler.ToScene(); //Debug.Log("COMIC OVER");
             return;
         }
 
