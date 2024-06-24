@@ -41,8 +41,6 @@ public class PlayerJump : AbstractPlayerAction
     private bool _isGrounded;
     private string jumpingBlendParamName = "JumpingBlend";
 
-    // private bool _isGrounded;
-
     public JumpIndicatorDataPlayerJump GetJumpIndicatorData()
     {
         return new JumpIndicatorDataPlayerJump(distToBottomOfSprite, CalculateTerminalRunningSpeed(), jumpForceContinous, jumpForceInitial, gravity, gravityFallModifier, maxJumpTime);

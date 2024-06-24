@@ -352,7 +352,7 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""UI"",
+            ""name"": ""IngameMenu"",
             ""id"": ""d70d2312-d3eb-4b48-afb5-e49a772b68a9"",
             ""actions"": [
                 {
@@ -371,15 +371,6 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=1.401298E-45)"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Skip"",
-                    ""type"": ""Button"",
-                    ""id"": ""50624bed-2d73-494d-a554-ebcba9969cd9"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -515,10 +506,36 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""CloseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""BeforeAfterGameMenu"",
+            ""id"": ""33b91d40-7cb0-46da-b1cb-05b9885fcd30"",
+            ""actions"": [
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""e72fb9b8-f79e-4bfc-bc6f-ac9f6d845956"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Continue"",
+                    ""type"": ""Button"",
+                    ""id"": ""efcce3bc-f4a8-437c-9362-f76bbaec82c6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=1.401298E-45)"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""cd7424e4-b482-49c1-ae0a-f7e09c1f2d72"",
+                    ""id"": ""569ec03d-a691-4bf9-82fc-24d579f99a76"",
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -529,7 +546,7 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a876804d-3455-4927-a1b6-d520f0cfaa64"",
+                    ""id"": ""bcd2299b-ac98-4714-9ee7-ce66e04cf76d"",
                     ""path"": ""<XInputController>/select"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -540,7 +557,7 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""aa604d32-fa15-4579-8c46-297f0df126ad"",
+                    ""id"": ""30f11eda-f1cb-4dfc-87e5-e40739da8305"",
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -551,7 +568,7 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0a579cad-fdae-444a-b458-0007904b2599"",
+                    ""id"": ""34cad506-7254-4499-8a23-730bd5ff289c"",
                     ""path"": ""<XInputController>/select"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -562,12 +579,67 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""de92de8b-37b0-4a98-b080-7d1396d1fc0d"",
+                    ""id"": ""32959cc8-0933-4193-bab4-0d5408ee0dc7"",
                     ""path"": ""<XboxOneGamepadAndroid>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cbf32ea-4070-4203-b462-d5c7bc15d4cd"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e46352d6-af12-4b78-ae44-5a65c883c8eb"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": ""Hold(duration=1.401298E-45)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02ca8311-c9ac-4acd-baa3-09d6425f46e1"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Hold(duration=1.401298E-45)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45f16285-7faa-4450-998a-6f8517cb675e"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": ""Hold(duration=1.401298E-45)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2e1b5bc-1c7a-43ee-b6c0-d63b57e1df21"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Hold(duration=1.401298E-45)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -583,11 +655,14 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Ability = m_Player.FindAction("Ability", throwIfNotFound: true);
-        // UI
-        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_NavigateMenu = m_UI.FindAction("NavigateMenu", throwIfNotFound: true);
-        m_UI_CloseMenu = m_UI.FindAction("CloseMenu", throwIfNotFound: true);
-        m_UI_Skip = m_UI.FindAction("Skip", throwIfNotFound: true);
+        // IngameMenu
+        m_IngameMenu = asset.FindActionMap("IngameMenu", throwIfNotFound: true);
+        m_IngameMenu_NavigateMenu = m_IngameMenu.FindAction("NavigateMenu", throwIfNotFound: true);
+        m_IngameMenu_CloseMenu = m_IngameMenu.FindAction("CloseMenu", throwIfNotFound: true);
+        // BeforeAfterGameMenu
+        m_BeforeAfterGameMenu = asset.FindActionMap("BeforeAfterGameMenu", throwIfNotFound: true);
+        m_BeforeAfterGameMenu_Skip = m_BeforeAfterGameMenu.FindAction("Skip", throwIfNotFound: true);
+        m_BeforeAfterGameMenu_Continue = m_BeforeAfterGameMenu.FindAction("Continue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -724,40 +799,35 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
     }
     public PlayerActions @Player => new PlayerActions(this);
 
-    // UI
-    private readonly InputActionMap m_UI;
-    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_NavigateMenu;
-    private readonly InputAction m_UI_CloseMenu;
-    private readonly InputAction m_UI_Skip;
-    public struct UIActions
+    // IngameMenu
+    private readonly InputActionMap m_IngameMenu;
+    private List<IIngameMenuActions> m_IngameMenuActionsCallbackInterfaces = new List<IIngameMenuActions>();
+    private readonly InputAction m_IngameMenu_NavigateMenu;
+    private readonly InputAction m_IngameMenu_CloseMenu;
+    public struct IngameMenuActions
     {
         private @CustomPlayerInput m_Wrapper;
-        public UIActions(@CustomPlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @NavigateMenu => m_Wrapper.m_UI_NavigateMenu;
-        public InputAction @CloseMenu => m_Wrapper.m_UI_CloseMenu;
-        public InputAction @Skip => m_Wrapper.m_UI_Skip;
-        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public IngameMenuActions(@CustomPlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @NavigateMenu => m_Wrapper.m_IngameMenu_NavigateMenu;
+        public InputAction @CloseMenu => m_Wrapper.m_IngameMenu_CloseMenu;
+        public InputActionMap Get() { return m_Wrapper.m_IngameMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
-        public void AddCallbacks(IUIActions instance)
+        public static implicit operator InputActionMap(IngameMenuActions set) { return set.Get(); }
+        public void AddCallbacks(IIngameMenuActions instance)
         {
-            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_IngameMenuActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_IngameMenuActionsCallbackInterfaces.Add(instance);
             @NavigateMenu.started += instance.OnNavigateMenu;
             @NavigateMenu.performed += instance.OnNavigateMenu;
             @NavigateMenu.canceled += instance.OnNavigateMenu;
             @CloseMenu.started += instance.OnCloseMenu;
             @CloseMenu.performed += instance.OnCloseMenu;
             @CloseMenu.canceled += instance.OnCloseMenu;
-            @Skip.started += instance.OnSkip;
-            @Skip.performed += instance.OnSkip;
-            @Skip.canceled += instance.OnSkip;
         }
 
-        private void UnregisterCallbacks(IUIActions instance)
+        private void UnregisterCallbacks(IIngameMenuActions instance)
         {
             @NavigateMenu.started -= instance.OnNavigateMenu;
             @NavigateMenu.performed -= instance.OnNavigateMenu;
@@ -765,26 +835,77 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
             @CloseMenu.started -= instance.OnCloseMenu;
             @CloseMenu.performed -= instance.OnCloseMenu;
             @CloseMenu.canceled -= instance.OnCloseMenu;
-            @Skip.started -= instance.OnSkip;
-            @Skip.performed -= instance.OnSkip;
-            @Skip.canceled -= instance.OnSkip;
         }
 
-        public void RemoveCallbacks(IUIActions instance)
+        public void RemoveCallbacks(IIngameMenuActions instance)
         {
-            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_IngameMenuActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IUIActions instance)
+        public void SetCallbacks(IIngameMenuActions instance)
         {
-            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_IngameMenuActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_IngameMenuActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public UIActions @UI => new UIActions(this);
+    public IngameMenuActions @IngameMenu => new IngameMenuActions(this);
+
+    // BeforeAfterGameMenu
+    private readonly InputActionMap m_BeforeAfterGameMenu;
+    private List<IBeforeAfterGameMenuActions> m_BeforeAfterGameMenuActionsCallbackInterfaces = new List<IBeforeAfterGameMenuActions>();
+    private readonly InputAction m_BeforeAfterGameMenu_Skip;
+    private readonly InputAction m_BeforeAfterGameMenu_Continue;
+    public struct BeforeAfterGameMenuActions
+    {
+        private @CustomPlayerInput m_Wrapper;
+        public BeforeAfterGameMenuActions(@CustomPlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Skip => m_Wrapper.m_BeforeAfterGameMenu_Skip;
+        public InputAction @Continue => m_Wrapper.m_BeforeAfterGameMenu_Continue;
+        public InputActionMap Get() { return m_Wrapper.m_BeforeAfterGameMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BeforeAfterGameMenuActions set) { return set.Get(); }
+        public void AddCallbacks(IBeforeAfterGameMenuActions instance)
+        {
+            if (instance == null || m_Wrapper.m_BeforeAfterGameMenuActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BeforeAfterGameMenuActionsCallbackInterfaces.Add(instance);
+            @Skip.started += instance.OnSkip;
+            @Skip.performed += instance.OnSkip;
+            @Skip.canceled += instance.OnSkip;
+            @Continue.started += instance.OnContinue;
+            @Continue.performed += instance.OnContinue;
+            @Continue.canceled += instance.OnContinue;
+        }
+
+        private void UnregisterCallbacks(IBeforeAfterGameMenuActions instance)
+        {
+            @Skip.started -= instance.OnSkip;
+            @Skip.performed -= instance.OnSkip;
+            @Skip.canceled -= instance.OnSkip;
+            @Continue.started -= instance.OnContinue;
+            @Continue.performed -= instance.OnContinue;
+            @Continue.canceled -= instance.OnContinue;
+        }
+
+        public void RemoveCallbacks(IBeforeAfterGameMenuActions instance)
+        {
+            if (m_Wrapper.m_BeforeAfterGameMenuActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IBeforeAfterGameMenuActions instance)
+        {
+            foreach (var item in m_Wrapper.m_BeforeAfterGameMenuActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_BeforeAfterGameMenuActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public BeforeAfterGameMenuActions @BeforeAfterGameMenu => new BeforeAfterGameMenuActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -793,10 +914,14 @@ public partial class @CustomPlayerInput: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
     }
-    public interface IUIActions
+    public interface IIngameMenuActions
     {
         void OnNavigateMenu(InputAction.CallbackContext context);
         void OnCloseMenu(InputAction.CallbackContext context);
+    }
+    public interface IBeforeAfterGameMenuActions
+    {
         void OnSkip(InputAction.CallbackContext context);
+        void OnContinue(InputAction.CallbackContext context);
     }
 }

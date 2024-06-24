@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void ResetFromLastCheckpointBtnPressed()
-    {
+    { 
         CloseMenu();
         FindObjectOfType<PlayerRespawn>().Respawn();
     }
@@ -55,26 +55,26 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        transform.localScale = new Vector3(0, 0, 0);
+        gameObject.SetActive(false);
     }
 
     private void OpenMenu()
     {
-        transform.localScale = new Vector3(1, 1, 1);
+        gameObject.SetActive(true);
         float musicVolume;
         masterMixer.GetFloat(musicVolumeParamName, out musicVolume);
         musicVolumeSlider.value = musicVolume;
         float soundEffectsVolume;
         masterMixer.GetFloat(soundEffetcsParamName, out soundEffectsVolume);
         soundEffectVolumeSlider.value = soundEffectsVolume;
-        reader.SetEnabledActionMap(false, true);
+        reader.SetEnabledActionMap(false, true, false);
         //Time.timeScale = 0;
     }
 
     private void CloseMenu()
     {
-        transform.localScale = new Vector3(0, 0, 0);
-        reader.SetEnabledActionMap(true, false);
+        gameObject.SetActive(false);
+        reader.SetEnabledActionMap(true, false, false);
         //Time.timeScale = 1;
     }
 }

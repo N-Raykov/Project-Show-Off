@@ -31972,7 +31972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 966827452}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1037823801
@@ -36623,8 +36623,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e2c58f06748e948a357643f7fc99ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: ComicEndScene
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
   loadingScreenPrefab: {fileID: 3528613693509738097, guid: 0729a69a8a3a44544812fbd85574c179, type: 3}
+  sceneName: ComicEndScene
 --- !u!1 &1299323217
 GameObject:
   m_ObjectHideFlags: 0
@@ -40656,7 +40657,7 @@ GameObject:
   - component: {fileID: 1543062226}
   - component: {fileID: 1543062225}
   m_Layer: 5
-  m_Name: ResetFromLastCheckpoint
+  m_Name: ResetFromLastCheckpointBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

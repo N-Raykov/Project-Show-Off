@@ -7,16 +7,22 @@ using UnityEngine.SceneManagement;
 public class LoadingScreenHandler : MonoBehaviour
 {
     public string targetScene;
+
     [SerializeField] private float transitionSpeed = 2.5f;
 
     private CanvasGroup canvasGroup;
 
-    void Awake()
+    public void ToScene()
+    {
+        StartCoroutine(StartSceneTransition());
+    }
+
+    private void Awake()
     {
            DontDestroyOnLoad(this.gameObject);
     }
 
-    IEnumerator StartSceneTransition() {
+    private IEnumerator StartSceneTransition() {
         canvasGroup = GetComponent<CanvasGroup>();
         // FadeIn();
         // yield return new WaitForSeconds(transitionTime);
@@ -40,9 +46,6 @@ public class LoadingScreenHandler : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void ToScene() {
-        StartCoroutine(StartSceneTransition());
-    }
 
     // void FadeIn() {
     //     canvasGroup.DOFade(1.0f, transitionTime).Play();

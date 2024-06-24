@@ -28,6 +28,6 @@ public class PlayCutScene : Interactable
         animator.SetTrigger(triggerName);
         Destroy(interactionPrompt);
 
-        reader.SetEnabledActionMap(false, false);
+        reader.SetEnabledActionMap(false, false, false);
     }
 }
