@@ -6,6 +6,6 @@ public class CutsceneAnimationHelper : MonoBehaviour
 
     public void OnLastFrame()
     {
-        reader.SetEnabledActionMap(true, false, false); Debug.Log("huh2");
+        reader.SetEnabledActionMap(true, false, false);
     }
 }

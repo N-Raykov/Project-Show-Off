@@ -1,20 +1,20 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TriggerScene : MonoBehaviour
 {
-    [SerializeField] private string sceneName;
+    [SerializeField] private PlayerInputReader reader;
     [SerializeField] private GameObject loadingScreenPrefab;
+    [SerializeField] private string sceneName;
 
-    private string playerTag = "Player";
     private LoadingScreenHandler loadingScreenHandler;
+    private string playerTag = "Player";
 
     //Puts a loading screen in front when loading level
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == playerTag)
         {
-            // SceneManager.LoadScene(sceneName);
+            reader.SetEnabledActionMap(false, false, true);
             loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
             loadingScreenHandler.targetScene = sceneName;
             loadingScreenHandler.ToScene();
