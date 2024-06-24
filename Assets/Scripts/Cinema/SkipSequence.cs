@@ -7,6 +7,7 @@ public class SkipSequence : MonoBehaviour
 
     [SerializeField] private PlayableDirector director;
     [SerializeField] private GameObject ui;
+    [SerializeField] private XRay xRay;
 
     private bool isPlaying = true;
 
@@ -22,6 +23,7 @@ public class SkipSequence : MonoBehaviour
     {
         if(isPlaying)
         {
+            xRay.SetIsActive(false);
             ui.SetActive(false);
             if (director.state != PlayState.Playing)
             {
@@ -40,6 +42,7 @@ public class SkipSequence : MonoBehaviour
 
     private void CutsceneOver()
     {
+        xRay.SetIsActive(true);
         ui.SetActive(true);
         director.Stop();
         reader.SetEnabledActionMap(true, false, false);

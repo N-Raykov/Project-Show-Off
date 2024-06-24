@@ -30913,6 +30913,7 @@ MonoBehaviour:
   reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
   director: {fileID: 963194231}
   ui: {fileID: 1187791948180817339}
+  xRay: {fileID: 963194232}
 --- !u!1 &966827452
 GameObject:
   m_ObjectHideFlags: 0
@@ -47125,8 +47126,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966581736}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17499238, y: -0.3205476, z: 0.060382493, w: 0.92896765}
-  m_LocalPosition: {x: -371.9603, y: -23.121775, z: 411.21027}
+  m_LocalRotation: {x: 0.1749925, y: -0.32054803, z: 0.060382627, w: 0.92896754}
+  m_LocalPosition: {x: -371.96033, y: -23.121788, z: 411.2103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
