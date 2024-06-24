@@ -17,15 +17,14 @@ public class XRay : MonoBehaviour
     [SerializeField] private Transform[] obstructions;
     private LayerMask ignoredLayers;
     private int oldHitsNumber;
-    //change the array to a list and iterate through each material on the obstacle creating a *NEW* material for it from the renderer
-    //instead of making the array = the renderer.materials
-    private Dictionary<Transform, Material[]> originalMaterials;
+
+    private Dictionary<Transform, Material> originalMaterials;
     private Dictionary<Transform, Coroutine> fadeCoroutines;
     void Start()
     {
         oldHitsNumber = 0;
         ignoredLayers = (1 << LayerMask.NameToLayer("Player")) | (1 << LayerMask.NameToLayer("IgnoredByXRay"));
-        originalMaterials = new Dictionary<Transform, Material[]>();
+        originalMaterials = new Dictionary<Transform, Material>();
         fadeCoroutines = new Dictionary<Transform, Coroutine>();
     }
 
@@ -47,7 +46,7 @@ public class XRay : MonoBehaviour
             {
                 for (int i = 0; i < obstructions.Length; i++)
                 {
-                    RestoreOriginalMaterials(obstructions[i]);
+                    RestoreOriginalAlpha(obstructions[i]);
                 }
             }
 
@@ -59,7 +58,7 @@ public class XRay : MonoBehaviour
                 obstructions[i] = obstruction;
                 if (!originalMaterials.ContainsKey(obstruction) && obstruction.GetComponent<MeshRenderer>() != null)
                 {
-                    originalMaterials[obstruction] = (Material[])obstruction.GetComponent<MeshRenderer>().materials.Clone();
+                    originalMaterials[obstruction] = new Material(obstruction.GetComponent<MeshRenderer>().material);
                 }
                 MakeTransparent(obstruction);
             }
@@ -72,7 +71,7 @@ public class XRay : MonoBehaviour
             {
                 for (int i = 0; i < obstructions.Length; i++)
                 {
-                    RestoreOriginalMaterials(obstructions[i]);
+                    RestoreOriginalAlpha(obstructions[i]);
                 }
                 oldHitsNumber = 0;
                 obstructions = null;
@@ -93,7 +92,7 @@ public class XRay : MonoBehaviour
         }
     }
 
-    private void RestoreOriginalMaterials(Transform obstruction)
+    private void RestoreOriginalAlpha(Transform obstruction)
     {
         if (originalMaterials.ContainsKey(obstruction))
         {
@@ -104,15 +103,14 @@ public class XRay : MonoBehaviour
                 {
                     StopCoroutine(fadeCoroutines[obstruction]);
                 }
-                fadeCoroutines[obstruction] = StartCoroutine(FadeToAlpha(renderer, 1f, originalMaterials[obstruction]));
+                fadeCoroutines[obstruction] = StartCoroutine(FadeToAlpha(renderer, originalMaterials[obstruction].color.a, originalMaterials[obstruction].GetFloat("_Surface")));
             }
-            originalMaterials.Remove(obstruction);
         }
     }
 
-    private IEnumerator FadeToAlpha(MeshRenderer renderer, float targetAlpha, Material[] restoreMaterials = null)
+    private IEnumerator FadeToAlpha(MeshRenderer renderer, float targetAlpha, float originalRenderMode = 0)
     {
-        Material[] materials = (Material[])renderer.materials.Clone();
+        Material[] materials = renderer.materials;
         float startAlpha = materials[0].color.a;
         float elapsedTime = 0f;
 
@@ -143,22 +141,17 @@ public class XRay : MonoBehaviour
             Color color = material.color;
             color.a = targetAlpha;
             material.color = color;
-        }
-
-        // Set render mode to opaque if the target alpha is 1
-        if (targetAlpha == 1f)
-        {
-            foreach (Material material in materials)
+            if (originalRenderMode == 0)
             {
                 ChangeMaterialRenderMode(material, RenderMode.Opaque);
             }
-
-            // Restore the materials if provided
-            if (restoreMaterials != null)
+            else
             {
-                renderer.materials = restoreMaterials;
+                ChangeMaterialRenderMode(material, RenderMode.Transparent);
             }
         }
+
+        originalMaterials.Remove(renderer.gameObject.transform);
     }
 
     private void ChangeMaterialRenderMode(Material material, RenderMode blendMode)
