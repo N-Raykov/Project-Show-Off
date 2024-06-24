@@ -6553,7 +6553,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2051008278}
+      - m_Target: {fileID: 991785662}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: QuitBtnPressed
         m_Mode: 1
@@ -7820,7 +7820,7 @@ GameObject:
   - component: {fileID: 177708879}
   - component: {fileID: 177708878}
   m_Layer: 5
-  m_Name: SoundEffectsVolumeText (1)
+  m_Name: SoundEffectsVolumeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10945,7 +10945,7 @@ GameObject:
   - component: {fileID: 295732065}
   - component: {fileID: 295732064}
   m_Layer: 5
-  m_Name: SoundEffectsVoulmeSlider (1)
+  m_Name: SoundEffectsVoulmeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11002,7 +11002,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2051008278}
+      - m_Target: {fileID: 991785662}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: SoundEffectSliderValueChanged
         m_Mode: 1
@@ -21463,7 +21463,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2051008278}
+      - m_Target: {fileID: 991785662}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: MusicSliderValueChanged
         m_Mode: 1
@@ -30975,7 +30975,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2051008278}
+      - m_Target: {fileID: 991785662}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ContinueBtnPressed
         m_Mode: 1
@@ -31450,6 +31450,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9218974491078605826, guid: 509ff85d9cfe136439bbaea54e8b8cd1, type: 3}
   m_PrefabInstance: {fileID: 1896775771}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &991785660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991785661}
+  - component: {fileID: 991785662}
+  m_Layer: 5
+  m_Name: PauseMenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &991785661
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991785660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2051008277}
+  m_Father: {fileID: 1187791948180817338}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &991785662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991785660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cac2e09da8ff594fa7ffc067e46f3fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
+  musicVolumeSlider: {fileID: 695585817}
+  soundEffectVolumeSlider: {fileID: 295732064}
+  masterMixer: {fileID: 24100000, guid: 9b568ea0795d54641893314721681127, type: 2}
+  pauseMenu: {fileID: 2051008276}
 --- !u!1 &997321842
 GameObject:
   m_ObjectHideFlags: 3
@@ -40774,7 +40828,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2051008278}
+      - m_Target: {fileID: 991785662}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ResetFromLastCheckpointBtnPressed
         m_Mode: 1
@@ -47070,8 +47124,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966581736}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17499247, y: -0.32054764, z: 0.060382552, w: 0.9289676}
-  m_LocalPosition: {x: -371.9603, y: -23.12177, z: 411.21024}
+  m_LocalRotation: {x: 0.17499231, y: -0.3205482, z: 0.06038259, w: 0.9289675}
+  m_LocalPosition: {x: -371.9603, y: -23.121775, z: 411.21024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48842,7 +48896,6 @@ GameObject:
   - component: {fileID: 2051008277}
   - component: {fileID: 2051008280}
   - component: {fileID: 2051008279}
-  - component: {fileID: 2051008278}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -48866,33 +48919,17 @@ RectTransform:
   - {fileID: 966827456}
   - {fileID: 87325370}
   - {fileID: 1543062228}
-  - {fileID: 468296461}
-  - {fileID: 177708877}
   - {fileID: 295732065}
   - {fileID: 695585816}
-  m_Father: {fileID: 1187791948180817338}
+  - {fileID: 468296461}
+  - {fileID: 177708877}
+  m_Father: {fileID: 991785661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 662.6904}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2051008278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051008276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cac2e09da8ff594fa7ffc067e46f3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
-  musicVolumeSlider: {fileID: 695585817}
-  soundEffectVolumeSlider: {fileID: 295732064}
-  masterMixer: {fileID: 24100000, guid: 9b568ea0795d54641893314721681127, type: 2}
 --- !u!114 &2051008279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50949,7 +50986,7 @@ PrefabInstance:
       addedObject: {fileID: 2092083058}
     - targetCorrespondingSourceObject: {fileID: 5265851075392081477, guid: fe74269203fdc0a4483137979bb39499, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2051008277}
+      addedObject: {fileID: 991785661}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe74269203fdc0a4483137979bb39499, type: 3}
 --- !u!224 &1187791948180817338 stripped
