@@ -3,9 +3,10 @@ using UnityEngine.Playables;
 
 public class SkipSequence : MonoBehaviour
 {
-    [SerializeField] private PlayableDirector director;
+    [SerializeField] protected PlayerInputReader reader;
 
-    [SerializeField] protected PlayerInputReader reader;                
+    [SerializeField] private PlayableDirector director;
+    [SerializeField] private GameObject ui;
 
     private bool isPlaying = true;
 
@@ -21,6 +22,7 @@ public class SkipSequence : MonoBehaviour
     {
         if(isPlaying)
         {
+            ui.SetActive(false);
             if (director.state != PlayState.Playing)
             {
                 isPlaying = false;
@@ -38,6 +40,7 @@ public class SkipSequence : MonoBehaviour
 
     private void CutsceneOver()
     {
+        ui.SetActive(true);
         director.Stop();
         reader.SetEnabledActionMap(true, false, false);
     }

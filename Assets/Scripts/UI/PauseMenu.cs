@@ -33,7 +33,6 @@ public class PauseMenu : MonoBehaviour
 
     public void MusicSliderValueChanged()
     {
-        Debug.Log("heuuu");
         masterMixer.SetFloat(musicVolumeParamName, musicVolumeSlider.value);
     }
 

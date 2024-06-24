@@ -30910,8 +30910,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a9f17d451433a42baf3436d05ca979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  director: {fileID: 963194231}
   reader: {fileID: 11400000, guid: fc897f5d1e215af428a144d562cbf4c2, type: 2}
+  director: {fileID: 963194231}
+  ui: {fileID: 1187791948180817339}
 --- !u!1 &966827452
 GameObject:
   m_ObjectHideFlags: 0
@@ -47124,8 +47125,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966581736}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17499231, y: -0.3205482, z: 0.06038259, w: 0.9289675}
-  m_LocalPosition: {x: -371.9603, y: -23.121775, z: 411.21024}
+  m_LocalRotation: {x: 0.17499238, y: -0.3205476, z: 0.060382493, w: 0.92896765}
+  m_LocalPosition: {x: -371.9603, y: -23.121775, z: 411.21027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -50992,6 +50993,11 @@ PrefabInstance:
 --- !u!224 &1187791948180817338 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5265851075392081477, guid: fe74269203fdc0a4483137979bb39499, type: 3}
+  m_PrefabInstance: {fileID: 1187791948180817337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1187791948180817339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2304228990148651383, guid: fe74269203fdc0a4483137979bb39499, type: 3}
   m_PrefabInstance: {fileID: 1187791948180817337}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3318385230525731981 stripped
