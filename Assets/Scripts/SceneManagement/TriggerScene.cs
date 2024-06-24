@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+
 
 public class TriggerScene : MonoBehaviour
 {
@@ -10,14 +12,22 @@ public class TriggerScene : MonoBehaviour
     private string playerTag = "Player";
 
     //Puts a loading screen in front when loading level
+    void delayedTrigger()
+    {
+            loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
+            loadingScreenHandler.targetScene = sceneName;
+            loadingScreenHandler.ToScene();
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == playerTag)
         {
             reader.SetEnabledActionMap(false, false, true);
-            loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
-            loadingScreenHandler.targetScene = sceneName;
-            loadingScreenHandler.ToScene();
+            //Show loading screen with a slight delay
+            Invoke("delayedTrigger", 1.0f);
         }
+
     }
 }
