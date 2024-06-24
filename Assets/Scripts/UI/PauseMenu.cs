@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider soundEffectVolumeSlider;
     [SerializeField] private AudioMixer masterMixer;
+    [SerializeField] private GameObject pauseMenu;
 
     private string menuSceneName = "MainMenu";
     private string musicVolumeParamName = "musicVolume";
@@ -55,12 +56,12 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        gameObject.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
     private void OpenMenu()
     {
-        gameObject.SetActive(true);
+        pauseMenu.SetActive(true);
         float musicVolume;
         masterMixer.GetFloat(musicVolumeParamName, out musicVolume);
         musicVolumeSlider.value = musicVolume;
@@ -73,7 +74,7 @@ public class PauseMenu : MonoBehaviour
 
     private void CloseMenu()
     {
-        gameObject.SetActive(false);
+        pauseMenu.SetActive(false);
         reader.SetEnabledActionMap(true, false, false);
         //Time.timeScale = 1;
     }
