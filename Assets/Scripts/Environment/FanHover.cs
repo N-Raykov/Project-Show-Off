@@ -10,9 +10,6 @@ public class FanHover : Activateable
     public void SetState(bool state)
     {
         activated = state;
-
-        //A bit messy but only meant for debugging purposes
-        gameObject.GetComponent<MeshRenderer>().enabled = state;
     }
 
     private void OnTriggerEnter(Collider other) {

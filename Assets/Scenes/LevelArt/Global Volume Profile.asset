@@ -18,7 +18,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 0.91728884, z: 0.8640727, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9405111, z: 0.8849975, w: 0.04927106}
+    m_Value: {x: 1, y: 0.9622231, z: 0.905366, w: 0.04927106}
   gain:
     m_OverrideState: 1
     m_Value: {x: 1, y: 0.9611688, z: 0.86558723, w: 0.034217272}
@@ -42,14 +42,14 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 5
   colorFilter:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 0.9373497, b: 0.8443396, a: 1}
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     m_OverrideState: 0
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 5
 --- !u!114 &-5355268380552961321
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
     m_OverrideState: 1
     m_Value: 1
@@ -416,7 +416,7 @@ MonoBehaviour:
     m_Value: 211.46
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 3500
+    m_Value: 500
   gaussianMaxRadius:
     m_OverrideState: 1
     m_Value: 1.053
