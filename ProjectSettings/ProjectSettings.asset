@@ -162,7 +162,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.BlaBlaBlo.ProjectShowOff
-    Standalone: com.DefaultCompany.Project-Show-Off
+    Standalone: com.BlaBlaBlo.Project-Show-Off
   buildNumber:
     Standalone: 0
     VisionOS: 0
