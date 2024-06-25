@@ -2341,6 +2341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1917764909}
   - component: {fileID: 1917764911}
+  - component: {fileID: 1917764912}
   - component: {fileID: 1917764910}
   m_Layer: 5
   m_Name: PressToContinueLabel
@@ -2388,7 +2389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite="GamePadButtons" name="Gamepad_buttonSouth"> Continue
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72a9681abe28e5a429d1308dbb6b2478, type: 2}
   m_sharedMaterial: {fileID: 27093660482094402, guid: 72a9681abe28e5a429d1308dbb6b2478, type: 2}
@@ -2415,7 +2416,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.3
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2465,6 +2466,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917764908}
   m_CullTransparentMesh: 1
+--- !u!114 &1917764912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917764908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1b989cfd8ed744baafd0947149502b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: BUTTONPROMPT Continue
+  actionType: 2
 --- !u!1 &1954290842
 GameObject:
   m_ObjectHideFlags: 0
