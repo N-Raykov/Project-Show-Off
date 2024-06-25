@@ -20,7 +20,14 @@ public class XRay : MonoBehaviour
 
     private Dictionary<Transform, Material> originalMaterials;
     private Dictionary<Transform, Coroutine> fadeCoroutines;
-    void Start()
+    private bool isActive = false;
+
+    public void SetIsActive(bool pIsActive)
+    {
+        isActive = pIsActive;
+    }
+
+    private void Start()
     {
         oldHitsNumber = 0;
         ignoredLayers = (1 << LayerMask.NameToLayer("Player")) | (1 << LayerMask.NameToLayer("IgnoredByXRay"));
@@ -30,11 +37,12 @@ public class XRay : MonoBehaviour
 
     private void LateUpdate()
     {
-        ViewObstructed();
+        if(isActive)
+            ViewObstructed();
     }
 
     //Gets the objects that are obstructing the view
-    void ViewObstructed()
+    private void ViewObstructed()
     {
         float characterDistance = Vector3.Distance(transform.position, player.transform.position);
         RaycastHit[] hits = Physics.RaycastAll(transform.position, player.position - transform.position, characterDistance, ~ignoredLayers);
