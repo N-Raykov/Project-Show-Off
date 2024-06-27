@@ -96,7 +96,7 @@ public class XRay : MonoBehaviour
             {
                 StopCoroutine(fadeCoroutines[obstruction]);
             }
-            fadeCoroutines[obstruction] = StartCoroutine(FadeToAlpha(renderer, alpha));
+            fadeCoroutines[obstruction] = StartCoroutine(FadeToAlpha(renderer, alpha / obstructions.Length));
         }
     }
 

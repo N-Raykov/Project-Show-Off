@@ -10,6 +10,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Slider soundEffectVolumeSlider;
     [SerializeField] private AudioMixer masterMixer;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject loadingScreenPrefab;
+
+    private LoadingScreenHandler loadingScreenHandler;
 
     private string menuSceneName = "MainMenu";
     private string musicVolumeParamName = "musicVolume";
@@ -28,7 +31,10 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitBtnPressed()
     {
-        SceneManager.LoadScene(menuSceneName);
+        reader.SetEnabledActionMap(false, false, true);
+        loadingScreenHandler = Instantiate(loadingScreenPrefab).GetComponent<LoadingScreenHandler>();
+        loadingScreenHandler.targetScene = menuSceneName;
+        loadingScreenHandler.ToScene();
     }
 
     public void MusicSliderValueChanged()
